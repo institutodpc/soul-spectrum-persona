@@ -58,27 +58,10 @@ const profiles = [
 
 export const seedProfiles = async () => {
   try {
-    // Verificar se já existem permissões de RLS para a tabela perfis
-    const { data: rlsPolicies, error: rlsError } = await supabase
-      .rpc('get_policies')
-      .eq('tablename', 'perfis')
-      .select();
+    // Verificar RLS policies e permissões
+    console.log("Tentando adicionar perfis...");
     
-    if (rlsError) {
-      console.warn("Não foi possível verificar políticas RLS. Continuando mesmo assim...");
-    }
-    
-    // Se não há políticas RLS, criar uma que permita inserções anônimas
-    if (!rlsPolicies || rlsPolicies.length === 0) {
-      // Esta operação requer privilégios administrativos e pode falhar em ambiente de produção
-      try {
-        await supabase.rpc('create_anon_insert_policy_for_profiles');
-      } catch (policyError) {
-        console.warn("Não foi possível criar política RLS. Permissões administrativas podem ser necessárias.");
-      }
-    }
-    
-    // Tentar inserir os perfis
+    // Tentar inserir os perfis diretamente sem verificar políticas RLS
     for (const profile of profiles) {
       const { error } = await supabase.from('perfis').upsert(profile, {
         onConflict: 'slug'
