@@ -1,5 +1,5 @@
 
-import React, { useState } from "react";
+import React from "react";
 import { format } from "date-fns";
 import { ptBR } from "date-fns/locale";
 import { useFormContext } from "react-hook-form";
@@ -7,11 +7,116 @@ import { FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/comp
 import { Input } from "@/components/ui/input";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { FormValues } from "./schema";
-import { CalendarIcon } from "lucide-react";
+import { CalendarIcon, ChevronLeft, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
-import { Calendar } from "@/components/ui/calendar";
 import { cn } from "@/lib/utils";
+import { 
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+
+// Componente para seleção de mês e ano
+const YearMonthSelector = ({ 
+  date, 
+  onMonthChange, 
+  onYearChange 
+}: { 
+  date: Date, 
+  onMonthChange: (month: number) => void, 
+  onYearChange: (year: number) => void 
+}) => {
+  const currentYear = new Date().getFullYear();
+  const years = Array.from({ length: currentYear - 1899 }, (_, i) => currentYear - i);
+  const months = Array.from({ length: 12 }, (_, i) => i);
+  
+  return (
+    <div className="flex justify-between items-center p-2">
+      <Select
+        value={date.getMonth().toString()}
+        onValueChange={(value) => onMonthChange(parseInt(value))}
+      >
+        <SelectTrigger className="w-[110px]">
+          <SelectValue placeholder="Mês" />
+        </SelectTrigger>
+        <SelectContent>
+          {months.map((month) => (
+            <SelectItem key={month} value={month.toString()}>
+              {format(new Date(2000, month, 1), 'MMMM', { locale: ptBR })}
+            </SelectItem>
+          ))}
+        </SelectContent>
+      </Select>
+      
+      <Select
+        value={date.getFullYear().toString()}
+        onValueChange={(value) => onYearChange(parseInt(value))}
+      >
+        <SelectTrigger className="w-[90px]">
+          <SelectValue placeholder="Ano" />
+        </SelectTrigger>
+        <SelectContent className="max-h-[200px] overflow-y-auto">
+          {years.map((year) => (
+            <SelectItem key={year} value={year.toString()}>
+              {year}
+            </SelectItem>
+          ))}
+        </SelectContent>
+      </Select>
+    </div>
+  );
+};
+
+// Componente customizado para o calendário
+const CustomCalendar = ({ 
+  selectedDate, 
+  onSelect 
+}: { 
+  selectedDate: Date | undefined, 
+  onSelect: (date: Date | undefined) => void 
+}) => {
+  const [currentMonth, setCurrentMonth] = React.useState<Date>(selectedDate || new Date());
+  
+  // Importamos o Calendar de forma dinâmica para customizá-lo
+  const { Calendar } = require("@/components/ui/calendar");
+  
+  const handleMonthChange = (month: number) => {
+    const newDate = new Date(currentMonth);
+    newDate.setMonth(month);
+    setCurrentMonth(newDate);
+  };
+  
+  const handleYearChange = (year: number) => {
+    const newDate = new Date(currentMonth);
+    newDate.setFullYear(year);
+    setCurrentMonth(newDate);
+  };
+  
+  return (
+    <div className="p-0">
+      <YearMonthSelector 
+        date={currentMonth} 
+        onMonthChange={handleMonthChange} 
+        onYearChange={handleYearChange} 
+      />
+      <Calendar
+        mode="single"
+        selected={selectedDate}
+        onSelect={onSelect}
+        month={currentMonth}
+        onMonthChange={setCurrentMonth}
+        disabled={(date) =>
+          date > new Date() || date < new Date("1900-01-01")
+        }
+        initialFocus
+        className={cn("p-3 pointer-events-auto")}
+      />
+    </div>
+  );
+};
 
 const PersonalInfoFields = () => {
   const {
@@ -76,16 +181,7 @@ const PersonalInfoFields = () => {
                 </FormControl>
               </PopoverTrigger>
               <PopoverContent className="w-auto p-0" align="start">
-                <Calendar
-                  mode="single"
-                  selected={field.value}
-                  onSelect={field.onChange}
-                  disabled={(date) =>
-                    date > new Date() || date < new Date("1900-01-01")
-                  }
-                  initialFocus
-                  className={cn("p-3 pointer-events-auto")}
-                />
+                <CustomCalendar selectedDate={field.value} onSelect={field.onChange} />
               </PopoverContent>
             </Popover>
             <FormMessage />
