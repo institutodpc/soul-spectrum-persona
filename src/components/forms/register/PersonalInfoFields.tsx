@@ -2,15 +2,10 @@
 import React from "react";
 import { format } from "date-fns";
 import { ptBR } from "date-fns/locale";
-import { CalendarIcon } from "lucide-react";
 import { useFormContext } from "react-hook-form";
-import { Button } from "@/components/ui/button";
 import { FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
-import { Calendar } from "@/components/ui/calendar";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
-import { cn } from "@/lib/utils";
 import { FormValues } from "./schema";
 
 const PersonalInfoFields = () => {
@@ -79,7 +74,7 @@ const PersonalInfoFields = () => {
         render={({ field }) => (
           <FormItem className="flex flex-col">
             <FormLabel>Data de Nascimento</FormLabel>
-            <div className="flex items-center space-x-2">
+            <FormControl>
               <Input 
                 placeholder="DD/MM/AAAA" 
                 value={field.value ? format(field.value, "dd/MM/yyyy", {
@@ -88,32 +83,7 @@ const PersonalInfoFields = () => {
                 onChange={handleDateInput} 
                 className="w-full" 
               />
-              <Popover>
-                <PopoverTrigger asChild>
-                  <Button
-                    variant="outline"
-                    className={cn(
-                      "w-10 p-0",
-                      !field.value && "text-muted-foreground"
-                    )}
-                    type="button"
-                  >
-                    <CalendarIcon className="h-4 w-4" />
-                  </Button>
-                </PopoverTrigger>
-                <PopoverContent className="w-auto p-0 z-50 pointer-events-auto" align="start">
-                  <Calendar 
-                    mode="single" 
-                    selected={field.value} 
-                    onSelect={field.onChange} 
-                    disabled={(date) => date > new Date() || date < new Date("1900-01-01")} 
-                    initialFocus 
-                    locale={ptBR} 
-                    className="p-3 pointer-events-auto" 
-                  />
-                </PopoverContent>
-              </Popover>
-            </div>
+            </FormControl>
             <FormMessage />
           </FormItem>
         )}
