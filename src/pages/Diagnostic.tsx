@@ -1,5 +1,5 @@
 
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "sonner";
 import { useQuery } from "@tanstack/react-query";
@@ -13,14 +13,18 @@ import DiagnosticProgress from "@/components/diagnostic/DiagnosticProgress";
 import DiagnosticQuestion from "@/components/diagnostic/DiagnosticQuestion";
 import DiagnosticNavigation from "@/components/diagnostic/DiagnosticNavigation";
 import { useDiagnostic } from "@/hooks/use-diagnostic";
+import { Loader2 } from "lucide-react";
 
 const Diagnostic = () => {
   const navigate = useNavigate();
+  const [isCheckingAuth, setIsCheckingAuth] = useState(true);
 
   // Fetch questions using React Query
-  const { data: questions, isLoading, error } = useQuery({
+  const { data: questions, isLoading, error, refetch } = useQuery({
     queryKey: ['questions'],
     queryFn: fetchQuestions,
+    // Don't fetch until we've checked authentication
+    enabled: !isCheckingAuth,
   });
 
   // Use our custom hook for diagnostic logic
@@ -37,20 +41,60 @@ const Diagnostic = () => {
   useEffect(() => {
     // Check authentication
     const checkAuth = async () => {
-      const { data: { user } } = await supabase.auth.getUser();
-      if (!user) {
-        toast.error("Por favor, faça login para continuar o diagnóstico");
+      setIsCheckingAuth(true);
+      try {
+        const { data: { session } } = await supabase.auth.getSession();
+        if (!session) {
+          toast.error("Por favor, faça login para continuar o diagnóstico");
+          navigate("/register");
+          return;
+        }
+        // Setup auth state listener to handle session changes
+        const { data: { subscription } } = supabase.auth.onAuthStateChange((event, currentSession) => {
+          if (event === 'SIGNED_OUT' || !currentSession) {
+            toast.error("Sua sessão expirou. Por favor, faça login novamente.");
+            navigate("/register");
+          }
+        });
+        
+        setIsCheckingAuth(false);
+        
+        return () => {
+          subscription.unsubscribe();
+        };
+      } catch (error) {
+        console.error("Erro ao verificar autenticação:", error);
+        toast.error("Erro ao verificar sua autenticação. Por favor, tente novamente.");
         navigate("/register");
+      } finally {
+        setIsCheckingAuth(false);
       }
     };
     
     checkAuth();
   }, [navigate]);
 
+  // Enable refetch when isCheckingAuth becomes false
+  useEffect(() => {
+    if (!isCheckingAuth) {
+      refetch();
+    }
+  }, [isCheckingAuth, refetch]);
+
+  if (isCheckingAuth) {
+    return (
+      <div className="min-h-screen flex flex-col items-center justify-center">
+        <Loader2 className="h-12 w-12 animate-spin text-primary" />
+        <p className="mt-4 text-lg">Verificando autenticação...</p>
+      </div>
+    );
+  }
+
   if (isLoading) {
     return (
       <div className="min-h-screen flex flex-col items-center justify-center">
-        <p className="text-lg">Carregando perguntas...</p>
+        <Loader2 className="h-12 w-12 animate-spin text-primary" />
+        <p className="mt-4 text-lg">Carregando perguntas...</p>
       </div>
     );
   }
@@ -70,6 +114,9 @@ const Diagnostic = () => {
     return (
       <div className="min-h-screen flex flex-col items-center justify-center">
         <p className="text-lg text-amber-500">Nenhuma pergunta encontrada.</p>
+        <Button onClick={() => navigate("/register")} className="mt-4">
+          Voltar para o cadastro
+        </Button>
       </div>
     );
   }

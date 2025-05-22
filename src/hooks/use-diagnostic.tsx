@@ -26,6 +26,12 @@ export const useDiagnostic = (questions: Question[] | undefined) => {
 
   const totalQuestions = questions.length;
 
+  // Try to restore previous answer if available when the component mounts
+  if (answers.length === 0 && questions.length > 0) {
+    // Simulate a check for previous answers in local storage or similar
+    // This is a placeholder - in a real implementation, you might restore from state management or storage
+  }
+
   const handleOptionSelect = (optionId: string, selectedQuestion: Question) => {
     const selectedOptionData = selectedQuestion.opcoes.find(option => option.id === optionId);
     if (selectedOptionData) {
@@ -58,15 +64,21 @@ export const useDiagnostic = (questions: Question[] | undefined) => {
           setIsSubmitting(true);
           try {
             const result = await submitDiagnostic(updatedAnswers);
+            
+            // Show success message before navigating
+            toast.success("Diagnóstico concluído com sucesso!");
+            
+            // Navigate with the result
             navigate("/results", { state: { result } });
           } catch (error) {
             console.error("Error submitting diagnostic:", error);
             toast.error("Houve um erro ao processar seu diagnóstico. Por favor, tente novamente.");
-          } finally {
             setIsSubmitting(false);
           }
         }
       }
+    } else {
+      toast.error("Por favor, selecione uma opção para continuar.");
     }
   };
   

@@ -1,5 +1,5 @@
 
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
@@ -9,6 +9,8 @@ import { Separator } from "@/components/ui/separator";
 import { toast } from "sonner";
 import { DiagnosticResult } from "@/types/diagnostic";
 import { supabase } from "@/integrations/supabase/client";
+import { Loader2 } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 const ResultItem = ({ label, value }: { label: string; value: string }) => (
   <div className="mb-4">
@@ -20,24 +22,48 @@ const ResultItem = ({ label, value }: { label: string; value: string }) => (
 const Results = () => {
   const location = useLocation();
   const navigate = useNavigate();
+  const [isCheckingAuth, setIsCheckingAuth] = useState(true);
   const diagnosticResult = location.state?.result as DiagnosticResult | undefined;
   
   useEffect(() => {
-    // Check if results exist and authentication
-    const checkAuth = async () => {
-      if (!diagnosticResult) {
-        const { data: { user } } = await supabase.auth.getUser();
-        if (!user) {
-          toast.error("Por favor, faça o diagnóstico primeiro");
-          navigate("/diagnostic");
-        } else {
-          toast.error("Não foi possível carregar os resultados");
-          navigate("/diagnostic");
+    // Check authentication and results
+    const checkAuthAndResults = async () => {
+      setIsCheckingAuth(true);
+      try {
+        const { data: { session } } = await supabase.auth.getSession();
+        
+        if (!session) {
+          toast.error("Por favor, faça login para acessar seus resultados");
+          navigate("/register");
+          return;
         }
+
+        if (!diagnosticResult) {
+          toast.error("Você precisa completar o diagnóstico primeiro");
+          navigate("/diagnostic");
+          return;
+        }
+        
+        // Setup auth state listener to handle session changes
+        const { data: { subscription } } = supabase.auth.onAuthStateChange((event, currentSession) => {
+          if (event === 'SIGNED_OUT' || !currentSession) {
+            toast.error("Sua sessão expirou. Por favor, faça login novamente.");
+            navigate("/register");
+          }
+        });
+        
+        return () => {
+          subscription.unsubscribe();
+        };
+      } catch (error) {
+        console.error("Erro ao verificar autenticação:", error);
+        toast.error("Erro ao verificar sua autenticação");
+      } finally {
+        setIsCheckingAuth(false);
       }
     };
     
-    checkAuth();
+    checkAuthAndResults();
   }, [diagnosticResult, navigate]);
 
   const handleDownloadPDF = () => {
@@ -45,10 +71,26 @@ const Results = () => {
     toast.success("Seu diagnóstico está sendo preparado para download!");
   };
   
+  const handleReturnToDiagnostic = () => {
+    navigate("/diagnostic");
+  };
+  
+  if (isCheckingAuth) {
+    return (
+      <div className="min-h-screen flex flex-col items-center justify-center">
+        <Loader2 className="h-12 w-12 animate-spin text-primary" />
+        <p className="mt-4 text-lg">Verificando autenticação...</p>
+      </div>
+    );
+  }
+  
   if (!diagnosticResult || !diagnosticResult.perfil) {
     return (
       <div className="min-h-screen flex flex-col items-center justify-center">
-        <p className="text-lg">Carregando resultados...</p>
+        <p className="text-lg text-red-500">Não foi possível carregar os resultados</p>
+        <Button onClick={handleReturnToDiagnostic} className="mt-4">
+          Voltar para o diagnóstico
+        </Button>
       </div>
     );
   }
@@ -106,9 +148,18 @@ const Results = () => {
               <p className="mb-6 text-muted-foreground">
                 Baixe seu relatório completo para referência futura e orientação espiritual
               </p>
-              <GradientButton onClick={handleDownloadPDF} className="px-8 py-6">
-                Baixar meu diagnóstico em PDF
-              </GradientButton>
+              <div className="flex flex-col sm:flex-row justify-center gap-4">
+                <GradientButton onClick={handleDownloadPDF} className="px-8 py-6">
+                  Baixar meu diagnóstico em PDF
+                </GradientButton>
+                <Button 
+                  variant="outline" 
+                  onClick={handleReturnToDiagnostic} 
+                  className="px-8 py-6"
+                >
+                  Refazer diagnóstico
+                </Button>
+              </div>
             </div>
           </GlassmorphicCard>
         </div>

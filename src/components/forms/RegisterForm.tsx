@@ -44,6 +44,20 @@ const RegisterForm = () => {
     };
   }, [rateLimitTimer]);
 
+  // Check if user is already logged in and redirect if needed
+  React.useEffect(() => {
+    const checkAuthStatus = async () => {
+      const { data: { session } } = await supabase.auth.getSession();
+      if (session) {
+        // User is already logged in, redirect to diagnostic page
+        toast.info("Você já está logado. Redirecionando para o diagnóstico...");
+        navigate("/diagnostic");
+      }
+    };
+    
+    checkAuthStatus();
+  }, [navigate]);
+
   async function onSubmit(values: FormValues) {
     try {
       setIsSubmitting(true);
@@ -149,15 +163,27 @@ const RegisterForm = () => {
         throw new Error("Erro ao criar usuário. Nenhum usuário retornado pela API.");
       }
 
-      toast.success("Cadastro realizado com sucesso!");
+      toast.success("Cadastro realizado com sucesso! Redirecionando para o diagnóstico...");
       
-      // Redirecionar para a página de diagnóstico imediatamente
-      navigate("/diagnostic");
+      // Sign in the user automatically after successful registration
+      const { error: signInError } = await supabase.auth.signInWithPassword({
+        email: values.email,
+        password: cleanWhatsApp,
+      });
+      
+      if (signInError) {
+        console.error("Erro ao fazer login automático:", signInError);
+        toast.error("Cadastro realizado, mas não foi possível fazer login automático. Por favor, faça login manualmente.");
+      }
+      
+      // Redirecionar para a página de diagnóstico após um pequeno delay para mostrar a mensagem de sucesso
+      setTimeout(() => {
+        navigate("/diagnostic");
+      }, 1500);
     } catch (error: any) {
       console.error("Erro ao realizar cadastro:", error);
       setRegistrationError(error.message || "Erro ao realizar cadastro. Por favor, tente novamente.");
       toast.error("Erro ao realizar cadastro.");
-    } finally {
       setIsSubmitting(false);
     }
   }
