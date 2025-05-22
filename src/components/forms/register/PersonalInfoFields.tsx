@@ -10,6 +10,7 @@ import { FormValues } from "./schema";
 import { CalendarIcon, ChevronLeft, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
+import { Calendar } from "@/components/ui/calendar";
 import { cn } from "@/lib/utils";
 import { 
   Select,
@@ -80,8 +81,7 @@ const CustomCalendar = ({
 }) => {
   const [currentMonth, setCurrentMonth] = React.useState<Date>(selectedDate || new Date());
   
-  // Importamos o Calendar de forma dinâmica para customizá-lo
-  const { Calendar } = require("@/components/ui/calendar");
+  // Corrigido: Importamos o Calendar diretamente no topo do arquivo, não usando require
   
   const handleMonthChange = (month: number) => {
     const newDate = new Date(currentMonth);
