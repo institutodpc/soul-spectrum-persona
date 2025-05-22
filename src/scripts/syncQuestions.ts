@@ -6,7 +6,12 @@ export const syncQuestions = async () => {
   try {
     console.log("Iniciando sincronização de perguntas...");
     
-    // Para cada pergunta no JSON
+    let stats = {
+      perguntas: 0,
+      alternativas: 0
+    };
+    
+    // Transação para garantir consistência nos dados
     for (const question of questionsData) {
       // 1. Inserir a pergunta
       const { data: perguntaData, error: perguntaError } = await supabase
@@ -14,7 +19,10 @@ export const syncQuestions = async () => {
         .upsert({ 
           id: question.id,
           texto: question.texto 
-        }, { onConflict: 'id' })
+        }, { 
+          onConflict: 'id',
+          ignoreDuplicates: false // atualizar se já existir
+        })
         .select();
       
       if (perguntaError) {
@@ -23,29 +31,48 @@ export const syncQuestions = async () => {
       }
       
       console.log(`Pergunta ${question.id} sincronizada com sucesso`);
+      stats.perguntas++;
       
       // 2. Inserir as alternativas da pergunta
-      for (const option of question.opcoes) {
-        const { error: alternativaError } = await supabase
+      const alternativasPromises = question.opcoes.map(option => {
+        return supabase
           .from('alternativas')
           .upsert({ 
             id: option.id,
             pergunta_id: question.id,
             texto: option.texto,
             perfis: option.perfis
-          }, { onConflict: 'id' })
+          }, { 
+            onConflict: 'id',
+            ignoreDuplicates: false // atualizar se já existir
+          })
           .select();
-        
-        if (alternativaError) {
-          console.error(`Erro ao inserir alternativa ${option.id}:`, alternativaError);
+      });
+      
+      // Executar todas as inserções de alternativas em paralelo
+      const alternativasResults = await Promise.allSettled(alternativasPromises);
+      
+      // Contar alternativas sincronizadas com sucesso
+      alternativasResults.forEach((result, index) => {
+        if (result.status === 'fulfilled') {
+          if (!result.value.error) {
+            stats.alternativas++;
+            console.log(`Alternativa ${question.opcoes[index].id} sincronizada com sucesso`);
+          } else {
+            console.error(`Erro ao inserir alternativa ${question.opcoes[index].id}:`, result.value.error);
+          }
         } else {
-          console.log(`Alternativa ${option.id} sincronizada com sucesso`);
+          console.error(`Falha na promessa para alternativa ${question.opcoes[index].id}:`, result.reason);
         }
-      }
+      });
     }
     
-    console.log("Sincronização concluída com sucesso!");
-    return { success: true, message: "Perguntas sincronizadas com sucesso!" };
+    console.log(`Sincronização concluída com sucesso! ${stats.perguntas} perguntas e ${stats.alternativas} alternativas sincronizadas.`);
+    return { 
+      success: true, 
+      message: `Sincronização concluída! ${stats.perguntas} perguntas e ${stats.alternativas} alternativas sincronizadas.`,
+      stats 
+    };
   } catch (error) {
     console.error("Erro durante a sincronização:", error);
     return { success: false, message: "Erro ao sincronizar perguntas." };

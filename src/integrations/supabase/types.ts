@@ -14,19 +14,19 @@ export type Database = {
           id: string
           perfis: string[] | null
           pergunta_id: string | null
-          texto: string | null
+          texto: string
         }
         Insert: {
           id?: string
           perfis?: string[] | null
           pergunta_id?: string | null
-          texto?: string | null
+          texto: string
         }
         Update: {
           id?: string
           perfis?: string[] | null
           pergunta_id?: string | null
-          texto?: string | null
+          texto?: string
         }
         Relationships: [
           {
@@ -98,15 +98,15 @@ export type Database = {
       perguntas: {
         Row: {
           id: string
-          texto: string | null
+          texto: string
         }
         Insert: {
           id?: string
-          texto?: string | null
+          texto: string
         }
         Update: {
           id?: string
-          texto?: string | null
+          texto?: string
         }
         Relationships: []
       }
@@ -116,23 +116,31 @@ export type Database = {
           perfis: string[] | null
           pergunta_id: string | null
           resposta: string | null
-          user_id: string | null
+          user_id: string
         }
         Insert: {
           id?: string
           perfis?: string[] | null
           pergunta_id?: string | null
           resposta?: string | null
-          user_id?: string | null
+          user_id: string
         }
         Update: {
           id?: string
           perfis?: string[] | null
           pergunta_id?: string | null
           resposta?: string | null
-          user_id?: string | null
+          user_id?: string
         }
-        Relationships: []
+        Relationships: [
+          {
+            foreignKeyName: "respostas_pergunta_id_fkey"
+            columns: ["pergunta_id"]
+            isOneToOne: false
+            referencedRelation: "perguntas"
+            referencedColumns: ["id"]
+          },
+        ]
       }
     }
     Views: {
