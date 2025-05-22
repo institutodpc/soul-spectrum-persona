@@ -26,9 +26,11 @@ export const formSchema = z.object({
   email: z.string().email({
     message: "Por favor, informe um e-mail válido.",
   }),
-  whatsapp: z.string().min(10, {
-    message: "Por favor, informe um número de WhatsApp válido.",
-  }),
+  whatsapp: z.string()
+    .min(14, { message: "Por favor, informe um número de WhatsApp válido com DDD." })
+    .regex(/^\(\d{2}\) \d{5}-\d{4}$/, {
+      message: "Formato inválido. Use (XX) XXXXX-XXXX."
+    }),
   aceitoTermos: z.boolean().refine(val => val === true, {
     message: "Você precisa aceitar os termos de uso."
   })
