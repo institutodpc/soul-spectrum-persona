@@ -37,19 +37,14 @@ const RegisterForm = () => {
       setRegistrationError(null);
       console.log(values);
       
-      // Verificar se o usuário já existe
-      const { data: existingUsers, error: checkError } = await supabase
-        .from('profiles')
-        .select('*')
-        .eq('email', values.email)
-        .maybeSingle();
+      // Verificar se o usuário já existe usando auth.signUp
+      const { data: checkData, error: checkError } = await supabase.auth.signUp({
+        email: values.email,
+        password: "check-only",
+        options: { emailRedirectTo: window.location.origin }
+      });
       
-      if (checkError) {
-        console.error("Erro ao verificar usuário existente:", checkError);
-        throw new Error("Erro ao verificar dados. Por favor, tente novamente.");
-      }
-      
-      if (existingUsers) {
+      if (checkError && checkError.message.includes("User already registered")) {
         setRegistrationError("Este e-mail já está cadastrado. Por favor, tente fazer login.");
         return;
       }
