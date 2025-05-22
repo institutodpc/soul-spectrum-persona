@@ -2,52 +2,1223 @@
 [
   {
     "id": "1",
-    "texto": "Com que frequência você se sente ansioso(a) com relação ao futuro?",
+    "texto": "Pergunta representando o perfil 'Lamentador'. Como você reage quando está sob pressão espiritual?",
     "opcoes": [
-      { "id": "1A", "texto": "Quase nunca", "perfis": ["confiante"] },
-      { "id": "1B", "texto": "Ocasionalmente", "perfis": ["equilibrado"] },
-      { "id": "1C", "texto": "Frequentemente", "perfis": ["perfeccionista", "ansioso"] },
-      { "id": "1D", "texto": "Quase sempre", "perfis": ["ansioso", "perfeccionista"] }
+      {
+        "id": "1A",
+        "texto": "Resposta característica de lamentador.",
+        "perfis": [
+          "lamentador"
+        ]
+      },
+      {
+        "id": "1B",
+        "texto": "Resposta relacionada a ansiedade e controle.",
+        "perfis": [
+          "controlador",
+          "ansioso"
+        ]
+      },
+      {
+        "id": "1C",
+        "texto": "Resposta indicando sentimento de culpa e autopunição.",
+        "perfis": [
+          "culpado",
+          "nao_se_perdoa"
+        ]
+      },
+      {
+        "id": "1D",
+        "texto": "Resposta ligada a busca de aprovação.",
+        "perfis": [
+          "desesperado_aprovacao",
+          "obcecado_opiniao"
+        ]
+      }
     ]
   },
   {
     "id": "2",
-    "texto": "Você costuma adiar decisões importantes até o último momento?",
+    "texto": "Pergunta representando o perfil 'Perfeccionista'. Como você reage quando está sob pressão espiritual?",
     "opcoes": [
-      { "id": "2A", "texto": "Raramente", "perfis": ["decidido"] },
-      { "id": "2B", "texto": "Às vezes", "perfis": ["equilibrado"] },
-      { "id": "2C", "texto": "Frequentemente", "perfis": ["indeciso", "perfeccionista"] },
-      { "id": "2D", "texto": "Quase sempre", "perfis": ["perfeccionista", "ansioso"] }
+      {
+        "id": "2A",
+        "texto": "Resposta característica de perfeccionista.",
+        "perfis": [
+          "perfeccionista"
+        ]
+      },
+      {
+        "id": "2B",
+        "texto": "Resposta relacionada a ansiedade e controle.",
+        "perfis": [
+          "controlador",
+          "ansioso"
+        ]
+      },
+      {
+        "id": "2C",
+        "texto": "Resposta indicando sentimento de culpa e autopunição.",
+        "perfis": [
+          "culpado",
+          "nao_se_perdoa"
+        ]
+      },
+      {
+        "id": "2D",
+        "texto": "Resposta ligada a busca de aprovação.",
+        "perfis": [
+          "desesperado_aprovacao",
+          "obcecado_opiniao"
+        ]
+      }
     ]
   },
   {
     "id": "3",
-    "texto": "Você se sente criticado(a) pelos outros com frequência?",
+    "texto": "Pergunta representando o perfil 'Procrastinador'. Como você reage quando está sob pressão espiritual?",
     "opcoes": [
-      { "id": "3A", "texto": "Raramente", "perfis": ["confiante"] },
-      { "id": "3B", "texto": "Às vezes", "perfis": ["equilibrado"] },
-      { "id": "3C", "texto": "Frequentemente", "perfis": ["culpado", "perfeccionista"] },
-      { "id": "3D", "texto": "Quase sempre", "perfis": ["culpado", "vitima"] }
+      {
+        "id": "3A",
+        "texto": "Resposta característica de procrastinador.",
+        "perfis": [
+          "procrastinador"
+        ]
+      },
+      {
+        "id": "3B",
+        "texto": "Resposta relacionada a ansiedade e controle.",
+        "perfis": [
+          "controlador",
+          "ansioso"
+        ]
+      },
+      {
+        "id": "3C",
+        "texto": "Resposta indicando sentimento de culpa e autopunição.",
+        "perfis": [
+          "culpado",
+          "nao_se_perdoa"
+        ]
+      },
+      {
+        "id": "3D",
+        "texto": "Resposta ligada a busca de aprovação.",
+        "perfis": [
+          "desesperado_aprovacao",
+          "obcecado_opiniao"
+        ]
+      }
     ]
   },
   {
     "id": "4",
-    "texto": "Como você lida com erros que comete?",
+    "texto": "Pergunta representando o perfil 'Inseguro'. Como você reage quando está sob pressão espiritual?",
     "opcoes": [
-      { "id": "4A", "texto": "Aceito e aprendo com eles", "perfis": ["equilibrado"] },
-      { "id": "4B", "texto": "Tento corrigir, mas fico frustrado(a)", "perfis": ["perfeccionista"] },
-      { "id": "4C", "texto": "Fico muito crítico(a) comigo mesmo(a)", "perfis": ["perfeccionista", "culpado"] },
-      { "id": "4D", "texto": "Tento esconder ou justificar meus erros", "perfis": ["orgulhoso", "culpado"] }
+      {
+        "id": "4A",
+        "texto": "Resposta característica de inseguro.",
+        "perfis": [
+          "inseguro"
+        ]
+      },
+      {
+        "id": "4B",
+        "texto": "Resposta relacionada a ansiedade e controle.",
+        "perfis": [
+          "controlador",
+          "ansioso"
+        ]
+      },
+      {
+        "id": "4C",
+        "texto": "Resposta indicando sentimento de culpa e autopunição.",
+        "perfis": [
+          "culpado",
+          "nao_se_perdoa"
+        ]
+      },
+      {
+        "id": "4D",
+        "texto": "Resposta ligada a busca de aprovação.",
+        "perfis": [
+          "desesperado_aprovacao",
+          "obcecado_opiniao"
+        ]
+      }
     ]
   },
   {
     "id": "5",
-    "texto": "Você sente que precisa controlar situações ao seu redor?",
+    "texto": "Pergunta representando o perfil 'Controlador'. Como você reage quando está sob pressão espiritual?",
     "opcoes": [
-      { "id": "5A", "texto": "Raramente", "perfis": ["equilibrado"] },
-      { "id": "5B", "texto": "Às vezes", "perfis": ["equilibrado"] },
-      { "id": "5C", "texto": "Frequentemente", "perfis": ["controlador", "perfeccionista"] },
-      { "id": "5D", "texto": "Quase sempre", "perfis": ["controlador", "ansioso"] }
+      {
+        "id": "5A",
+        "texto": "Resposta característica de controlador.",
+        "perfis": [
+          "controlador"
+        ]
+      },
+      {
+        "id": "5B",
+        "texto": "Resposta relacionada a ansiedade e controle.",
+        "perfis": [
+          "controlador",
+          "ansioso"
+        ]
+      },
+      {
+        "id": "5C",
+        "texto": "Resposta indicando sentimento de culpa e autopunição.",
+        "perfis": [
+          "culpado",
+          "nao_se_perdoa"
+        ]
+      },
+      {
+        "id": "5D",
+        "texto": "Resposta ligada a busca de aprovação.",
+        "perfis": [
+          "desesperado_aprovacao",
+          "obcecado_opiniao"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "6",
+    "texto": "Pergunta representando o perfil 'Perfeccionista Espiritual'. Como você reage quando está sob pressão espiritual?",
+    "opcoes": [
+      {
+        "id": "6A",
+        "texto": "Resposta característica de perfeccionista espiritual.",
+        "perfis": [
+          "perfeccionista_espiritual"
+        ]
+      },
+      {
+        "id": "6B",
+        "texto": "Resposta relacionada a ansiedade e controle.",
+        "perfis": [
+          "controlador",
+          "ansioso"
+        ]
+      },
+      {
+        "id": "6C",
+        "texto": "Resposta indicando sentimento de culpa e autopunição.",
+        "perfis": [
+          "culpado",
+          "nao_se_perdoa"
+        ]
+      },
+      {
+        "id": "6D",
+        "texto": "Resposta ligada a busca de aprovação.",
+        "perfis": [
+          "desesperado_aprovacao",
+          "obcecado_opiniao"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "7",
+    "texto": "Pergunta representando o perfil 'Obcecado Opiniao'. Como você reage quando está sob pressão espiritual?",
+    "opcoes": [
+      {
+        "id": "7A",
+        "texto": "Resposta característica de obcecado opiniao.",
+        "perfis": [
+          "obcecado_opiniao"
+        ]
+      },
+      {
+        "id": "7B",
+        "texto": "Resposta relacionada a ansiedade e controle.",
+        "perfis": [
+          "controlador",
+          "ansioso"
+        ]
+      },
+      {
+        "id": "7C",
+        "texto": "Resposta indicando sentimento de culpa e autopunição.",
+        "perfis": [
+          "culpado",
+          "nao_se_perdoa"
+        ]
+      },
+      {
+        "id": "7D",
+        "texto": "Resposta ligada a busca de aprovação.",
+        "perfis": [
+          "desesperado_aprovacao",
+          "obcecado_opiniao"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "8",
+    "texto": "Pergunta representando o perfil 'Culpado'. Como você reage quando está sob pressão espiritual?",
+    "opcoes": [
+      {
+        "id": "8A",
+        "texto": "Resposta característica de culpado.",
+        "perfis": [
+          "culpado"
+        ]
+      },
+      {
+        "id": "8B",
+        "texto": "Resposta relacionada a ansiedade e controle.",
+        "perfis": [
+          "controlador",
+          "ansioso"
+        ]
+      },
+      {
+        "id": "8C",
+        "texto": "Resposta indicando sentimento de culpa e autopunição.",
+        "perfis": [
+          "culpado",
+          "nao_se_perdoa"
+        ]
+      },
+      {
+        "id": "8D",
+        "texto": "Resposta ligada a busca de aprovação.",
+        "perfis": [
+          "desesperado_aprovacao",
+          "obcecado_opiniao"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "9",
+    "texto": "Pergunta representando o perfil 'Desconfiado'. Como você reage quando está sob pressão espiritual?",
+    "opcoes": [
+      {
+        "id": "9A",
+        "texto": "Resposta característica de desconfiado.",
+        "perfis": [
+          "desconfiado"
+        ]
+      },
+      {
+        "id": "9B",
+        "texto": "Resposta relacionada a ansiedade e controle.",
+        "perfis": [
+          "controlador",
+          "ansioso"
+        ]
+      },
+      {
+        "id": "9C",
+        "texto": "Resposta indicando sentimento de culpa e autopunição.",
+        "perfis": [
+          "culpado",
+          "nao_se_perdoa"
+        ]
+      },
+      {
+        "id": "9D",
+        "texto": "Resposta ligada a busca de aprovação.",
+        "perfis": [
+          "desesperado_aprovacao",
+          "obcecado_opiniao"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "10",
+    "texto": "Pergunta representando o perfil 'Invejoso Espiritual'. Como você reage quando está sob pressão espiritual?",
+    "opcoes": [
+      {
+        "id": "10A",
+        "texto": "Resposta característica de invejoso espiritual.",
+        "perfis": [
+          "invejoso_espiritual"
+        ]
+      },
+      {
+        "id": "10B",
+        "texto": "Resposta relacionada a ansiedade e controle.",
+        "perfis": [
+          "controlador",
+          "ansioso"
+        ]
+      },
+      {
+        "id": "10C",
+        "texto": "Resposta indicando sentimento de culpa e autopunição.",
+        "perfis": [
+          "culpado",
+          "nao_se_perdoa"
+        ]
+      },
+      {
+        "id": "10D",
+        "texto": "Resposta ligada a busca de aprovação.",
+        "perfis": [
+          "desesperado_aprovacao",
+          "obcecado_opiniao"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "11",
+    "texto": "Pergunta representando o perfil 'Mentiroso'. Como você reage quando está sob pressão espiritual?",
+    "opcoes": [
+      {
+        "id": "11A",
+        "texto": "Resposta característica de mentiroso.",
+        "perfis": [
+          "mentiroso"
+        ]
+      },
+      {
+        "id": "11B",
+        "texto": "Resposta relacionada a ansiedade e controle.",
+        "perfis": [
+          "controlador",
+          "ansioso"
+        ]
+      },
+      {
+        "id": "11C",
+        "texto": "Resposta indicando sentimento de culpa e autopunição.",
+        "perfis": [
+          "culpado",
+          "nao_se_perdoa"
+        ]
+      },
+      {
+        "id": "11D",
+        "texto": "Resposta ligada a busca de aprovação.",
+        "perfis": [
+          "desesperado_aprovacao",
+          "obcecado_opiniao"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "12",
+    "texto": "Pergunta representando o perfil 'Hipocrita'. Como você reage quando está sob pressão espiritual?",
+    "opcoes": [
+      {
+        "id": "12A",
+        "texto": "Resposta característica de hipocrita.",
+        "perfis": [
+          "hipocrita"
+        ]
+      },
+      {
+        "id": "12B",
+        "texto": "Resposta relacionada a ansiedade e controle.",
+        "perfis": [
+          "controlador",
+          "ansioso"
+        ]
+      },
+      {
+        "id": "12C",
+        "texto": "Resposta indicando sentimento de culpa e autopunição.",
+        "perfis": [
+          "culpado",
+          "nao_se_perdoa"
+        ]
+      },
+      {
+        "id": "12D",
+        "texto": "Resposta ligada a busca de aprovação.",
+        "perfis": [
+          "desesperado_aprovacao",
+          "obcecado_opiniao"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "13",
+    "texto": "Pergunta representando o perfil 'Tolo'. Como você reage quando está sob pressão espiritual?",
+    "opcoes": [
+      {
+        "id": "13A",
+        "texto": "Resposta característica de tolo.",
+        "perfis": [
+          "tolo"
+        ]
+      },
+      {
+        "id": "13B",
+        "texto": "Resposta relacionada a ansiedade e controle.",
+        "perfis": [
+          "controlador",
+          "ansioso"
+        ]
+      },
+      {
+        "id": "13C",
+        "texto": "Resposta indicando sentimento de culpa e autopunição.",
+        "perfis": [
+          "culpado",
+          "nao_se_perdoa"
+        ]
+      },
+      {
+        "id": "13D",
+        "texto": "Resposta ligada a busca de aprovação.",
+        "perfis": [
+          "desesperado_aprovacao",
+          "obcecado_opiniao"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "14",
+    "texto": "Pergunta representando o perfil 'Invejoso'. Como você reage quando está sob pressão espiritual?",
+    "opcoes": [
+      {
+        "id": "14A",
+        "texto": "Resposta característica de invejoso.",
+        "perfis": [
+          "invejoso"
+        ]
+      },
+      {
+        "id": "14B",
+        "texto": "Resposta relacionada a ansiedade e controle.",
+        "perfis": [
+          "controlador",
+          "ansioso"
+        ]
+      },
+      {
+        "id": "14C",
+        "texto": "Resposta indicando sentimento de culpa e autopunição.",
+        "perfis": [
+          "culpado",
+          "nao_se_perdoa"
+        ]
+      },
+      {
+        "id": "14D",
+        "texto": "Resposta ligada a busca de aprovação.",
+        "perfis": [
+          "desesperado_aprovacao",
+          "obcecado_opiniao"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "15",
+    "texto": "Pergunta representando o perfil 'Bajulador'. Como você reage quando está sob pressão espiritual?",
+    "opcoes": [
+      {
+        "id": "15A",
+        "texto": "Resposta característica de bajulador.",
+        "perfis": [
+          "bajulador"
+        ]
+      },
+      {
+        "id": "15B",
+        "texto": "Resposta relacionada a ansiedade e controle.",
+        "perfis": [
+          "controlador",
+          "ansioso"
+        ]
+      },
+      {
+        "id": "15C",
+        "texto": "Resposta indicando sentimento de culpa e autopunição.",
+        "perfis": [
+          "culpado",
+          "nao_se_perdoa"
+        ]
+      },
+      {
+        "id": "15D",
+        "texto": "Resposta ligada a busca de aprovação.",
+        "perfis": [
+          "desesperado_aprovacao",
+          "obcecado_opiniao"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "16",
+    "texto": "Pergunta representando o perfil 'Nao Procura Espirito'. Como você reage quando está sob pressão espiritual?",
+    "opcoes": [
+      {
+        "id": "16A",
+        "texto": "Resposta característica de nao procura espirito.",
+        "perfis": [
+          "nao_procura_espirito"
+        ]
+      },
+      {
+        "id": "16B",
+        "texto": "Resposta relacionada a ansiedade e controle.",
+        "perfis": [
+          "controlador",
+          "ansioso"
+        ]
+      },
+      {
+        "id": "16C",
+        "texto": "Resposta indicando sentimento de culpa e autopunição.",
+        "perfis": [
+          "culpado",
+          "nao_se_perdoa"
+        ]
+      },
+      {
+        "id": "16D",
+        "texto": "Resposta ligada a busca de aprovação.",
+        "perfis": [
+          "desesperado_aprovacao",
+          "obcecado_opiniao"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "17",
+    "texto": "Pergunta representando o perfil 'Falta Sabedoria'. Como você reage quando está sob pressão espiritual?",
+    "opcoes": [
+      {
+        "id": "17A",
+        "texto": "Resposta característica de falta sabedoria.",
+        "perfis": [
+          "falta_sabedoria"
+        ]
+      },
+      {
+        "id": "17B",
+        "texto": "Resposta relacionada a ansiedade e controle.",
+        "perfis": [
+          "controlador",
+          "ansioso"
+        ]
+      },
+      {
+        "id": "17C",
+        "texto": "Resposta indicando sentimento de culpa e autopunição.",
+        "perfis": [
+          "culpado",
+          "nao_se_perdoa"
+        ]
+      },
+      {
+        "id": "17D",
+        "texto": "Resposta ligada a busca de aprovação.",
+        "perfis": [
+          "desesperado_aprovacao",
+          "obcecado_opiniao"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "18",
+    "texto": "Pergunta representando o perfil 'Eu Nao'. Como você reage quando está sob pressão espiritual?",
+    "opcoes": [
+      {
+        "id": "18A",
+        "texto": "Resposta característica de eu nao.",
+        "perfis": [
+          "eu_nao"
+        ]
+      },
+      {
+        "id": "18B",
+        "texto": "Resposta relacionada a ansiedade e controle.",
+        "perfis": [
+          "controlador",
+          "ansioso"
+        ]
+      },
+      {
+        "id": "18C",
+        "texto": "Resposta indicando sentimento de culpa e autopunição.",
+        "perfis": [
+          "culpado",
+          "nao_se_perdoa"
+        ]
+      },
+      {
+        "id": "18D",
+        "texto": "Resposta ligada a busca de aprovação.",
+        "perfis": [
+          "desesperado_aprovacao",
+          "obcecado_opiniao"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "19",
+    "texto": "Pergunta representando o perfil 'Orgulhoso'. Como você reage quando está sob pressão espiritual?",
+    "opcoes": [
+      {
+        "id": "19A",
+        "texto": "Resposta característica de orgulhoso.",
+        "perfis": [
+          "orgulhoso"
+        ]
+      },
+      {
+        "id": "19B",
+        "texto": "Resposta relacionada a ansiedade e controle.",
+        "perfis": [
+          "controlador",
+          "ansioso"
+        ]
+      },
+      {
+        "id": "19C",
+        "texto": "Resposta indicando sentimento de culpa e autopunição.",
+        "perfis": [
+          "culpado",
+          "nao_se_perdoa"
+        ]
+      },
+      {
+        "id": "19D",
+        "texto": "Resposta ligada a busca de aprovação.",
+        "perfis": [
+          "desesperado_aprovacao",
+          "obcecado_opiniao"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "20",
+    "texto": "Pergunta representando o perfil 'Senhor Desculpas'. Como você reage quando está sob pressão espiritual?",
+    "opcoes": [
+      {
+        "id": "20A",
+        "texto": "Resposta característica de senhor desculpas.",
+        "perfis": [
+          "senhor_desculpas"
+        ]
+      },
+      {
+        "id": "20B",
+        "texto": "Resposta relacionada a ansiedade e controle.",
+        "perfis": [
+          "controlador",
+          "ansioso"
+        ]
+      },
+      {
+        "id": "20C",
+        "texto": "Resposta indicando sentimento de culpa e autopunição.",
+        "perfis": [
+          "culpado",
+          "nao_se_perdoa"
+        ]
+      },
+      {
+        "id": "20D",
+        "texto": "Resposta ligada a busca de aprovação.",
+        "perfis": [
+          "desesperado_aprovacao",
+          "obcecado_opiniao"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "21",
+    "texto": "Pergunta representando o perfil 'Adora Dinheiro'. Como você reage quando está sob pressão espiritual?",
+    "opcoes": [
+      {
+        "id": "21A",
+        "texto": "Resposta característica de adora dinheiro.",
+        "perfis": [
+          "adora_dinheiro"
+        ]
+      },
+      {
+        "id": "21B",
+        "texto": "Resposta relacionada a ansiedade e controle.",
+        "perfis": [
+          "controlador",
+          "ansioso"
+        ]
+      },
+      {
+        "id": "21C",
+        "texto": "Resposta indicando sentimento de culpa e autopunição.",
+        "perfis": [
+          "culpado",
+          "nao_se_perdoa"
+        ]
+      },
+      {
+        "id": "21D",
+        "texto": "Resposta ligada a busca de aprovação.",
+        "perfis": [
+          "desesperado_aprovacao",
+          "obcecado_opiniao"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "22",
+    "texto": "Pergunta representando o perfil 'Nao Se Perdoa'. Como você reage quando está sob pressão espiritual?",
+    "opcoes": [
+      {
+        "id": "22A",
+        "texto": "Resposta característica de nao se perdoa.",
+        "perfis": [
+          "nao_se_perdoa"
+        ]
+      },
+      {
+        "id": "22B",
+        "texto": "Resposta relacionada a ansiedade e controle.",
+        "perfis": [
+          "controlador",
+          "ansioso"
+        ]
+      },
+      {
+        "id": "22C",
+        "texto": "Resposta indicando sentimento de culpa e autopunição.",
+        "perfis": [
+          "culpado",
+          "nao_se_perdoa"
+        ]
+      },
+      {
+        "id": "22D",
+        "texto": "Resposta ligada a busca de aprovação.",
+        "perfis": [
+          "desesperado_aprovacao",
+          "obcecado_opiniao"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "23",
+    "texto": "Pergunta representando o perfil 'Desesperado Aprovacao'. Como você reage quando está sob pressão espiritual?",
+    "opcoes": [
+      {
+        "id": "23A",
+        "texto": "Resposta característica de desesperado aprovacao.",
+        "perfis": [
+          "desesperado_aprovacao"
+        ]
+      },
+      {
+        "id": "23B",
+        "texto": "Resposta relacionada a ansiedade e controle.",
+        "perfis": [
+          "controlador",
+          "ansioso"
+        ]
+      },
+      {
+        "id": "23C",
+        "texto": "Resposta indicando sentimento de culpa e autopunição.",
+        "perfis": [
+          "culpado",
+          "nao_se_perdoa"
+        ]
+      },
+      {
+        "id": "23D",
+        "texto": "Resposta ligada a busca de aprovação.",
+        "perfis": [
+          "desesperado_aprovacao",
+          "obcecado_opiniao"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "24",
+    "texto": "Pergunta representando o perfil 'Julgador'. Como você reage quando está sob pressão espiritual?",
+    "opcoes": [
+      {
+        "id": "24A",
+        "texto": "Resposta característica de julgador.",
+        "perfis": [
+          "julgador"
+        ]
+      },
+      {
+        "id": "24B",
+        "texto": "Resposta relacionada a ansiedade e controle.",
+        "perfis": [
+          "controlador",
+          "ansioso"
+        ]
+      },
+      {
+        "id": "24C",
+        "texto": "Resposta indicando sentimento de culpa e autopunição.",
+        "perfis": [
+          "culpado",
+          "nao_se_perdoa"
+        ]
+      },
+      {
+        "id": "24D",
+        "texto": "Resposta ligada a busca de aprovação.",
+        "perfis": [
+          "desesperado_aprovacao",
+          "obcecado_opiniao"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "25",
+    "texto": "Pergunta representando o perfil 'Nao Ora'. Como você reage quando está sob pressão espiritual?",
+    "opcoes": [
+      {
+        "id": "25A",
+        "texto": "Resposta característica de nao ora.",
+        "perfis": [
+          "nao_ora"
+        ]
+      },
+      {
+        "id": "25B",
+        "texto": "Resposta relacionada a ansiedade e controle.",
+        "perfis": [
+          "controlador",
+          "ansioso"
+        ]
+      },
+      {
+        "id": "25C",
+        "texto": "Resposta indicando sentimento de culpa e autopunição.",
+        "perfis": [
+          "culpado",
+          "nao_se_perdoa"
+        ]
+      },
+      {
+        "id": "25D",
+        "texto": "Resposta ligada a busca de aprovação.",
+        "perfis": [
+          "desesperado_aprovacao",
+          "obcecado_opiniao"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "26",
+    "texto": "Pergunta representando o perfil 'Escravo Mundo'. Como você reage quando está sob pressão espiritual?",
+    "opcoes": [
+      {
+        "id": "26A",
+        "texto": "Resposta característica de escravo mundo.",
+        "perfis": [
+          "escravo_mundo"
+        ]
+      },
+      {
+        "id": "26B",
+        "texto": "Resposta relacionada a ansiedade e controle.",
+        "perfis": [
+          "controlador",
+          "ansioso"
+        ]
+      },
+      {
+        "id": "26C",
+        "texto": "Resposta indicando sentimento de culpa e autopunição.",
+        "perfis": [
+          "culpado",
+          "nao_se_perdoa"
+        ]
+      },
+      {
+        "id": "26D",
+        "texto": "Resposta ligada a busca de aprovação.",
+        "perfis": [
+          "desesperado_aprovacao",
+          "obcecado_opiniao"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "27",
+    "texto": "Pergunta representando o perfil 'Impaciente'. Como você reage quando está sob pressão espiritual?",
+    "opcoes": [
+      {
+        "id": "27A",
+        "texto": "Resposta característica de impaciente.",
+        "perfis": [
+          "impaciente"
+        ]
+      },
+      {
+        "id": "27B",
+        "texto": "Resposta relacionada a ansiedade e controle.",
+        "perfis": [
+          "controlador",
+          "ansioso"
+        ]
+      },
+      {
+        "id": "27C",
+        "texto": "Resposta indicando sentimento de culpa e autopunição.",
+        "perfis": [
+          "culpado",
+          "nao_se_perdoa"
+        ]
+      },
+      {
+        "id": "27D",
+        "texto": "Resposta ligada a busca de aprovação.",
+        "perfis": [
+          "desesperado_aprovacao",
+          "obcecado_opiniao"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "28",
+    "texto": "Pergunta representando o perfil 'Nao Jejua'. Como você reage quando está sob pressão espiritual?",
+    "opcoes": [
+      {
+        "id": "28A",
+        "texto": "Resposta característica de nao jejua.",
+        "perfis": [
+          "nao_jejua"
+        ]
+      },
+      {
+        "id": "28B",
+        "texto": "Resposta relacionada a ansiedade e controle.",
+        "perfis": [
+          "controlador",
+          "ansioso"
+        ]
+      },
+      {
+        "id": "28C",
+        "texto": "Resposta indicando sentimento de culpa e autopunição.",
+        "perfis": [
+          "culpado",
+          "nao_se_perdoa"
+        ]
+      },
+      {
+        "id": "28D",
+        "texto": "Resposta ligada a busca de aprovação.",
+        "perfis": [
+          "desesperado_aprovacao",
+          "obcecado_opiniao"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "29",
+    "texto": "Pergunta representando o perfil 'Nao Conhece Coracao'. Como você reage quando está sob pressão espiritual?",
+    "opcoes": [
+      {
+        "id": "29A",
+        "texto": "Resposta característica de nao conhece coracao.",
+        "perfis": [
+          "nao_conhece_coracao"
+        ]
+      },
+      {
+        "id": "29B",
+        "texto": "Resposta relacionada a ansiedade e controle.",
+        "perfis": [
+          "controlador",
+          "ansioso"
+        ]
+      },
+      {
+        "id": "29C",
+        "texto": "Resposta indicando sentimento de culpa e autopunição.",
+        "perfis": [
+          "culpado",
+          "nao_se_perdoa"
+        ]
+      },
+      {
+        "id": "29D",
+        "texto": "Resposta ligada a busca de aprovação.",
+        "perfis": [
+          "desesperado_aprovacao",
+          "obcecado_opiniao"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "30",
+    "texto": "Pergunta representando o perfil 'Fornicador Digital'. Como você reage quando está sob pressão espiritual?",
+    "opcoes": [
+      {
+        "id": "30A",
+        "texto": "Resposta característica de fornicador digital.",
+        "perfis": [
+          "fornicador_digital"
+        ]
+      },
+      {
+        "id": "30B",
+        "texto": "Resposta relacionada a ansiedade e controle.",
+        "perfis": [
+          "controlador",
+          "ansioso"
+        ]
+      },
+      {
+        "id": "30C",
+        "texto": "Resposta indicando sentimento de culpa e autopunição.",
+        "perfis": [
+          "culpado",
+          "nao_se_perdoa"
+        ]
+      },
+      {
+        "id": "30D",
+        "texto": "Resposta ligada a busca de aprovação.",
+        "perfis": [
+          "desesperado_aprovacao",
+          "obcecado_opiniao"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "31",
+    "texto": "Pergunta representando o perfil 'Nao Estuda Biblia'. Como você reage quando está sob pressão espiritual?",
+    "opcoes": [
+      {
+        "id": "31A",
+        "texto": "Resposta característica de nao estuda biblia.",
+        "perfis": [
+          "nao_estuda_biblia"
+        ]
+      },
+      {
+        "id": "31B",
+        "texto": "Resposta relacionada a ansiedade e controle.",
+        "perfis": [
+          "controlador",
+          "ansioso"
+        ]
+      },
+      {
+        "id": "31C",
+        "texto": "Resposta indicando sentimento de culpa e autopunição.",
+        "perfis": [
+          "culpado",
+          "nao_se_perdoa"
+        ]
+      },
+      {
+        "id": "31D",
+        "texto": "Resposta ligada a busca de aprovação.",
+        "perfis": [
+          "desesperado_aprovacao",
+          "obcecado_opiniao"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "32",
+    "texto": "Pergunta representando o perfil 'Imprudente'. Como você reage quando está sob pressão espiritual?",
+    "opcoes": [
+      {
+        "id": "32A",
+        "texto": "Resposta característica de imprudente.",
+        "perfis": [
+          "imprudente"
+        ]
+      },
+      {
+        "id": "32B",
+        "texto": "Resposta relacionada a ansiedade e controle.",
+        "perfis": [
+          "controlador",
+          "ansioso"
+        ]
+      },
+      {
+        "id": "32C",
+        "texto": "Resposta indicando sentimento de culpa e autopunição.",
+        "perfis": [
+          "culpado",
+          "nao_se_perdoa"
+        ]
+      },
+      {
+        "id": "32D",
+        "texto": "Resposta ligada a busca de aprovação.",
+        "perfis": [
+          "desesperado_aprovacao",
+          "obcecado_opiniao"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "33",
+    "texto": "Pergunta representando o perfil 'Vitimista'. Como você reage quando está sob pressão espiritual?",
+    "opcoes": [
+      {
+        "id": "33A",
+        "texto": "Resposta característica de vitimista.",
+        "perfis": [
+          "vitimista"
+        ]
+      },
+      {
+        "id": "33B",
+        "texto": "Resposta relacionada a ansiedade e controle.",
+        "perfis": [
+          "controlador",
+          "ansioso"
+        ]
+      },
+      {
+        "id": "33C",
+        "texto": "Resposta indicando sentimento de culpa e autopunição.",
+        "perfis": [
+          "culpado",
+          "nao_se_perdoa"
+        ]
+      },
+      {
+        "id": "33D",
+        "texto": "Resposta ligada a busca de aprovação.",
+        "perfis": [
+          "desesperado_aprovacao",
+          "obcecado_opiniao"
+        ]
+      }
     ]
   }
 ]
