@@ -17,8 +17,8 @@ export const formSchema = z.object({
   estado: z.string({
     required_error: "Por favor, selecione um estado.",
   }),
-  cidade: z.string().min(2, {
-    message: "Por favor, informe sua cidade.",
+  cidade: z.string({
+    required_error: "Por favor, selecione uma cidade.",
   }),
   congregacao: z.string().min(2, {
     message: "Por favor, informe sua congregação.",

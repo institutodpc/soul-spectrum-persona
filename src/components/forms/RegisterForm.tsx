@@ -12,6 +12,7 @@ import PersonalInfoFields from "./register/PersonalInfoFields";
 import LocationFields from "./register/LocationFields";
 import ContactFields from "./register/ContactFields";
 import TermsField from "./register/TermsField";
+import { supabase } from "@/integrations/supabase/client";
 
 const RegisterForm = () => {
   const navigate = useNavigate();
@@ -28,12 +29,40 @@ const RegisterForm = () => {
     },
   });
 
-  function onSubmit(values: FormValues) {
-    console.log(values);
-    toast.success("Cadastro realizado com sucesso!");
-    // Normally, here you would save this data to your backend
-    // Then redirect to the diagnostic page
-    navigate("/diagnostic");
+  async function onSubmit(values: FormValues) {
+    try {
+      console.log(values);
+      
+      // Registrar usuário no Supabase Auth
+      const { data: authData, error: authError } = await supabase.auth.signUp({
+        email: values.email,
+        password: values.whatsapp.replace(/\D/g, ''), // Usando o WhatsApp como senha (simplificado)
+        options: {
+          data: {
+            nome: values.nome,
+            sobrenome: values.sobrenome,
+            data_nascimento: values.dataNascimento ? values.dataNascimento.toISOString() : null,
+            sexo: values.sexo,
+            estado: values.estado,
+            cidade: values.cidade,
+            congregacao: values.congregacao,
+            whatsapp: values.whatsapp
+          },
+        },
+      });
+
+      if (authError) {
+        throw authError;
+      }
+
+      toast.success("Cadastro realizado com sucesso!");
+      
+      // Redirecionar para a página de diagnóstico imediatamente
+      navigate("/diagnostic");
+    } catch (error) {
+      console.error("Erro ao realizar cadastro:", error);
+      toast.error("Erro ao realizar cadastro. Por favor, tente novamente.");
+    }
   }
 
   return (

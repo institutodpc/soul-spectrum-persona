@@ -41,3 +41,16 @@ export interface DiagnosticResult {
   pontuacoes: Record<string, number>;
   perfil: Profile;
 }
+
+export interface User {
+  id: string;
+  email: string;
+  nome: string;
+  sobrenome: string;
+  dataNascimento?: Date;
+  sexo?: string;
+  estado?: string;
+  cidade?: string;
+  congregacao?: string;
+  whatsapp?: string;
+}

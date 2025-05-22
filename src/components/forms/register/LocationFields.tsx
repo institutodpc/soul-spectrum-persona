@@ -1,5 +1,5 @@
 
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useFormContext } from "react-hook-form";
 
 import {
@@ -18,9 +18,36 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { FormValues, estadosBrasileiros } from "./schema";
+import { fetchCitiesByState } from "@/services/locationService";
 
 const LocationFields = () => {
-  const { control } = useFormContext<FormValues>();
+  const { control, setValue, watch } = useFormContext<FormValues>();
+  const [cities, setCities] = useState<string[]>([]);
+  const [loading, setLoading] = useState(false);
+  
+  const selectedState = watch("estado");
+
+  // Efeito para buscar cidades quando o estado é selecionado
+  useEffect(() => {
+    if (selectedState) {
+      setLoading(true);
+      fetchCitiesByState(selectedState)
+        .then(citiesData => {
+          setCities(citiesData);
+          // Limpa a cidade selecionada quando o estado muda
+          setValue("cidade", "");
+        })
+        .catch(error => {
+          console.error("Erro ao buscar cidades:", error);
+          setCities([]);
+        })
+        .finally(() => {
+          setLoading(false);
+        });
+    } else {
+      setCities([]);
+    }
+  }, [selectedState, setValue]);
 
   return (
     <>
@@ -55,9 +82,26 @@ const LocationFields = () => {
         render={({ field }) => (
           <FormItem>
             <FormLabel>Cidade</FormLabel>
-            <FormControl>
-              <Input placeholder="Sua cidade" {...field} />
-            </FormControl>
+            {selectedState ? (
+              <Select onValueChange={field.onChange} value={field.value}>
+                <FormControl>
+                  <SelectTrigger>
+                    <SelectValue placeholder={loading ? "Carregando cidades..." : "Selecione uma cidade"} />
+                  </SelectTrigger>
+                </FormControl>
+                <SelectContent className="max-h-72">
+                  {cities.map((cidade) => (
+                    <SelectItem key={cidade} value={cidade}>
+                      {cidade}
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
+            ) : (
+              <FormControl>
+                <Input placeholder="Selecione um estado primeiro" disabled />
+              </FormControl>
+            )}
             <FormMessage />
           </FormItem>
         )}
