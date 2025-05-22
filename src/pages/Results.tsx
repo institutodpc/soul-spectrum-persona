@@ -1,28 +1,14 @@
 
-import React from "react";
+import React, { useEffect } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import GlassmorphicCard from "@/components/ui-custom/GlassmorphicCard";
 import GradientButton from "@/components/ui-custom/GradientButton";
 import { Separator } from "@/components/ui/separator";
 import { toast } from "sonner";
-
-// Sample profile result for demonstration
-const profileResult = {
-  nome: "O Perfeccionista",
-  emocaoPredominante: "Ansiedade e autocrítica",
-  influenciaDecisoes: "Tende a adiar decisões por medo de cometer erros, busca sempre a opção perfeita.",
-  afetaDestino: "Limitação de oportunidades por medo de falhar ou ser julgado(a).",
-  licaoEspiritual: "Aprender que o crescimento vem através dos erros e imperfeições.",
-  demonioAssociado: "Espírito de controle e rigidez",
-  comoOpera: "Instiga pensamentos de que nada que você faz é bom o suficiente.",
-  artimanhaUtilizada: "Faz você acreditar que só será aceito(a) quando for perfeito(a).",
-  refugioQueProcura: "Controle excessivo e padrões inalcançáveis.",
-  personagemBiblico: "Marta (irmã de Maria e Lázaro)",
-  comoDeusExaltou: "Jesus ensinou Marta sobre a importância de estar em sua presença antes de servir perfeitamente.",
-  formacaoPerfil: "Geralmente formado na infância através de pressões familiares por excelência ou críticas constantes.",
-  doresComum: "Ansiedade, estresse, sentimento de inadequação e exaustão emocional."
-};
+import { DiagnosticResult } from "@/types/diagnostic";
+import { supabase } from "@/integrations/supabase/client";
 
 const ResultItem = ({ label, value }: { label: string; value: string }) => (
   <div className="mb-4">
@@ -32,10 +18,42 @@ const ResultItem = ({ label, value }: { label: string; value: string }) => (
 );
 
 const Results = () => {
+  const location = useLocation();
+  const navigate = useNavigate();
+  const diagnosticResult = location.state?.result as DiagnosticResult | undefined;
+  
+  useEffect(() => {
+    // Check if results exist and authentication
+    const checkAuth = async () => {
+      if (!diagnosticResult) {
+        const { data: { user } } = await supabase.auth.getUser();
+        if (!user) {
+          toast.error("Por favor, faça o diagnóstico primeiro");
+          navigate("/diagnostic");
+        } else {
+          toast.error("Não foi possível carregar os resultados");
+          navigate("/diagnostic");
+        }
+      }
+    };
+    
+    checkAuth();
+  }, [diagnosticResult, navigate]);
+
   const handleDownloadPDF = () => {
-    // In a real implementation, this would generate and download a PDF
+    // For now just show a toast. We'll implement PDF generation later.
     toast.success("Seu diagnóstico está sendo preparado para download!");
   };
+  
+  if (!diagnosticResult || !diagnosticResult.perfil) {
+    return (
+      <div className="min-h-screen flex flex-col items-center justify-center">
+        <p className="text-lg">Carregando resultados...</p>
+      </div>
+    );
+  }
+
+  const profile = diagnosticResult.perfil;
   
   return (
     <div className="min-h-screen flex flex-col relative overflow-hidden">
@@ -57,7 +75,7 @@ const Results = () => {
               <span className="inline-block px-4 py-1 text-sm rounded-full bg-gradient-primary text-white mb-4">
                 Seu diagnóstico espiritual
               </span>
-              <h1 className="text-3xl font-bold holographic-text mb-2">{profileResult.nome}</h1>
+              <h1 className="text-3xl font-bold holographic-text mb-2">{profile.nome}</h1>
               <p className="text-muted-foreground">
                 Este é o perfil espiritual que está predominante em sua vida neste momento
               </p>
@@ -67,20 +85,20 @@ const Results = () => {
             
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               <div>
-                <ResultItem label="Emoção Predominante" value={profileResult.emocaoPredominante} />
-                <ResultItem label="Como influencia nas decisões" value={profileResult.influenciaDecisoes} />
-                <ResultItem label="Como afeta o destino" value={profileResult.afetaDestino} />
-                <ResultItem label="Lição espiritual" value={profileResult.licaoEspiritual} />
-                <ResultItem label="Demônio associado" value={profileResult.demonioAssociado} />
-                <ResultItem label="Como ele opera" value={profileResult.comoOpera} />
+                <ResultItem label="Emoção Predominante" value={profile.emocao_predominante} />
+                <ResultItem label="Como influencia nas decisões" value={profile.influencia} />
+                <ResultItem label="Como afeta o destino" value={profile.destino} />
+                <ResultItem label="Lição espiritual" value={profile.licao_espiritual} />
+                <ResultItem label="Demônio associado" value={profile.demonio_associado} />
+                <ResultItem label="Como ele opera" value={profile.operacao} />
               </div>
               <div>
-                <ResultItem label="Artimanha utilizada" value={profileResult.artimanhaUtilizada} />
-                <ResultItem label="Refúgio que procura" value={profileResult.refugioQueProcura} />
-                <ResultItem label="Personagem bíblico" value={profileResult.personagemBiblico} />
-                <ResultItem label="Como Deus o exaltou" value={profileResult.comoDeusExaltou} />
-                <ResultItem label="Formação do perfil" value={profileResult.formacaoPerfil} />
-                <ResultItem label="Dores em comum" value={profileResult.doresComum} />
+                <ResultItem label="Artimanha utilizada" value={profile.artimanha} />
+                <ResultItem label="Refúgio que procura" value={profile.refugio} />
+                <ResultItem label="Personagem bíblico" value={profile.personagem_biblico} />
+                <ResultItem label="Como Deus o exaltou" value={profile.exaltacao} />
+                <ResultItem label="Formação do perfil" value={profile.formacao} />
+                <ResultItem label="Dores em comum" value={profile.dores?.join(', ') || ''} />
               </div>
             </div>
             

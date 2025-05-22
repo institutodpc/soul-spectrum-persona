@@ -9,7 +9,131 @@ export type Json =
 export type Database = {
   public: {
     Tables: {
-      [_ in never]: never
+      alternativas: {
+        Row: {
+          id: string
+          perfis: string[] | null
+          pergunta_id: string | null
+          texto: string | null
+        }
+        Insert: {
+          id?: string
+          perfis?: string[] | null
+          pergunta_id?: string | null
+          texto?: string | null
+        }
+        Update: {
+          id?: string
+          perfis?: string[] | null
+          pergunta_id?: string | null
+          texto?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "alternativas_pergunta_id_fkey"
+            columns: ["pergunta_id"]
+            isOneToOne: false
+            referencedRelation: "perguntas"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      perfis: {
+        Row: {
+          artimanha: string | null
+          demonio_associado: string | null
+          descricao: string | null
+          destino: string | null
+          dores: string[] | null
+          emocao_predominante: string | null
+          exaltacao: string | null
+          formacao: string | null
+          id: string
+          influencia: string | null
+          licao_espiritual: string | null
+          nome: string | null
+          operacao: string | null
+          personagem_biblico: string | null
+          refugio: string | null
+          slug: string | null
+        }
+        Insert: {
+          artimanha?: string | null
+          demonio_associado?: string | null
+          descricao?: string | null
+          destino?: string | null
+          dores?: string[] | null
+          emocao_predominante?: string | null
+          exaltacao?: string | null
+          formacao?: string | null
+          id?: string
+          influencia?: string | null
+          licao_espiritual?: string | null
+          nome?: string | null
+          operacao?: string | null
+          personagem_biblico?: string | null
+          refugio?: string | null
+          slug?: string | null
+        }
+        Update: {
+          artimanha?: string | null
+          demonio_associado?: string | null
+          descricao?: string | null
+          destino?: string | null
+          dores?: string[] | null
+          emocao_predominante?: string | null
+          exaltacao?: string | null
+          formacao?: string | null
+          id?: string
+          influencia?: string | null
+          licao_espiritual?: string | null
+          nome?: string | null
+          operacao?: string | null
+          personagem_biblico?: string | null
+          refugio?: string | null
+          slug?: string | null
+        }
+        Relationships: []
+      }
+      perguntas: {
+        Row: {
+          id: string
+          texto: string | null
+        }
+        Insert: {
+          id?: string
+          texto?: string | null
+        }
+        Update: {
+          id?: string
+          texto?: string | null
+        }
+        Relationships: []
+      }
+      respostas: {
+        Row: {
+          id: string
+          perfis: string[] | null
+          pergunta_id: string | null
+          resposta: string | null
+          user_id: string | null
+        }
+        Insert: {
+          id?: string
+          perfis?: string[] | null
+          pergunta_id?: string | null
+          resposta?: string | null
+          user_id?: string | null
+        }
+        Update: {
+          id?: string
+          perfis?: string[] | null
+          pergunta_id?: string | null
+          resposta?: string | null
+          user_id?: string | null
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never

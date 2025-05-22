@@ -1,0 +1,53 @@
+
+[
+  {
+    "id": "1",
+    "texto": "Com que frequência você se sente ansioso(a) com relação ao futuro?",
+    "opcoes": [
+      { "id": "1A", "texto": "Quase nunca", "perfis": ["confiante"] },
+      { "id": "1B", "texto": "Ocasionalmente", "perfis": ["equilibrado"] },
+      { "id": "1C", "texto": "Frequentemente", "perfis": ["perfeccionista", "ansioso"] },
+      { "id": "1D", "texto": "Quase sempre", "perfis": ["ansioso", "perfeccionista"] }
+    ]
+  },
+  {
+    "id": "2",
+    "texto": "Você costuma adiar decisões importantes até o último momento?",
+    "opcoes": [
+      { "id": "2A", "texto": "Raramente", "perfis": ["decidido"] },
+      { "id": "2B", "texto": "Às vezes", "perfis": ["equilibrado"] },
+      { "id": "2C", "texto": "Frequentemente", "perfis": ["indeciso", "perfeccionista"] },
+      { "id": "2D", "texto": "Quase sempre", "perfis": ["perfeccionista", "ansioso"] }
+    ]
+  },
+  {
+    "id": "3",
+    "texto": "Você se sente criticado(a) pelos outros com frequência?",
+    "opcoes": [
+      { "id": "3A", "texto": "Raramente", "perfis": ["confiante"] },
+      { "id": "3B", "texto": "Às vezes", "perfis": ["equilibrado"] },
+      { "id": "3C", "texto": "Frequentemente", "perfis": ["culpado", "perfeccionista"] },
+      { "id": "3D", "texto": "Quase sempre", "perfis": ["culpado", "vitima"] }
+    ]
+  },
+  {
+    "id": "4",
+    "texto": "Como você lida com erros que comete?",
+    "opcoes": [
+      { "id": "4A", "texto": "Aceito e aprendo com eles", "perfis": ["equilibrado"] },
+      { "id": "4B", "texto": "Tento corrigir, mas fico frustrado(a)", "perfis": ["perfeccionista"] },
+      { "id": "4C", "texto": "Fico muito crítico(a) comigo mesmo(a)", "perfis": ["perfeccionista", "culpado"] },
+      { "id": "4D", "texto": "Tento esconder ou justificar meus erros", "perfis": ["orgulhoso", "culpado"] }
+    ]
+  },
+  {
+    "id": "5",
+    "texto": "Você sente que precisa controlar situações ao seu redor?",
+    "opcoes": [
+      { "id": "5A", "texto": "Raramente", "perfis": ["equilibrado"] },
+      { "id": "5B", "texto": "Às vezes", "perfis": ["equilibrado"] },
+      { "id": "5C", "texto": "Frequentemente", "perfis": ["controlador", "perfeccionista"] },
+      { "id": "5D", "texto": "Quase sempre", "perfis": ["controlador", "ansioso"] }
+    ]
+  }
+]

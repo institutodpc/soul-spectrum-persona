@@ -9,6 +9,7 @@ import Register from "./pages/Register";
 import Diagnostic from "./pages/Diagnostic";
 import Results from "./pages/Results";
 import NotFound from "./pages/NotFound";
+import Setup from "./pages/Setup";
 
 const queryClient = new QueryClient();
 
@@ -23,6 +24,7 @@ const App = () => (
           <Route path="/register" element={<Register />} />
           <Route path="/diagnostic" element={<Diagnostic />} />
           <Route path="/results" element={<Results />} />
+          <Route path="/setup" element={<Setup />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>

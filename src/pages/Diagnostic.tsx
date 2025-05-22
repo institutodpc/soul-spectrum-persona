@@ -1,95 +1,114 @@
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { toast } from "sonner";
+import { useQuery } from "@tanstack/react-query";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import GlassmorphicCard from "@/components/ui-custom/GlassmorphicCard";
 import GradientButton from "@/components/ui-custom/GradientButton";
 import { Button } from "@/components/ui/button";
 import { Progress } from "@/components/ui/progress";
-
-// Sample questions for demonstration
-const questions = [
-  {
-    id: 1,
-    text: "Com que frequência você se sente ansioso(a) com relação ao futuro?",
-    options: [
-      { id: "a", text: "Quase nunca" },
-      { id: "b", text: "Ocasionalmente" },
-      { id: "c", text: "Frequentemente" },
-      { id: "d", text: "Quase sempre" },
-    ],
-  },
-  {
-    id: 2,
-    text: "Você costuma adiar decisões importantes até o último momento?",
-    options: [
-      { id: "a", text: "Raramente" },
-      { id: "b", text: "Às vezes" },
-      { id: "c", text: "Frequentemente" },
-      { id: "d", text: "Quase sempre" },
-    ],
-  },
-  {
-    id: 3,
-    text: "Você se sente criticado(a) pelos outros com frequência?",
-    options: [
-      { id: "a", text: "Raramente" },
-      { id: "b", text: "Às vezes" },
-      { id: "c", text: "Frequentemente" },
-      { id: "d", text: "Quase sempre" },
-    ],
-  },
-  {
-    id: 4,
-    text: "Como você lida com erros que comete?",
-    options: [
-      { id: "a", text: "Aceito e aprendo com eles" },
-      { id: "b", text: "Tento corrigir, mas fico frustrado(a)" },
-      { id: "c", text: "Fico muito crítico(a) comigo mesmo(a)" },
-      { id: "d", text: "Tento esconder ou justificar meus erros" },
-    ],
-  },
-  {
-    id: 5,
-    text: "Você sente que precisa controlar situações ao seu redor?",
-    options: [
-      { id: "a", text: "Raramente" },
-      { id: "b", text: "Às vezes" },
-      { id: "c", text: "Frequentemente" },
-      { id: "d", text: "Quase sempre" },
-    ],
-  },
-];
+import { fetchQuestions, submitDiagnostic } from "@/services/diagnosticService";
+import { Question, Answer } from "@/types/diagnostic";
+import { supabase } from "@/integrations/supabase/client";
 
 const Diagnostic = () => {
   const navigate = useNavigate();
   const [currentQuestion, setCurrentQuestion] = useState(0);
-  const [answers, setAnswers] = useState<Record<number, string>>({});
+  const [answers, setAnswers] = useState<Answer[]>([]);
   const [selectedOption, setSelectedOption] = useState<string | null>(null);
-  
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  // Fetch questions using React Query
+  const { data: questions, isLoading, error } = useQuery({
+    queryKey: ['questions'],
+    queryFn: fetchQuestions,
+  });
+
+  useEffect(() => {
+    // Check authentication
+    const checkAuth = async () => {
+      const { data: { user } } = await supabase.auth.getUser();
+      if (!user) {
+        toast.error("Por favor, faça login para continuar o diagnóstico");
+        navigate("/register");
+      }
+    };
+    
+    checkAuth();
+  }, [navigate]);
+
+  if (isLoading) {
+    return (
+      <div className="min-h-screen flex flex-col items-center justify-center">
+        <p className="text-lg">Carregando perguntas...</p>
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className="min-h-screen flex flex-col items-center justify-center">
+        <p className="text-lg text-red-500">Erro ao carregar perguntas. Por favor, tente novamente.</p>
+        <Button onClick={() => window.location.reload()} className="mt-4">
+          Tentar novamente
+        </Button>
+      </div>
+    );
+  }
+
+  if (!questions || questions.length === 0) {
+    return (
+      <div className="min-h-screen flex flex-col items-center justify-center">
+        <p className="text-lg text-amber-500">Nenhuma pergunta encontrada.</p>
+      </div>
+    );
+  }
+
   const totalQuestions = questions.length;
   const progress = ((currentQuestion + 1) / totalQuestions) * 100;
   
-  const handleOptionSelect = (optionId: string) => {
-    setSelectedOption(optionId);
+  const handleOptionSelect = (optionId: string, selectedQuestion: Question) => {
+    const selectedOptionData = selectedQuestion.opcoes.find(option => option.id === optionId);
+    if (selectedOptionData) {
+      setSelectedOption(optionId);
+    }
   };
   
-  const handleNext = () => {
+  const handleNext = async () => {
     if (selectedOption) {
-      // Save the current answer
-      setAnswers({
-        ...answers,
-        [questions[currentQuestion].id]: selectedOption,
-      });
+      const currentQuestionData = questions[currentQuestion];
+      const selectedOptionData = currentQuestionData.opcoes.find(option => option.id === selectedOption);
       
-      // Move to next question or finish
-      if (currentQuestion < totalQuestions - 1) {
-        setCurrentQuestion(currentQuestion + 1);
-        setSelectedOption(null);
-      } else {
-        // Process answers and navigate to results
-        navigate("/results");
+      if (selectedOptionData) {
+        // Save the current answer
+        const newAnswer: Answer = {
+          perguntaId: currentQuestionData.id,
+          resposta: selectedOptionData.texto,
+          perfis: selectedOptionData.perfis,
+        };
+        
+        const updatedAnswers = [...answers, newAnswer];
+        setAnswers(updatedAnswers);
+        
+        // Move to next question or finish
+        if (currentQuestion < totalQuestions - 1) {
+          setCurrentQuestion(currentQuestion + 1);
+          setSelectedOption(null);
+        } else {
+          // Submit all answers and navigate to results
+          setIsSubmitting(true);
+          try {
+            const result = await submitDiagnostic(updatedAnswers);
+            navigate("/results", { state: { result } });
+          } catch (error) {
+            console.error("Error submitting diagnostic:", error);
+            toast.error("Houve um erro ao processar seu diagnóstico. Por favor, tente novamente.");
+          } finally {
+            setIsSubmitting(false);
+          }
+        }
       }
     }
   };
@@ -97,8 +116,21 @@ const Diagnostic = () => {
   const handlePrevious = () => {
     if (currentQuestion > 0) {
       setCurrentQuestion(currentQuestion - 1);
-      // Restore previous answer if available
-      setSelectedOption(answers[questions[currentQuestion - 1].id] || null);
+      // Remove the last answer
+      const updatedAnswers = [...answers];
+      updatedAnswers.pop();
+      setAnswers(updatedAnswers);
+      
+      // Restore previous selection if available
+      const previousQuestion = questions[currentQuestion - 1];
+      const previousAnswer = answers.find(a => a.perguntaId === previousQuestion.id);
+      
+      if (previousAnswer) {
+        const previousOption = previousQuestion.opcoes.find(o => o.texto === previousAnswer.resposta);
+        setSelectedOption(previousOption?.id || null);
+      } else {
+        setSelectedOption(null);
+      }
     }
   };
 
@@ -129,10 +161,10 @@ const Diagnostic = () => {
             </div>
 
             <div className="space-y-8">
-              <h2 className="text-xl font-medium">{currentQuestionData.text}</h2>
+              <h2 className="text-xl font-medium">{currentQuestionData.texto}</h2>
               
               <div className="space-y-4">
-                {currentQuestionData.options.map((option) => (
+                {currentQuestionData.opcoes.map((option) => (
                   <div 
                     key={option.id} 
                     className={`p-4 rounded-lg border transition-all cursor-pointer ${
@@ -140,7 +172,7 @@ const Diagnostic = () => {
                         ? "border-dpc-pink bg-dpc-pink/5" 
                         : "border-border hover:border-dpc-coral/50"
                     }`}
-                    onClick={() => handleOptionSelect(option.id)}
+                    onClick={() => handleOptionSelect(option.id, currentQuestionData)}
                   >
                     <div className="flex items-center">
                       <div 
@@ -154,7 +186,7 @@ const Diagnostic = () => {
                           <div className="w-3 h-3 rounded-full bg-dpc-pink" />
                         )}
                       </div>
-                      <span>{option.text}</span>
+                      <span>{option.texto}</span>
                     </div>
                   </div>
                 ))}
@@ -170,7 +202,7 @@ const Diagnostic = () => {
                 </Button>
                 <GradientButton 
                   onClick={handleNext} 
-                  disabled={!selectedOption}
+                  disabled={!selectedOption || isSubmitting}
                 >
                   {currentQuestion < totalQuestions - 1 ? "Próxima" : "Finalizar"}
                 </GradientButton>
