@@ -82,104 +82,107 @@ const RegisterForm = () => {
       
       console.log("Form values:", values);
       
-      // Verificar se o usuário já existe usando auth.signUp
-      const { data: checkData, error: checkError } = await supabase.auth.signUp({
-        email: values.email,
-        password: "check-only",
-        options: { emailRedirectTo: window.location.origin }
-      });
-      
-      if (checkError) {
-        console.error("Erro ao verificar e-mail:", checkError);
-        
-        // Verificar se é erro de rate limit
-        if (checkError.message.includes("security purposes") && checkError.message.includes("after")) {
-          // Extrair o tempo de espera do erro
-          const waitTimeMatch = checkError.message.match(/after (\d+) seconds/);
+      // Registrar usuário no Supabase Auth diretamente sem verificação prévia
+      try {
+        const { data: authData, error: authError } = await supabase.auth.signUp({
+          email: values.email,
+          password: cleanWhatsApp, // Usando o WhatsApp como senha (simplificado)
+          options: {
+            data: {
+              nome: values.nome,
+              sobrenome: values.sobrenome,
+              data_nascimento: values.dataNascimento ? values.dataNascimento.toISOString() : null,
+              sexo: values.sexo,
+              estado: values.estado,
+              cidade: values.cidade,
+              congregacao: values.congregacao,
+              whatsapp: values.whatsapp
+            },
+          },
+        });
+
+        if (authError) {
+          console.error("Erro de autenticação:", authError);
           
-          if (waitTimeMatch && waitTimeMatch[1]) {
-            const waitTime = parseInt(waitTimeMatch[1], 10);
-            setRegistrationError(`Por motivos de segurança, você só pode solicitar isto após ${waitTime} segundos.`);
+          // Handle rate limiting errors
+          if (authError.message.includes("security purposes") && authError.message.includes("after")) {
+            // Extract wait time from error message
+            const waitTimeMatch = authError.message.match(/after (\d+) seconds/);
             
-            // Iniciar um contador para exibir quanto tempo falta
-            let timeLeft = waitTime;
-            const timerId = window.setInterval(() => {
-              timeLeft--;
-              setRegistrationError(`Por motivos de segurança, você só pode solicitar isto após ${timeLeft} segundos.`);
+            if (waitTimeMatch && waitTimeMatch[1]) {
+              const waitTime = parseInt(waitTimeMatch[1], 10);
+              setRegistrationError(`Por motivos de segurança, você só pode solicitar isto após ${waitTime} segundos.`);
               
-              if (timeLeft <= 0) {
-                clearInterval(timerId);
-                setRegistrationError(null);
-                setRateLimitTimer(null);
-              }
-            }, 1000);
+              // Start countdown timer
+              let timeLeft = waitTime;
+              const timerId = window.setInterval(() => {
+                timeLeft--;
+                setRegistrationError(`Por motivos de segurança, você só pode solicitar isto após ${timeLeft} segundos.`);
+                
+                if (timeLeft <= 0) {
+                  clearInterval(timerId);
+                  setRegistrationError(null);
+                  setRateLimitTimer(null);
+                }
+              }, 1000);
+              
+              setRateLimitTimer(timerId);
+            } else {
+              setRegistrationError("Muitas tentativas em um curto período. Por favor, aguarde alguns minutos e tente novamente.");
+            }
+          } else if (authError.message.includes("User already registered")) {
+            // If user already exists, try to sign in directly
+            const { error: signInError } = await supabase.auth.signInWithPassword({
+              email: values.email,
+              password: cleanWhatsApp,
+            });
             
-            setRateLimitTimer(timerId);
-            setIsSubmitting(false);
-            return;
+            if (signInError) {
+              setRegistrationError("Este e-mail já está cadastrado. Verifique sua senha (WhatsApp) e tente novamente.");
+            } else {
+              toast.success("Login realizado com sucesso! Redirecionando para o diagnóstico...");
+              setTimeout(() => {
+                navigate("/diagnostic");
+              }, 1000);
+              return;
+            }
+          } else {
+            setRegistrationError("Erro ao realizar cadastro: " + authError.message);
           }
-        }
-        
-        // Verificar se usuário já existe
-        if (checkError.message.includes("User already registered")) {
-          setRegistrationError("Este e-mail já está cadastrado. Por favor, tente fazer login.");
+          
           setIsSubmitting(false);
           return;
-        } else {
-          throw new Error(checkError.message);
         }
-      }
-      
-      // Registrar usuário no Supabase Auth
-      const { data: authData, error: authError } = await supabase.auth.signUp({
-        email: values.email,
-        password: cleanWhatsApp, // Usando o WhatsApp como senha (simplificado)
-        options: {
-          data: {
-            nome: values.nome,
-            sobrenome: values.sobrenome,
-            data_nascimento: values.dataNascimento ? values.dataNascimento.toISOString() : null,
-            sexo: values.sexo,
-            estado: values.estado,
-            cidade: values.cidade,
-            congregacao: values.congregacao,
-            whatsapp: values.whatsapp
-          },
-        },
-      });
 
-      if (authError) {
-        console.error("Erro de autenticação:", authError);
-        if (authError.message.includes("rate limit")) {
-          setRegistrationError("Muitas tentativas em um curto período. Por favor, aguarde alguns minutos e tente novamente.");
-        } else {
-          throw new Error("Erro ao realizar cadastro: " + authError.message);
+        if (!authData.user) {
+          throw new Error("Erro ao criar usuário. Nenhum usuário retornado pela API.");
         }
+
+        toast.success("Cadastro realizado com sucesso! Redirecionando para o diagnóstico...");
+        
+        // Sign in the user automatically after successful registration
+        const { error: signInError } = await supabase.auth.signInWithPassword({
+          email: values.email,
+          password: cleanWhatsApp,
+        });
+        
+        if (signInError) {
+          console.error("Erro ao fazer login automático:", signInError);
+          toast.error("Cadastro realizado, mas não foi possível fazer login automático. Por favor, faça login manualmente.");
+          setTimeout(() => {
+            navigate("/login");
+          }, 1500);
+        } else {
+          // Redirect to diagnostic page after successful login
+          setTimeout(() => {
+            navigate("/diagnostic");
+          }, 1000);
+        }
+      } catch (error: any) {
+        console.error("Erro durante o processo de autenticação:", error);
+        setRegistrationError("Erro durante o processo de autenticação. Por favor, tente novamente.");
         setIsSubmitting(false);
-        return;
       }
-
-      if (!authData.user) {
-        throw new Error("Erro ao criar usuário. Nenhum usuário retornado pela API.");
-      }
-
-      toast.success("Cadastro realizado com sucesso! Redirecionando para o diagnóstico...");
-      
-      // Sign in the user automatically after successful registration
-      const { error: signInError } = await supabase.auth.signInWithPassword({
-        email: values.email,
-        password: cleanWhatsApp,
-      });
-      
-      if (signInError) {
-        console.error("Erro ao fazer login automático:", signInError);
-        toast.error("Cadastro realizado, mas não foi possível fazer login automático. Por favor, faça login manualmente.");
-      }
-      
-      // Redirecionar para a página de diagnóstico após um pequeno delay para mostrar a mensagem de sucesso
-      setTimeout(() => {
-        navigate("/diagnostic");
-      }, 1500);
     } catch (error: any) {
       console.error("Erro ao realizar cadastro:", error);
       setRegistrationError(error.message || "Erro ao realizar cadastro. Por favor, tente novamente.");

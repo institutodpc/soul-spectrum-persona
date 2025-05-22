@@ -21,12 +21,20 @@ const DiagnosticQuestion = ({
         {question.opcoes.map((option) => (
           <div 
             key={option.id} 
-            className={`p-4 rounded-lg border transition-all cursor-pointer ${
+            className={`p-4 rounded-lg border transition-all cursor-pointer hover:shadow-md ${
               selectedOption === option.id 
                 ? "border-2 border-dpc-pink bg-dpc-pink/5 shadow-md" 
                 : "border-border hover:border-dpc-coral/50"
             }`}
             onClick={() => onOptionSelect(option.id, question)}
+            role="button"
+            aria-pressed={selectedOption === option.id}
+            tabIndex={0}
+            onKeyDown={(e) => {
+              if (e.key === 'Enter' || e.key === ' ') {
+                onOptionSelect(option.id, question);
+              }
+            }}
           >
             <div className="flex items-center">
               <div 
@@ -40,7 +48,7 @@ const DiagnosticQuestion = ({
                   <div className="w-3 h-3 rounded-full bg-dpc-pink animate-pulse" />
                 )}
               </div>
-              <span className={`${selectedOption === option.id ? "font-medium" : ""}`}>
+              <span className={`${selectedOption === option.id ? "font-medium text-dpc-pink" : ""}`}>
                 {option.texto}
               </span>
             </div>
