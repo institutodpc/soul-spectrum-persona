@@ -1,3 +1,4 @@
+
 import React from "react";
 import { format } from "date-fns";
 import { ptBR } from "date-fns/locale";
@@ -11,6 +12,7 @@ import { Calendar } from "@/components/ui/calendar";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { cn } from "@/lib/utils";
 import { FormValues } from "./schema";
+
 const PersonalInfoFields = () => {
   const {
     control,
@@ -40,6 +42,7 @@ const PersonalInfoFields = () => {
       }
     }
   };
+
   return <>
       <FormField control={control} name="nome" render={({
       field
@@ -66,12 +69,26 @@ const PersonalInfoFields = () => {
     }) => <FormItem className="flex flex-col">
             <FormLabel>Data de Nascimento</FormLabel>
             <div className="flex items-center space-x-2">
-              <Input placeholder="DD/MM/AAAA" value={field.value ? format(field.value, "dd/MM/yyyy", {
-          locale: ptBR
-        }) : ""} onChange={handleDateInput} className="w-full" />
+              <Input 
+                placeholder="DD/MM/AAAA" 
+                value={field.value ? format(field.value, "dd/MM/yyyy", {
+                  locale: ptBR
+                }) : ""} 
+                onChange={handleDateInput} 
+                className="w-full" 
+              />
               <Popover>
                 <PopoverTrigger asChild>
-                  
+                  <Button
+                    variant="outline"
+                    className={cn(
+                      "w-10 p-0",
+                      !field.value && "text-muted-foreground"
+                    )}
+                    type="button"
+                  >
+                    <CalendarIcon className="h-4 w-4" />
+                  </Button>
                 </PopoverTrigger>
                 <PopoverContent className="w-auto p-0 z-50 pointer-events-auto" align="start">
                   <Calendar mode="single" selected={field.value} onSelect={field.onChange} disabled={date => date > new Date() || date < new Date("1900-01-01")} initialFocus locale={ptBR} className="p-3 pointer-events-auto" />
@@ -105,4 +122,5 @@ const PersonalInfoFields = () => {
           </FormItem>} />
     </>;
 };
+
 export default PersonalInfoFields;

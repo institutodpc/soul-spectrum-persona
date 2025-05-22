@@ -13,9 +13,12 @@ import LocationFields from "./register/LocationFields";
 import ContactFields from "./register/ContactFields";
 import TermsField from "./register/TermsField";
 import { supabase } from "@/integrations/supabase/client";
+import { Alert, AlertDescription } from "@/components/ui/alert";
+import { AlertCircle } from "lucide-react";
 
 const RegisterForm = () => {
   const navigate = useNavigate();
+  const [registrationError, setRegistrationError] = React.useState<string | null>(null);
   const methods = useForm<FormValues>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -31,7 +34,25 @@ const RegisterForm = () => {
 
   async function onSubmit(values: FormValues) {
     try {
+      setRegistrationError(null);
       console.log(values);
+      
+      // Verificar se o usuário já existe
+      const { data: existingUsers, error: checkError } = await supabase
+        .from('profiles')
+        .select('*')
+        .eq('email', values.email)
+        .maybeSingle();
+      
+      if (checkError) {
+        console.error("Erro ao verificar usuário existente:", checkError);
+        throw new Error("Erro ao verificar dados. Por favor, tente novamente.");
+      }
+      
+      if (existingUsers) {
+        setRegistrationError("Este e-mail já está cadastrado. Por favor, tente fazer login.");
+        return;
+      }
       
       // Registrar usuário no Supabase Auth
       const { data: authData, error: authError } = await supabase.auth.signUp({
@@ -52,16 +73,22 @@ const RegisterForm = () => {
       });
 
       if (authError) {
-        throw authError;
+        console.error("Erro de autenticação:", authError);
+        throw new Error("Erro ao realizar cadastro: " + authError.message);
+      }
+
+      if (!authData.user) {
+        throw new Error("Erro ao criar usuário.");
       }
 
       toast.success("Cadastro realizado com sucesso!");
       
       // Redirecionar para a página de diagnóstico imediatamente
       navigate("/diagnostic");
-    } catch (error) {
+    } catch (error: any) {
       console.error("Erro ao realizar cadastro:", error);
-      toast.error("Erro ao realizar cadastro. Por favor, tente novamente.");
+      setRegistrationError(error.message || "Erro ao realizar cadastro. Por favor, tente novamente.");
+      toast.error("Erro ao realizar cadastro.");
     }
   }
 
@@ -69,6 +96,15 @@ const RegisterForm = () => {
     <FormProvider {...methods}>
       <Form {...methods}>
         <form onSubmit={methods.handleSubmit(onSubmit)} className="space-y-6">
+          {registrationError && (
+            <Alert variant="destructive" className="mb-4">
+              <AlertCircle className="h-4 w-4" />
+              <AlertDescription>
+                {registrationError}
+              </AlertDescription>
+            </Alert>
+          )}
+          
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <PersonalInfoFields />
             <LocationFields />
