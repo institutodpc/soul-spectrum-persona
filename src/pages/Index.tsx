@@ -1,20 +1,15 @@
-
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import GradientButton from "@/components/ui-custom/GradientButton";
 import GlassmorphicCard from "@/components/ui-custom/GlassmorphicCard";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
-
 const Index = () => {
   const navigate = useNavigate();
-
   const handleStartClick = () => {
     navigate('/register');
   };
-
-  return (
-    <div className="min-h-screen flex flex-col relative overflow-hidden">
+  return <div className="min-h-screen flex flex-col relative overflow-hidden">
       {/* Animated background elements */}
       <div className="absolute inset-0 -z-10">
         <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-dpc-pink/10 via-dpc-coral/10 to-purple-500/10 animate-background-gradient"></div>
@@ -33,9 +28,8 @@ const Index = () => {
             <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight holographic-text">
               DPC Persona
             </h1>
-            <p className="text-xl sm:text-2xl md:text-3xl max-w-3xl mx-auto">
-              Descubra qual perfil espiritual está te influenciando hoje
-            </p>
+            <p className="text-xl sm:text-2xl md:text-3xl max-w-3xl mx-auto">Descubra qual perfil espiritual
+está te influenciando hoje</p>
           </div>
 
           {/* Feature cards */}
@@ -87,15 +81,9 @@ const Index = () => {
               neste momento é o primeiro passo para crescimento espiritual.
             </p>
             <div className="flex flex-wrap justify-center gap-2">
-              {[
-                "O Lamentador", "O Perfeccionista", "O Procrastinador",
-                "O Inseguro", "O Controlador", "O Mentiroso", "O Hipócrita",
-                "O Invejoso", "O Orgulhoso", "O Vitimista"
-              ].map((perfil) => (
-                <span key={perfil} className="px-3 py-1 text-xs rounded-full bg-white/10 border border-white/20">
+              {["O Lamentador", "O Perfeccionista", "O Procrastinador", "O Inseguro", "O Controlador", "O Mentiroso", "O Hipócrita", "O Invejoso", "O Orgulhoso", "O Vitimista"].map(perfil => <span key={perfil} className="px-3 py-1 text-xs rounded-full bg-white/10 border border-white/20">
                   {perfil}
-                </span>
-              ))}
+                </span>)}
               <span className="px-3 py-1 text-xs rounded-full bg-white/10 border border-white/20">
                 E outros 23 perfis...
               </span>
@@ -106,8 +94,6 @@ const Index = () => {
 
       {/* Footer */}
       <Footer />
-    </div>
-  );
+    </div>;
 };
-
 export default Index;
