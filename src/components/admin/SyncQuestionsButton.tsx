@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { toast } from "sonner";
 import { syncQuestions } from "@/scripts/syncQuestions";
+import { Loader2 } from "lucide-react";
 
 const SyncQuestionsButton = () => {
   const [isLoading, setIsLoading] = useState(false);
@@ -30,7 +31,14 @@ const SyncQuestionsButton = () => {
       disabled={isLoading} 
       variant="outline"
     >
-      {isLoading ? "Sincronizando..." : "Sincronizar Perguntas"}
+      {isLoading ? (
+        <>
+          <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+          Sincronizando...
+        </>
+      ) : (
+        "Sincronizar Perguntas"
+      )}
     </Button>
   );
 };
