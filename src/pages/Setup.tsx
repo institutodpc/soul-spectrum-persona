@@ -1,47 +1,46 @@
 
 import React from "react";
-import { useNavigate } from "react-router-dom";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import GlassmorphicCard from "@/components/ui-custom/GlassmorphicCard";
-import GradientButton from "@/components/ui-custom/GradientButton";
 import SeedProfilesButton from "@/components/admin/SeedProfilesButton";
+import SyncQuestionsButton from "@/components/admin/SyncQuestionsButton";
 
 const Setup = () => {
-  const navigate = useNavigate();
-  
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col relative">
+      {/* Animated background elements */}
+      <div className="absolute inset-0 -z-10">
+        <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-dpc-pink/10 via-dpc-coral/10 to-purple-500/10 animate-background-gradient"></div>
+        <div className="absolute top-1/3 right-1/3 w-96 h-96 rounded-full bg-dpc-pink/20 blur-3xl animate-pulse-light"></div>
+        <div className="absolute bottom-1/4 left-1/4 w-64 h-64 rounded-full bg-dpc-coral/20 blur-3xl animate-float"></div>
+      </div>
+
+      {/* Navbar */}
       <Navbar />
-      
-      <main className="flex-grow flex items-center justify-center p-4">
-        <div className="max-w-lg w-full">
-          <GlassmorphicCard className="p-6">
-            <h1 className="text-2xl font-bold text-center mb-6">Configuração Inicial</h1>
-            
-            <div className="space-y-6">
-              <div className="p-4 border rounded-lg">
-                <h2 className="font-semibold mb-2">1. Adicionar Perfis Exemplo</h2>
-                <p className="text-sm text-muted-foreground mb-4">
-                  Clique no botão abaixo para adicionar alguns perfis exemplo ao banco de dados.
-                </p>
-                <SeedProfilesButton />
-              </div>
-              
-              <div className="p-4 border rounded-lg">
-                <h2 className="font-semibold mb-2">2. Próximos Passos</h2>
-                <p className="text-sm text-muted-foreground mb-4">
-                  Após adicionar os perfis, você pode começar a usar o diagnóstico espiritual.
-                </p>
-                <GradientButton onClick={() => navigate("/diagnostic")} className="w-full">
-                  Ir para o Diagnóstico
-                </GradientButton>
-              </div>
+
+      {/* Main content */}
+      <main className="flex-grow flex items-center justify-center px-4 sm:px-6 lg:px-8 py-20">
+        <GlassmorphicCard className="p-6 md:p-8 max-w-2xl w-full">
+          <h1 className="text-2xl font-bold mb-6 text-center">Configuração do Sistema</h1>
+          
+          <div className="space-y-6">
+            <div className="p-4 border rounded-lg">
+              <h2 className="text-xl font-medium mb-4">Perfis</h2>
+              <p className="mb-4">Adicione perfis de exemplo para o diagnóstico.</p>
+              <SeedProfilesButton />
             </div>
-          </GlassmorphicCard>
-        </div>
+            
+            <div className="p-4 border rounded-lg">
+              <h2 className="text-xl font-medium mb-4">Perguntas e Alternativas</h2>
+              <p className="mb-4">Sincronize as perguntas e alternativas com o banco de dados.</p>
+              <SyncQuestionsButton />
+            </div>
+          </div>
+        </GlassmorphicCard>
       </main>
-      
+
+      {/* Footer */}
       <Footer />
     </div>
   );
