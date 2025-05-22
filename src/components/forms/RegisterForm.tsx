@@ -38,6 +38,7 @@ import { toast } from "sonner";
 import { useNavigate } from "react-router-dom";
 import GradientButton from "@/components/ui-custom/GradientButton";
 
+// Modified the form schema to accept boolean for aceitoTermos instead of literal true
 const formSchema = z.object({
   nome: z.string().min(2, {
     message: "O nome deve ter pelo menos 2 caracteres.",
@@ -66,9 +67,9 @@ const formSchema = z.object({
   whatsapp: z.string().min(10, {
     message: "Por favor, informe um número de WhatsApp válido.",
   }),
-  aceitoTermos: z.literal(true, {
-    errorMap: () => ({ message: "Você precisa aceitar os termos de uso." }),
-  }),
+  aceitoTermos: z.boolean().refine(val => val === true, {
+    message: "Você precisa aceitar os termos de uso."
+  })
 });
 
 type FormValues = z.infer<typeof formSchema>;
