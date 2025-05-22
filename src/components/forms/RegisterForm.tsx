@@ -19,6 +19,8 @@ import { AlertCircle } from "lucide-react";
 const RegisterForm = () => {
   const navigate = useNavigate();
   const [registrationError, setRegistrationError] = React.useState<string | null>(null);
+  const [isSubmitting, setIsSubmitting] = React.useState(false);
+  
   const methods = useForm<FormValues>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -34,8 +36,9 @@ const RegisterForm = () => {
 
   async function onSubmit(values: FormValues) {
     try {
+      setIsSubmitting(true);
       setRegistrationError(null);
-      console.log(values);
+      console.log("Form values:", values);
       
       // Verificar se o usuário já existe usando auth.signUp
       const { data: checkData, error: checkError } = await supabase.auth.signUp({
@@ -44,15 +47,28 @@ const RegisterForm = () => {
         options: { emailRedirectTo: window.location.origin }
       });
       
-      if (checkError && checkError.message.includes("User already registered")) {
-        setRegistrationError("Este e-mail já está cadastrado. Por favor, tente fazer login.");
+      if (checkError) {
+        console.error("Erro ao verificar e-mail:", checkError);
+        if (checkError.message.includes("User already registered")) {
+          setRegistrationError("Este e-mail já está cadastrado. Por favor, tente fazer login.");
+          return;
+        } else {
+          throw new Error(checkError.message);
+        }
+      }
+      
+      // Formatar o número de WhatsApp para ser usado como senha (apenas dígitos)
+      const cleanWhatsApp = values.whatsapp.replace(/\D/g, '');
+      
+      if (cleanWhatsApp.length < 8) {
+        setRegistrationError("O número de WhatsApp fornecido é muito curto para ser usado como senha.");
         return;
       }
       
       // Registrar usuário no Supabase Auth
       const { data: authData, error: authError } = await supabase.auth.signUp({
         email: values.email,
-        password: values.whatsapp.replace(/\D/g, ''), // Usando o WhatsApp como senha (simplificado)
+        password: cleanWhatsApp, // Usando o WhatsApp como senha (simplificado)
         options: {
           data: {
             nome: values.nome,
@@ -73,7 +89,7 @@ const RegisterForm = () => {
       }
 
       if (!authData.user) {
-        throw new Error("Erro ao criar usuário.");
+        throw new Error("Erro ao criar usuário. Nenhum usuário retornado pela API.");
       }
 
       toast.success("Cadastro realizado com sucesso!");
@@ -84,6 +100,8 @@ const RegisterForm = () => {
       console.error("Erro ao realizar cadastro:", error);
       setRegistrationError(error.message || "Erro ao realizar cadastro. Por favor, tente novamente.");
       toast.error("Erro ao realizar cadastro.");
+    } finally {
+      setIsSubmitting(false);
     }
   }
 
@@ -108,8 +126,12 @@ const RegisterForm = () => {
 
           <TermsField />
 
-          <GradientButton type="submit" className="w-full py-6">
-            Descobrir meu Perfil
+          <GradientButton 
+            type="submit" 
+            className="w-full py-6"
+            disabled={isSubmitting}
+          >
+            {isSubmitting ? "Processando..." : "Descobrir meu Perfil"}
           </GradientButton>
         </form>
       </Form>
