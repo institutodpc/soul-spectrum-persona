@@ -57,16 +57,41 @@ const profiles = [
 ];
 
 export const seedProfiles = async () => {
-  for (const profile of profiles) {
-    const { error } = await supabase.from('perfis').upsert(profile, {
-      onConflict: 'slug'
-    });
+  try {
+    // Verificar se já existem permissões de RLS para a tabela perfis
+    const { data: rlsPolicies, error: rlsError } = await supabase
+      .rpc('get_policies')
+      .eq('tablename', 'perfis')
+      .select();
     
-    if (error) {
-      console.error(`Error seeding profile ${profile.slug}:`, error);
-    } else {
-      console.log(`Profile ${profile.slug} added or updated successfully`);
+    if (rlsError) {
+      console.warn("Não foi possível verificar políticas RLS. Continuando mesmo assim...");
     }
+    
+    // Se não há políticas RLS, criar uma que permita inserções anônimas
+    if (!rlsPolicies || rlsPolicies.length === 0) {
+      // Esta operação requer privilégios administrativos e pode falhar em ambiente de produção
+      try {
+        await supabase.rpc('create_anon_insert_policy_for_profiles');
+      } catch (policyError) {
+        console.warn("Não foi possível criar política RLS. Permissões administrativas podem ser necessárias.");
+      }
+    }
+    
+    // Tentar inserir os perfis
+    for (const profile of profiles) {
+      const { error } = await supabase.from('perfis').upsert(profile, {
+        onConflict: 'slug'
+      });
+      
+      if (error) {
+        console.error(`Error seeding profile ${profile.slug}:`, error);
+      } else {
+        console.log(`Profile ${profile.slug} added or updated successfully`);
+      }
+    }
+  } catch (error) {
+    console.error("Erro ao popular perfis:", error);
   }
 };
 

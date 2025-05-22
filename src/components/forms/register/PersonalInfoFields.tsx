@@ -43,30 +43,41 @@ const PersonalInfoFields = () => {
     }
   };
 
-  return <>
-      <FormField control={control} name="nome" render={({
-      field
-    }) => <FormItem>
+  return (
+    <>
+      <FormField
+        control={control}
+        name="nome"
+        render={({ field }) => (
+          <FormItem>
             <FormLabel>Nome</FormLabel>
             <FormControl>
               <Input placeholder="Seu nome" {...field} />
             </FormControl>
             <FormMessage />
-          </FormItem>} />
+          </FormItem>
+        )}
+      />
       
-      <FormField control={control} name="sobrenome" render={({
-      field
-    }) => <FormItem>
+      <FormField
+        control={control}
+        name="sobrenome"
+        render={({ field }) => (
+          <FormItem>
             <FormLabel>Sobrenome</FormLabel>
             <FormControl>
               <Input placeholder="Seu sobrenome" {...field} />
             </FormControl>
             <FormMessage />
-          </FormItem>} />
+          </FormItem>
+        )}
+      />
 
-      <FormField control={control} name="dataNascimento" render={({
-      field
-    }) => <FormItem className="flex flex-col">
+      <FormField
+        control={control}
+        name="dataNascimento"
+        render={({ field }) => (
+          <FormItem className="flex flex-col">
             <FormLabel>Data de Nascimento</FormLabel>
             <div className="flex items-center space-x-2">
               <Input 
@@ -91,19 +102,35 @@ const PersonalInfoFields = () => {
                   </Button>
                 </PopoverTrigger>
                 <PopoverContent className="w-auto p-0 z-50 pointer-events-auto" align="start">
-                  <Calendar mode="single" selected={field.value} onSelect={field.onChange} disabled={date => date > new Date() || date < new Date("1900-01-01")} initialFocus locale={ptBR} className="p-3 pointer-events-auto" />
+                  <Calendar 
+                    mode="single" 
+                    selected={field.value} 
+                    onSelect={field.onChange} 
+                    disabled={(date) => date > new Date() || date < new Date("1900-01-01")} 
+                    initialFocus 
+                    locale={ptBR} 
+                    className="p-3 pointer-events-auto" 
+                  />
                 </PopoverContent>
               </Popover>
             </div>
             <FormMessage />
-          </FormItem>} />
+          </FormItem>
+        )}
+      />
 
-      <FormField control={control} name="sexo" render={({
-      field
-    }) => <FormItem className="space-y-3">
+      <FormField
+        control={control}
+        name="sexo"
+        render={({ field }) => (
+          <FormItem className="space-y-3">
             <FormLabel>Sexo</FormLabel>
             <FormControl>
-              <RadioGroup onValueChange={field.onChange} defaultValue={field.value} className="flex flex-col space-y-1">
+              <RadioGroup 
+                onValueChange={field.onChange} 
+                defaultValue={field.value} 
+                className="flex flex-col space-y-1"
+              >
                 <div className="flex items-center space-x-2">
                   <RadioGroupItem value="masculino" id="masculino" />
                   <label htmlFor="masculino" className="text-sm">Masculino</label>
@@ -119,8 +146,11 @@ const PersonalInfoFields = () => {
               </RadioGroup>
             </FormControl>
             <FormMessage />
-          </FormItem>} />
-    </>;
+          </FormItem>
+        )}
+      />
+    </>
+  );
 };
 
 export default PersonalInfoFields;
