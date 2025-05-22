@@ -11,7 +11,8 @@ import { FormValues } from "./schema";
 const PersonalInfoFields = () => {
   const {
     control,
-    setValue
+    setValue,
+    formState: { errors }
   } = useFormContext<FormValues>();
 
   // Função para lidar com a entrada manual de data
@@ -25,11 +26,25 @@ const PersonalInfoFields = () => {
           const day = parseInt(parts[0], 10);
           const month = parseInt(parts[1], 10) - 1; // Mês é baseado em zero (0-11)
           const year = parseInt(parts[2], 10);
-          const date = new Date(year, month, day);
-
-          // Verifica se a data é válida
-          if (!isNaN(date.getTime())) {
-            setValue('dataNascimento', date);
+          
+          // Verifica se os números são válidos
+          if (
+            !isNaN(day) && 
+            !isNaN(month) && 
+            !isNaN(year) && 
+            day > 0 && 
+            day <= 31 && 
+            month >= 0 && 
+            month <= 11 && 
+            year >= 1900 && 
+            year <= new Date().getFullYear()
+          ) {
+            const date = new Date(year, month, day);
+            
+            // Verifica se a data é válida e não está no futuro
+            if (!isNaN(date.getTime()) && date <= new Date()) {
+              setValue('dataNascimento', date);
+            }
           }
         }
       } catch (error) {
@@ -45,9 +60,14 @@ const PersonalInfoFields = () => {
         name="nome"
         render={({ field }) => (
           <FormItem>
-            <FormLabel>Nome</FormLabel>
+            <FormLabel>Nome *</FormLabel>
             <FormControl>
-              <Input placeholder="Seu nome" {...field} />
+              <Input 
+                placeholder="Seu nome" 
+                {...field} 
+                className={errors.nome ? "border-red-500" : ""}
+                autoComplete="given-name"
+              />
             </FormControl>
             <FormMessage />
           </FormItem>
@@ -59,9 +79,14 @@ const PersonalInfoFields = () => {
         name="sobrenome"
         render={({ field }) => (
           <FormItem>
-            <FormLabel>Sobrenome</FormLabel>
+            <FormLabel>Sobrenome *</FormLabel>
             <FormControl>
-              <Input placeholder="Seu sobrenome" {...field} />
+              <Input 
+                placeholder="Seu sobrenome" 
+                {...field} 
+                className={errors.sobrenome ? "border-red-500" : ""}
+                autoComplete="family-name"
+              />
             </FormControl>
             <FormMessage />
           </FormItem>
@@ -73,7 +98,7 @@ const PersonalInfoFields = () => {
         name="dataNascimento"
         render={({ field }) => (
           <FormItem className="flex flex-col">
-            <FormLabel>Data de Nascimento</FormLabel>
+            <FormLabel>Data de Nascimento *</FormLabel>
             <FormControl>
               <Input 
                 placeholder="DD/MM/AAAA" 
@@ -81,7 +106,8 @@ const PersonalInfoFields = () => {
                   locale: ptBR
                 }) : ""} 
                 onChange={handleDateInput} 
-                className="w-full" 
+                className={`w-full ${errors.dataNascimento ? "border-red-500" : ""}`}
+                autoComplete="bday"
               />
             </FormControl>
             <FormMessage />
@@ -94,7 +120,7 @@ const PersonalInfoFields = () => {
         name="sexo"
         render={({ field }) => (
           <FormItem className="space-y-3">
-            <FormLabel>Sexo</FormLabel>
+            <FormLabel>Sexo *</FormLabel>
             <FormControl>
               <RadioGroup 
                 onValueChange={field.onChange} 

@@ -19,9 +19,10 @@ import {
 } from "@/components/ui/select";
 import { FormValues, estadosBrasileiros } from "./schema";
 import { fetchCitiesByState } from "@/services/locationService";
+import { Loader2 } from "lucide-react";
 
 const LocationFields = () => {
-  const { control, setValue, watch } = useFormContext<FormValues>();
+  const { control, setValue, watch, formState: { errors } } = useFormContext<FormValues>();
   const [cities, setCities] = useState<string[]>([]);
   const [loading, setLoading] = useState(false);
   
@@ -56,10 +57,10 @@ const LocationFields = () => {
         name="estado"
         render={({ field }) => (
           <FormItem>
-            <FormLabel>Estado</FormLabel>
-            <Select onValueChange={field.onChange} defaultValue={field.value}>
+            <FormLabel>Estado *</FormLabel>
+            <Select onValueChange={field.onChange} value={field.value || ""}>
               <FormControl>
-                <SelectTrigger>
+                <SelectTrigger className={errors.estado ? "border-red-500" : ""}>
                   <SelectValue placeholder="Selecione um estado" />
                 </SelectTrigger>
               </FormControl>
@@ -81,12 +82,19 @@ const LocationFields = () => {
         name="cidade"
         render={({ field }) => (
           <FormItem>
-            <FormLabel>Cidade</FormLabel>
+            <FormLabel>Cidade *</FormLabel>
             {selectedState ? (
-              <Select onValueChange={field.onChange} value={field.value}>
+              <Select onValueChange={field.onChange} value={field.value || ""}>
                 <FormControl>
-                  <SelectTrigger>
-                    <SelectValue placeholder={loading ? "Carregando cidades..." : "Selecione uma cidade"} />
+                  <SelectTrigger className={errors.cidade ? "border-red-500" : ""}>
+                    {loading ? (
+                      <div className="flex items-center gap-2">
+                        <Loader2 className="h-4 w-4 animate-spin" />
+                        <span>Carregando cidades...</span>
+                      </div>
+                    ) : (
+                      <SelectValue placeholder="Selecione uma cidade" />
+                    )}
                   </SelectTrigger>
                 </FormControl>
                 <SelectContent className="max-h-72">
@@ -99,7 +107,11 @@ const LocationFields = () => {
               </Select>
             ) : (
               <FormControl>
-                <Input placeholder="Selecione um estado primeiro" disabled />
+                <Input 
+                  placeholder="Selecione um estado primeiro" 
+                  disabled 
+                  className={errors.cidade ? "border-red-500" : ""}
+                />
               </FormControl>
             )}
             <FormMessage />
@@ -112,9 +124,13 @@ const LocationFields = () => {
         name="congregacao"
         render={({ field }) => (
           <FormItem>
-            <FormLabel>Congregação</FormLabel>
+            <FormLabel>Congregação *</FormLabel>
             <FormControl>
-              <Input placeholder="Sua congregação" {...field} />
+              <Input 
+                placeholder="Sua congregação" 
+                {...field} 
+                className={errors.congregacao ? "border-red-500" : ""}
+              />
             </FormControl>
             <FormMessage />
           </FormItem>

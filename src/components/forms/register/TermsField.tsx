@@ -13,7 +13,7 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { FormValues } from "./schema";
 
 const TermsField = () => {
-  const { control } = useFormContext<FormValues>();
+  const { control, formState: { errors } } = useFormContext<FormValues>();
 
   return (
     <FormField
@@ -25,10 +25,11 @@ const TermsField = () => {
             <Checkbox
               checked={field.value}
               onCheckedChange={field.onChange}
+              className={errors.aceitoTermos ? "border-red-500" : ""}
             />
           </FormControl>
           <div className="space-y-1 leading-none">
-            <FormLabel>
+            <FormLabel className={errors.aceitoTermos ? "text-red-500" : ""}>
               Aceito os termos de uso e concordo que meus dados serão utilizados anonimamente para estatísticas
             </FormLabel>
             <FormMessage />
