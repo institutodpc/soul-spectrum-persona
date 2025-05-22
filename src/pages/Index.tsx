@@ -25,9 +25,8 @@ const Index = () => {
         <div className="max-w-4xl w-full space-y-12 py-12">
           {/* Hero section */}
           <div className="text-center space-y-6">
-            <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight holographic-text">
-              DPC Persona
-            </h1>
+            <h1 className="text-4xl sm:text-5xl font-bold tracking-tight holographic-text text-center px-0 mx-[120px] md:text-6xl">Descubra qual Perfil
+está vivendo hoje!</h1>
             <p className="text-xl sm:text-2xl md:text-3xl max-w-3xl mx-auto">Descubra qual perfil espiritual
 está te influenciando hoje</p>
           </div>
