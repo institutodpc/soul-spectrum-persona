@@ -82,11 +82,31 @@ const RegisterForm = () => {
       
       console.log("Form values:", values);
       
-      // Registrar usuário no Supabase Auth diretamente sem verificação prévia
+      // First try to sign in if the user might already exist
+      try {
+        const { data: signInData, error: signInError } = await supabase.auth.signInWithPassword({
+          email: values.email,
+          password: cleanWhatsApp,
+        });
+
+        if (!signInError && signInData.user) {
+          // User exists and login successful
+          toast.success("Login realizado com sucesso! Redirecionando para o diagnóstico...");
+          setTimeout(() => {
+            navigate("/diagnostic");
+          }, 500);
+          return;
+        }
+      } catch (err) {
+        // Ignore errors here, we'll try to register instead
+        console.log("Sign in failed, proceeding to registration");
+      }
+      
+      // Proceed with registration if sign-in failed
       try {
         const { data: authData, error: authError } = await supabase.auth.signUp({
           email: values.email,
-          password: cleanWhatsApp, // Usando o WhatsApp como senha (simplificado)
+          password: cleanWhatsApp,
           options: {
             data: {
               nome: values.nome,
@@ -104,7 +124,6 @@ const RegisterForm = () => {
         if (authError) {
           console.error("Erro de autenticação:", authError);
           
-          // Handle rate limiting errors
           if (authError.message.includes("security purposes") && authError.message.includes("after")) {
             // Extract wait time from error message
             const waitTimeMatch = authError.message.match(/after (\d+) seconds/);
@@ -131,19 +150,29 @@ const RegisterForm = () => {
               setRegistrationError("Muitas tentativas em um curto período. Por favor, aguarde alguns minutos e tente novamente.");
             }
           } else if (authError.message.includes("User already registered")) {
-            // If user already exists, try to sign in directly
+            // Try sign in again explicitly
             const { error: signInError } = await supabase.auth.signInWithPassword({
               email: values.email,
               password: cleanWhatsApp,
             });
             
             if (signInError) {
-              setRegistrationError("Este e-mail já está cadastrado. Verifique sua senha (WhatsApp) e tente novamente.");
+              if (signInError.message.includes("Email not confirmed")) {
+                setRegistrationError("Email não confirmado. Verifique sua caixa de entrada para confirmar seu email.");
+                
+                // Show a more helpful message
+                toast.info(
+                  "Email não confirmado. Por favor, verifique sua caixa de entrada e confirme seu email para continuar.", 
+                  { duration: 8000 }
+                );
+              } else {
+                setRegistrationError("Este e-mail já está cadastrado, mas não foi possível fazer login. Verifique sua senha (WhatsApp) e tente novamente.");
+              }
             } else {
               toast.success("Login realizado com sucesso! Redirecionando para o diagnóstico...");
               setTimeout(() => {
                 navigate("/diagnostic");
-              }, 1000);
+              }, 500);
               return;
             }
           } else {
@@ -154,29 +183,50 @@ const RegisterForm = () => {
           return;
         }
 
+        // If we reach here, registration was successful
         if (!authData.user) {
           throw new Error("Erro ao criar usuário. Nenhum usuário retornado pela API.");
         }
 
-        toast.success("Cadastro realizado com sucesso! Redirecionando para o diagnóstico...");
+        // Show a success message
+        toast.success("Cadastro realizado com sucesso!");
         
-        // Sign in the user automatically after successful registration
-        const { error: signInError } = await supabase.auth.signInWithPassword({
-          email: values.email,
-          password: cleanWhatsApp,
-        });
-        
-        if (signInError) {
-          console.error("Erro ao fazer login automático:", signInError);
-          toast.error("Cadastro realizado, mas não foi possível fazer login automático. Por favor, faça login manualmente.");
-          setTimeout(() => {
-            navigate("/login");
-          }, 1500);
-        } else {
-          // Redirect to diagnostic page after successful login
-          setTimeout(() => {
-            navigate("/diagnostic");
-          }, 1000);
+        // Try to sign in immediately
+        try {
+          const { data: signInData, error: signInError } = await supabase.auth.signInWithPassword({
+            email: values.email,
+            password: cleanWhatsApp,
+          });
+          
+          if (signInError) {
+            console.log("Auto-login failed:", signInError);
+            // If auto-login fails, inform user they need to login manually
+            toast.info(
+              "Cadastro realizado, mas você precisa fazer login manualmente. Redirecionando para a página de login...",
+              { duration: 5000 }
+            );
+            toast.warning(
+              "Cadastro realizado, mas não foi possível fazer login automático. Por favor, faça login manualmente.",
+              { duration: 8000 }
+            );
+            setRegistrationError("Cadastro realizado, mas não foi possível fazer login automático. Por favor, faça login manualmente.");
+            setIsSubmitting(false);
+            
+            // Add a login page link as part of the error message
+            setTimeout(() => {
+              navigate("/login");
+            }, 2000);
+          } else {
+            // Auto-login successful, redirect to diagnostic
+            toast.success("Login realizado automaticamente! Redirecionando para o diagnóstico...");
+            setTimeout(() => {
+              navigate("/diagnostic");
+            }, 500);
+          }
+        } catch (loginError) {
+          console.error("Error during auto-login:", loginError);
+          setRegistrationError("Cadastro realizado, mas não foi possível fazer login automático.");
+          setIsSubmitting(false);
         }
       } catch (error: any) {
         console.error("Erro durante o processo de autenticação:", error);
