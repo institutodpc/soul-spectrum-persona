@@ -20,6 +20,7 @@ const RegisterForm = () => {
   const navigate = useNavigate();
   const [registrationError, setRegistrationError] = React.useState<string | null>(null);
   const [isSubmitting, setIsSubmitting] = React.useState(false);
+  const [rateLimitTimer, setRateLimitTimer] = React.useState<number | null>(null);
   
   const methods = useForm<FormValues>({
     resolver: zodResolver(formSchema),
@@ -34,10 +35,37 @@ const RegisterForm = () => {
     },
   });
 
+  React.useEffect(() => {
+    // Cleanup timer when component unmounts
+    return () => {
+      if (rateLimitTimer !== null) {
+        clearInterval(rateLimitTimer);
+      }
+    };
+  }, [rateLimitTimer]);
+
   async function onSubmit(values: FormValues) {
     try {
       setIsSubmitting(true);
       setRegistrationError(null);
+      
+      // Validar e formatar o e-mail
+      const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailPattern.test(values.email)) {
+        setRegistrationError("Por favor, informe um e-mail válido.");
+        setIsSubmitting(false);
+        return;
+      }
+      
+      // Formatar o número de WhatsApp para ser usado como senha (apenas dígitos)
+      const cleanWhatsApp = values.whatsapp.replace(/\D/g, '');
+      
+      if (cleanWhatsApp.length < 11) {
+        setRegistrationError("O número de WhatsApp deve ter pelo menos 11 dígitos, incluindo o DDD.");
+        setIsSubmitting(false);
+        return;
+      }
+      
       console.log("Form values:", values);
       
       // Verificar se o usuário já existe usando auth.signUp
@@ -49,20 +77,43 @@ const RegisterForm = () => {
       
       if (checkError) {
         console.error("Erro ao verificar e-mail:", checkError);
+        
+        // Verificar se é erro de rate limit
+        if (checkError.message.includes("security purposes") && checkError.message.includes("after")) {
+          // Extrair o tempo de espera do erro
+          const waitTimeMatch = checkError.message.match(/after (\d+) seconds/);
+          
+          if (waitTimeMatch && waitTimeMatch[1]) {
+            const waitTime = parseInt(waitTimeMatch[1], 10);
+            setRegistrationError(`Por motivos de segurança, você só pode solicitar isto após ${waitTime} segundos.`);
+            
+            // Iniciar um contador para exibir quanto tempo falta
+            let timeLeft = waitTime;
+            const timerId = window.setInterval(() => {
+              timeLeft--;
+              setRegistrationError(`Por motivos de segurança, você só pode solicitar isto após ${timeLeft} segundos.`);
+              
+              if (timeLeft <= 0) {
+                clearInterval(timerId);
+                setRegistrationError(null);
+                setRateLimitTimer(null);
+              }
+            }, 1000);
+            
+            setRateLimitTimer(timerId);
+            setIsSubmitting(false);
+            return;
+          }
+        }
+        
+        // Verificar se usuário já existe
         if (checkError.message.includes("User already registered")) {
           setRegistrationError("Este e-mail já está cadastrado. Por favor, tente fazer login.");
+          setIsSubmitting(false);
           return;
         } else {
           throw new Error(checkError.message);
         }
-      }
-      
-      // Formatar o número de WhatsApp para ser usado como senha (apenas dígitos)
-      const cleanWhatsApp = values.whatsapp.replace(/\D/g, '');
-      
-      if (cleanWhatsApp.length < 8) {
-        setRegistrationError("O número de WhatsApp fornecido é muito curto para ser usado como senha.");
-        return;
       }
       
       // Registrar usuário no Supabase Auth
@@ -85,7 +136,13 @@ const RegisterForm = () => {
 
       if (authError) {
         console.error("Erro de autenticação:", authError);
-        throw new Error("Erro ao realizar cadastro: " + authError.message);
+        if (authError.message.includes("rate limit")) {
+          setRegistrationError("Muitas tentativas em um curto período. Por favor, aguarde alguns minutos e tente novamente.");
+        } else {
+          throw new Error("Erro ao realizar cadastro: " + authError.message);
+        }
+        setIsSubmitting(false);
+        return;
       }
 
       if (!authData.user) {
@@ -129,7 +186,7 @@ const RegisterForm = () => {
           <GradientButton 
             type="submit" 
             className="w-full py-6"
-            disabled={isSubmitting}
+            disabled={isSubmitting || rateLimitTimer !== null}
           >
             {isSubmitting ? "Processando..." : "Descobrir meu Perfil"}
           </GradientButton>
