@@ -1,9 +1,10 @@
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "sonner";
 import { Question, Answer } from "@/types/diagnostic";
 import { submitDiagnostic } from "@/services/diagnosticService";
+import { supabase } from "@/integrations/supabase/client";
 
 export const useDiagnostic = (questions: Question[] | undefined) => {
   const navigate = useNavigate();
@@ -11,6 +12,19 @@ export const useDiagnostic = (questions: Question[] | undefined) => {
   const [answers, setAnswers] = useState<Answer[]>([]);
   const [selectedOption, setSelectedOption] = useState<string | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
+
+  // Verificar a autenticação quando o componente monta
+  useEffect(() => {
+    const checkAuth = async () => {
+      const { data: { session } } = await supabase.auth.getSession();
+      if (!session) {
+        toast.error("Por favor, faça login para continuar o diagnóstico");
+        navigate("/register");
+      }
+    };
+
+    checkAuth();
+  }, [navigate]);
 
   if (!questions || questions.length === 0) {
     return {
@@ -21,16 +35,50 @@ export const useDiagnostic = (questions: Question[] | undefined) => {
       handleOptionSelect: () => {},
       handleNext: () => {},
       handlePrevious: () => {},
+      answers,
     };
   }
 
   const totalQuestions = questions.length;
 
-  // Try to restore previous answer if available when the component mounts
-  if (answers.length === 0 && questions.length > 0) {
-    // Simulate a check for previous answers in local storage or similar
-    // This is a placeholder - in a real implementation, you might restore from state management or storage
-  }
+  // Restaurar respostas anteriores quando as perguntas são carregadas
+  useEffect(() => {
+    if (answers.length === 0 && questions.length > 0) {
+      const savedAnswers = localStorage.getItem('diagnostic_answers');
+      if (savedAnswers) {
+        try {
+          const parsedAnswers = JSON.parse(savedAnswers);
+          setAnswers(parsedAnswers);
+          
+          // Restaurar a posição da pergunta atual baseada nas respostas salvas
+          setCurrentQuestion(Math.min(parsedAnswers.length, questions.length - 1));
+          
+          // Restaurar a seleção atual
+          if (parsedAnswers.length > 0 && currentQuestion < parsedAnswers.length) {
+            const currentQuestionData = questions[currentQuestion];
+            const savedAnswer = parsedAnswers.find(a => a.perguntaId === currentQuestionData.id);
+            
+            if (savedAnswer) {
+              const option = currentQuestionData.opcoes.find(o => o.texto === savedAnswer.resposta);
+              if (option) {
+                setSelectedOption(option.id);
+              }
+            }
+          }
+        } catch (error) {
+          console.error("Erro ao restaurar respostas salvas:", error);
+          localStorage.removeItem('diagnostic_answers');
+        }
+      }
+    }
+  }, [questions, answers.length, currentQuestion]);
+
+  // Salvar respostas no localStorage quando elas mudam
+  useEffect(() => {
+    if (answers.length > 0) {
+      localStorage.setItem('diagnostic_answers', JSON.stringify(answers));
+    }
+  }, [answers]);
 
   const handleOptionSelect = (optionId: string, selectedQuestion: Question) => {
     const selectedOptionData = selectedQuestion.opcoes.find(option => option.id === optionId);
@@ -45,33 +93,68 @@ export const useDiagnostic = (questions: Question[] | undefined) => {
       const selectedOptionData = currentQuestionData.opcoes.find(option => option.id === selectedOption);
       
       if (selectedOptionData) {
-        // Save the current answer
+        // Verificar se já respondemos esta pergunta
+        const existingAnswerIndex = answers.findIndex(a => a.perguntaId === currentQuestionData.id);
+        
         const newAnswer: Answer = {
           perguntaId: currentQuestionData.id,
           resposta: selectedOptionData.texto,
           perfis: selectedOptionData.perfis,
         };
         
-        const updatedAnswers = [...answers, newAnswer];
+        let updatedAnswers: Answer[];
+        
+        if (existingAnswerIndex !== -1) {
+          // Atualizar resposta existente
+          updatedAnswers = [...answers];
+          updatedAnswers[existingAnswerIndex] = newAnswer;
+        } else {
+          // Adicionar nova resposta
+          updatedAnswers = [...answers, newAnswer];
+        }
+        
         setAnswers(updatedAnswers);
         
-        // Move to next question or finish
+        // Move para próxima pergunta ou finaliza
         if (currentQuestion < totalQuestions - 1) {
           setCurrentQuestion(currentQuestion + 1);
-          setSelectedOption(null);
+          
+          // Verificar se a próxima pergunta já foi respondida
+          const nextQuestion = questions[currentQuestion + 1];
+          const nextAnswer = updatedAnswers.find(a => a.perguntaId === nextQuestion.id);
+          
+          if (nextAnswer) {
+            // Restaurar resposta anterior para esta pergunta
+            const previousOption = nextQuestion.opcoes.find(o => o.texto === nextAnswer.resposta);
+            setSelectedOption(previousOption?.id || null);
+          } else {
+            setSelectedOption(null);
+          }
         } else {
           // Submit all answers and navigate to results
           setIsSubmitting(true);
           try {
             const result = await submitDiagnostic(updatedAnswers);
             
-            // Show success message before navigating
+            // Mostrar mensagem de sucesso antes de navegar
             toast.success("Diagnóstico concluído com sucesso!");
             
-            // Navigate with the result
+            // Limpar respostas salvas após conclusão bem-sucedida
+            localStorage.removeItem('diagnostic_answers');
+            
+            // Navegar com o resultado
             navigate("/results", { state: { result } });
           } catch (error) {
             console.error("Error submitting diagnostic:", error);
+            
+            // Verificar se é erro de autenticação
+            const { data: { session } } = await supabase.auth.getSession();
+            if (!session) {
+              toast.error("Sua sessão expirou. Por favor, faça login novamente.");
+              navigate("/register");
+              return;
+            }
+            
             toast.error("Houve um erro ao processar seu diagnóstico. Por favor, tente novamente.");
             setIsSubmitting(false);
           }
@@ -85,12 +168,8 @@ export const useDiagnostic = (questions: Question[] | undefined) => {
   const handlePrevious = () => {
     if (currentQuestion > 0) {
       setCurrentQuestion(currentQuestion - 1);
-      // Remove the last answer
-      const updatedAnswers = [...answers];
-      updatedAnswers.pop();
-      setAnswers(updatedAnswers);
       
-      // Restore previous selection if available
+      // Restaurar seleção anterior se disponível
       const previousQuestion = questions[currentQuestion - 1];
       const previousAnswer = answers.find(a => a.perguntaId === previousQuestion.id);
       
@@ -111,5 +190,6 @@ export const useDiagnostic = (questions: Question[] | undefined) => {
     handleOptionSelect,
     handleNext,
     handlePrevious,
+    answers,
   };
 };

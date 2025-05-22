@@ -25,6 +25,8 @@ const Diagnostic = () => {
     queryFn: fetchQuestions,
     // Don't fetch until we've checked authentication
     enabled: !isCheckingAuth,
+    retry: 3,
+    staleTime: 1000 * 60 * 5, // 5 minutos
   });
 
   // Use our custom hook for diagnostic logic
@@ -36,6 +38,7 @@ const Diagnostic = () => {
     handleOptionSelect,
     handleNext,
     handlePrevious,
+    answers,
   } = useDiagnostic(questions);
 
   useEffect(() => {
@@ -53,6 +56,7 @@ const Diagnostic = () => {
         const { data: { subscription } } = supabase.auth.onAuthStateChange((event, currentSession) => {
           if (event === 'SIGNED_OUT' || !currentSession) {
             toast.error("Sua sessão expirou. Por favor, faça login novamente.");
+            localStorage.removeItem('diagnostic_answers'); // Limpar respostas salvas
             navigate("/register");
           }
         });
@@ -81,6 +85,10 @@ const Diagnostic = () => {
     }
   }, [isCheckingAuth, refetch]);
 
+  const handleRetryFetch = () => {
+    refetch();
+  };
+
   if (isCheckingAuth) {
     return (
       <div className="min-h-screen flex flex-col items-center justify-center">
@@ -103,7 +111,7 @@ const Diagnostic = () => {
     return (
       <div className="min-h-screen flex flex-col items-center justify-center">
         <p className="text-lg text-red-500">Erro ao carregar perguntas. Por favor, tente novamente.</p>
-        <Button onClick={() => window.location.reload()} className="mt-4">
+        <Button onClick={handleRetryFetch} className="mt-4">
           Tentar novamente
         </Button>
       </div>
@@ -122,6 +130,7 @@ const Diagnostic = () => {
   }
 
   const currentQuestionData = questions[currentQuestion];
+  const progress = Math.round((answers.length / totalQuestions) * 100);
 
   return (
     <div className="min-h-screen flex flex-col relative overflow-hidden">

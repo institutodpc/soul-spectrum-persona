@@ -23,7 +23,7 @@ const DiagnosticQuestion = ({
             key={option.id} 
             className={`p-4 rounded-lg border transition-all cursor-pointer ${
               selectedOption === option.id 
-                ? "border-dpc-pink bg-dpc-pink/5" 
+                ? "border-2 border-dpc-pink bg-dpc-pink/5 shadow-md" 
                 : "border-border hover:border-dpc-coral/50"
             }`}
             onClick={() => onOptionSelect(option.id, question)}
@@ -32,15 +32,17 @@ const DiagnosticQuestion = ({
               <div 
                 className={`w-5 h-5 rounded-full border flex items-center justify-center mr-3 ${
                   selectedOption === option.id 
-                    ? "border-dpc-pink" 
+                    ? "border-2 border-dpc-pink" 
                     : "border-gray-400"
                 }`}
               >
                 {selectedOption === option.id && (
-                  <div className="w-3 h-3 rounded-full bg-dpc-pink" />
+                  <div className="w-3 h-3 rounded-full bg-dpc-pink animate-pulse" />
                 )}
               </div>
-              <span>{option.texto}</span>
+              <span className={`${selectedOption === option.id ? "font-medium" : ""}`}>
+                {option.texto}
+              </span>
             </div>
           </div>
         ))}
