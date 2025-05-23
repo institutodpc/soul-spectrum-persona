@@ -77,12 +77,13 @@ const RegisterForm = () => {
       
       console.log("Dados do usuário:", userData);
       
-      // Try to sign up
+      // Try to sign up without email confirmation
       const { data: authData, error: authError } = await supabase.auth.signUp({
         email: values.email,
         password: cleanWhatsApp,
         options: {
           data: userData,
+          emailRedirectTo: undefined // Remove any email confirmation redirect
         },
       });
 
@@ -117,15 +118,27 @@ const RegisterForm = () => {
       if (authData.user) {
         toast.success("Cadastro realizado com sucesso!");
         
-        // If user is immediately confirmed, redirect to diagnostic
+        // Since email confirmation is disabled, user should be automatically logged in
+        // Check if session exists, if not, try to sign in
         if (authData.session) {
           console.log("Usuário logado automaticamente");
           navigate("/diagnostic");
         } else {
-          console.log("Aguardando confirmação de email");
-          toast.info("Verifique seu email para confirmar o cadastro.");
-          // Still redirect to diagnostic as we've disabled email confirmation
-          navigate("/diagnostic");
+          console.log("Tentando fazer login automático");
+          // Try to sign in immediately
+          const { data: signInData, error: signInError } = await supabase.auth.signInWithPassword({
+            email: values.email,
+            password: cleanWhatsApp,
+          });
+          
+          if (signInError) {
+            console.error("Erro no login automático:", signInError);
+            toast.info("Cadastro realizado! Tente fazer login com seus dados.");
+          } else {
+            console.log("Login automático realizado");
+            toast.success("Cadastro e login realizados com sucesso!");
+            navigate("/diagnostic");
+          }
         }
       } else {
         throw new Error("Usuário não foi criado corretamente");
