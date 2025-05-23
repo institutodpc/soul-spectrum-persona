@@ -19,8 +19,8 @@ const SyncQuestionsButton = () => {
       if (result.success) {
         toast.success(result.message);
         setSyncCount({ 
-          perguntas: result.stats?.perguntas || 0, 
-          alternativas: result.stats?.alternativas || 0 
+          perguntas: result.stats?.perguntas?.success || 0, 
+          alternativas: result.stats?.alternativas?.success || 0 
         });
       } else {
         toast.error(result.message);
