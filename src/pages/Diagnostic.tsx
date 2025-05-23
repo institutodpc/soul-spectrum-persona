@@ -19,12 +19,21 @@ const Diagnostic = () => {
   const navigate = useNavigate();
   const [isAuthChecked, setIsAuthChecked] = useState(false);
 
-  // Fetch questions using React Query - enabled by default
+  // Fetch questions with more detailed configuration
   const { data: questions, isLoading, error, refetch } = useQuery({
     queryKey: ['questions'],
-    queryFn: fetchQuestions,
-    retry: 3,
+    queryFn: async () => {
+      console.log('🚀 Query: Iniciando fetchQuestions...');
+      const result = await fetchQuestions();
+      console.log('✅ Query: fetchQuestions concluído:', result?.length, 'perguntas');
+      return result;
+    },
+    retry: (failureCount, error) => {
+      console.log(`🔄 Query: Tentativa ${failureCount + 1} falhou:`, error);
+      return failureCount < 2; // Tentar até 3 vezes
+    },
     staleTime: 1000 * 60 * 5, // 5 minutos
+    gcTime: 1000 * 60 * 10, // 10 minutos (anteriormente cacheTime)
   });
 
   // Use our custom hook for diagnostic logic
@@ -40,19 +49,33 @@ const Diagnostic = () => {
   } = useDiagnostic(questions);
 
   useEffect(() => {
-    // Check authentication but don't block the UI
+    console.log('🔐 Iniciando verificação de autenticação...');
+    
     const checkAuth = async () => {
       try {
-        const { data: { session } } = await supabase.auth.getSession();
+        const { data: { session }, error } = await supabase.auth.getSession();
+        
+        if (error) {
+          console.error('❌ Erro ao obter sessão:', error);
+          toast.error("Erro ao verificar sua autenticação. Por favor, tente novamente.");
+          navigate("/register");
+          return;
+        }
+        
         if (!session) {
+          console.log('⚠️ Nenhuma sessão encontrada, redirecionando...');
           toast.error("Por favor, faça login para continuar o diagnóstico");
           navigate("/register");
           return;
         }
 
+        console.log('✅ Usuário autenticado:', session.user.email);
+
         // Setup auth state listener
         const { data: { subscription } } = supabase.auth.onAuthStateChange((event, currentSession) => {
+          console.log('🔄 Mudança no estado de auth:', event);
           if (event === 'SIGNED_OUT' || !currentSession) {
+            console.log('🚪 Usuário deslogado');
             toast.error("Sua sessão expirou. Por favor, faça login novamente.");
             localStorage.removeItem('diagnostic_answers');
             navigate("/register");
@@ -65,7 +88,7 @@ const Diagnostic = () => {
           subscription.unsubscribe();
         };
       } catch (error) {
-        console.error("Erro ao verificar autenticação:", error);
+        console.error("💥 Erro crítico na verificação de autenticação:", error);
         toast.error("Erro ao verificar sua autenticação. Por favor, tente novamente.");
         navigate("/register");
       }
@@ -75,11 +98,23 @@ const Diagnostic = () => {
   }, [navigate]);
 
   const handleRetryFetch = () => {
+    console.log('🔄 Usuário solicitou retry...');
     refetch();
   };
 
-  // Show loading while checking auth (but don't block everything)
+  // Debug logs para entender o estado atual
+  console.log('🔍 Estado atual:', {
+    isAuthChecked,
+    isLoading,
+    hasError: !!error,
+    questionsLength: questions?.length,
+    currentQuestion,
+    totalQuestions
+  });
+
+  // Show loading while checking auth
   if (!isAuthChecked) {
+    console.log('⏳ Aguardando verificação de auth...');
     return (
       <div className="min-h-screen flex flex-col items-center justify-center">
         <Loader2 className="h-12 w-12 animate-spin text-primary" />
@@ -88,50 +123,96 @@ const Diagnostic = () => {
     );
   }
 
+  // Show loading while fetching questions
   if (isLoading) {
+    console.log('⏳ Carregando perguntas...');
     return (
       <div className="min-h-screen flex flex-col items-center justify-center">
         <Loader2 className="h-12 w-12 animate-spin text-primary" />
         <p className="mt-4 text-lg">Carregando perguntas...</p>
+        <p className="mt-2 text-sm text-gray-500">Verificando banco de dados...</p>
       </div>
     );
   }
 
+  // Show error state
   if (error) {
-    console.error("Erro ao carregar perguntas:", error);
+    console.error("💥 Erro ao carregar perguntas:", error);
     return (
-      <div className="min-h-screen flex flex-col items-center justify-center">
-        <p className="text-lg text-red-500 mb-4">Erro ao carregar perguntas. Por favor, tente novamente.</p>
-        <p className="text-sm text-gray-500 mb-4">Detalhes: {error.message}</p>
-        <Button onClick={handleRetryFetch} className="mt-4">
-          Tentar novamente
-        </Button>
+      <div className="min-h-screen flex flex-col items-center justify-center p-4">
+        <div className="max-w-md text-center">
+          <p className="text-lg text-red-500 mb-4">Erro ao carregar perguntas</p>
+          <p className="text-sm text-gray-500 mb-4">
+            {error instanceof Error ? error.message : 'Erro desconhecido'}
+          </p>
+          <div className="space-y-2">
+            <Button onClick={handleRetryFetch} className="w-full">
+              Tentar novamente
+            </Button>
+            <Button 
+              variant="outline" 
+              onClick={() => navigate("/register")} 
+              className="w-full"
+            >
+              Voltar para o cadastro
+            </Button>
+          </div>
+        </div>
       </div>
     );
   }
 
+  // Check if questions exist
   if (!questions || questions.length === 0) {
+    console.warn('⚠️ Nenhuma pergunta disponível');
     return (
-      <div className="min-h-screen flex flex-col items-center justify-center">
-        <p className="text-lg text-amber-500">Nenhuma pergunta encontrada.</p>
-        <Button onClick={() => navigate("/register")} className="mt-4">
-          Voltar para o cadastro
-        </Button>
+      <div className="min-h-screen flex flex-col items-center justify-center p-4">
+        <div className="max-w-md text-center">
+          <p className="text-lg text-amber-500 mb-4">Nenhuma pergunta encontrada</p>
+          <p className="text-sm text-gray-500 mb-4">
+            As perguntas do diagnóstico não estão disponíveis no momento.
+          </p>
+          <div className="space-y-2">
+            <Button onClick={handleRetryFetch} className="w-full">
+              Tentar carregar novamente
+            </Button>
+            <Button 
+              variant="outline" 
+              onClick={() => navigate("/register")} 
+              className="w-full"
+            >
+              Voltar para o cadastro
+            </Button>
+          </div>
+        </div>
       </div>
     );
   }
 
+  // Check current question
   const currentQuestionData = questions[currentQuestion];
   if (!currentQuestionData) {
+    console.error('❌ Pergunta atual não encontrada:', { currentQuestion, totalQuestions });
     return (
-      <div className="min-h-screen flex flex-col items-center justify-center">
-        <p className="text-lg text-red-500">Erro: Pergunta não encontrada.</p>
-        <Button onClick={() => navigate("/register")} className="mt-4">
-          Voltar para o cadastro
-        </Button>
+      <div className="min-h-screen flex flex-col items-center justify-center p-4">
+        <div className="max-w-md text-center">
+          <p className="text-lg text-red-500 mb-4">Erro na pergunta atual</p>
+          <p className="text-sm text-gray-500 mb-4">
+            Pergunta {currentQuestion + 1} de {totalQuestions} não encontrada.
+          </p>
+          <Button onClick={() => navigate("/register")} className="w-full">
+            Voltar para o cadastro
+          </Button>
+        </div>
       </div>
     );
   }
+
+  console.log('✅ Renderizando diagnóstico:', {
+    perguntaAtual: currentQuestion + 1,
+    total: totalQuestions,
+    temOpcoes: currentQuestionData.opcoes?.length
+  });
 
   return (
     <div className="min-h-screen flex flex-col relative overflow-hidden">
