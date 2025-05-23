@@ -1,15 +1,21 @@
+
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import GradientButton from "@/components/ui-custom/GradientButton";
 import GlassmorphicCard from "@/components/ui-custom/GlassmorphicCard";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
+import DatabaseDebug from "@/components/debug/DatabaseDebug";
+
 const Index = () => {
   const navigate = useNavigate();
+  
   const handleStartClick = () => {
     navigate('/register');
   };
-  return <div className="min-h-screen flex flex-col relative overflow-hidden">
+  
+  return (
+    <div className="min-h-screen flex flex-col relative overflow-hidden">
       {/* Animated background elements */}
       <div className="absolute inset-0 -z-10">
         <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-dpc-pink/10 via-dpc-coral/10 to-purple-500/10 animate-background-gradient"></div>
@@ -23,12 +29,19 @@ const Index = () => {
       {/* Main content */}
       <main className="flex-grow flex items-center justify-center px-4 sm:px-6 lg:px-8 mt-20">
         <div className="max-w-4xl w-full space-y-12 py-12">
+          {/* Debug Section - Only visible in development */}
+          {process.env.NODE_ENV === 'development' && (
+            <DatabaseDebug />
+          )}
+
           {/* Hero section */}
           <div className="text-center space-y-6">
-            <h1 className="text-4xl sm:text-5xl font-bold tracking-tight holographic-text text-center px-0 mx-[120px] md:text-6xl">Descubra qual Perfil
-está vivendo hoje!</h1>
-            <p className="text-xl sm:text-2xl md:text-3xl max-w-3xl mx-auto">Descubra qual perfil espiritual
-está te influenciando hoje</p>
+            <h1 className="text-4xl sm:text-5xl font-bold tracking-tight holographic-text text-center px-0 mx-[120px] md:text-6xl">
+              Descubra qual Perfil está vivendo hoje!
+            </h1>
+            <p className="text-xl sm:text-2xl md:text-3xl max-w-3xl mx-auto">
+              Descubra qual perfil espiritual está te influenciando hoje
+            </p>
           </div>
 
           {/* Feature cards */}
@@ -80,9 +93,11 @@ está te influenciando hoje</p>
               neste momento é o primeiro passo para crescimento espiritual.
             </p>
             <div className="flex flex-wrap justify-center gap-2">
-              {["O Lamentador", "O Perfeccionista", "O Procrastinador", "O Inseguro", "O Controlador", "O Mentiroso", "O Hipócrita", "O Invejoso", "O Orgulhoso", "O Vitimista"].map(perfil => <span key={perfil} className="px-3 py-1 text-xs rounded-full bg-white/10 border border-white/20">
+              {["O Lamentador", "O Perfeccionista", "O Procrastinador", "O Inseguro", "O Controlador", "O Mentiroso", "O Hipócrita", "O Invejoso", "O Orgulhoso", "O Vitimista"].map(perfil => (
+                <span key={perfil} className="px-3 py-1 text-xs rounded-full bg-white/10 border border-white/20">
                   {perfil}
-                </span>)}
+                </span>
+              ))}
               <span className="px-3 py-1 text-xs rounded-full bg-white/10 border border-white/20">
                 E outros 23 perfis...
               </span>
@@ -93,6 +108,8 @@ está te influenciando hoje</p>
 
       {/* Footer */}
       <Footer />
-    </div>;
+    </div>
+  );
 };
+
 export default Index;

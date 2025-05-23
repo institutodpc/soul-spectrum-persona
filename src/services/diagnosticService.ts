@@ -70,77 +70,107 @@ export const submitDiagnostic = async (answers: Answer[]): Promise<DiagnosticRes
 
 export const fetchQuestions = async (): Promise<Question[]> => {
   try {
-    console.log('Buscando perguntas do Supabase...');
+    console.log('🔍 Iniciando busca de perguntas...');
     
-    // Tentar obter as perguntas do Supabase com suas alternativas em uma única consulta
+    // Primeiro, verificar se as tabelas existem
     const { data: perguntasData, error: perguntasError } = await supabase
       .from('perguntas')
       .select('*')
       .order('id');
     
-    if (perguntasError || !perguntasData || perguntasData.length === 0) {
-      console.log('Erro ou nenhuma pergunta encontrada no Supabase, usando JSON local:', perguntasError);
-      // Fallback para o JSON local se não houver perguntas no Supabase
-      const response = await fetch('/perguntas_dpc_33.json');
-      if (!response.ok) {
-        throw new Error('Failed to fetch questions from local JSON');
-      }
-      return await response.json();
+    console.log('📊 Resultado busca perguntas:', { 
+      perguntasData, 
+      perguntasError,
+      count: perguntasData?.length || 0 
+    });
+    
+    if (perguntasError) {
+      console.error('❌ Erro ao buscar perguntas:', perguntasError);
+      return await loadLocalQuestions();
     }
     
-    // Agora vamos buscar todas as alternativas de uma vez para melhor performance
-    const { data: todasAlternativas, error: alternativasError } = await supabase
+    if (!perguntasData || perguntasData.length === 0) {
+      console.warn('⚠️ Nenhuma pergunta encontrada no Supabase');
+      return await loadLocalQuestions();
+    }
+    
+    // Buscar todas as alternativas
+    const { data: alternativasData, error: alternativasError } = await supabase
       .from('alternativas')
       .select('*');
     
+    console.log('📊 Resultado busca alternativas:', { 
+      alternativasData, 
+      alternativasError,
+      count: alternativasData?.length || 0 
+    });
+    
     if (alternativasError) {
-      console.error('Erro ao buscar alternativas:', alternativasError);
-      throw alternativasError;
+      console.error('❌ Erro ao buscar alternativas:', alternativasError);
+      return await loadLocalQuestions();
     }
     
-    // Agrupar alternativas por pergunta_id para acesso mais rápido
+    if (!alternativasData || alternativasData.length === 0) {
+      console.warn('⚠️ Nenhuma alternativa encontrada no Supabase');
+      return await loadLocalQuestions();
+    }
+    
+    // Agrupar alternativas por pergunta_id
     const alternativasPorPergunta: Record<string, any[]> = {};
-    todasAlternativas?.forEach(alt => {
+    alternativasData.forEach(alt => {
       if (!alternativasPorPergunta[alt.pergunta_id]) {
         alternativasPorPergunta[alt.pergunta_id] = [];
       }
       alternativasPorPergunta[alt.pergunta_id].push(alt);
     });
     
-    // Montar o resultado final combinando perguntas com suas alternativas
-    const questions: Question[] = perguntasData.map(pergunta => {
-      return {
-        id: pergunta.id,
-        texto: pergunta.texto,
-        opcoes: (alternativasPorPergunta[pergunta.id] || []).map(opcao => ({
-          id: opcao.id,
-          texto: opcao.texto,
-          perfis: opcao.perfis || []
-        }))
-      };
-    });
+    // Montar as perguntas com suas alternativas
+    const questions: Question[] = perguntasData.map(pergunta => ({
+      id: pergunta.id,
+      texto: pergunta.texto,
+      opcoes: (alternativasPorPergunta[pergunta.id] || []).map(opcao => ({
+        id: opcao.id,
+        texto: opcao.texto,
+        perfis: opcao.perfis || []
+      }))
+    }));
     
-    // Filtrar perguntas sem alternativas
+    // Filtrar perguntas que têm alternativas
     const questionsComAlternativas = questions.filter(q => q.opcoes.length > 0);
     
+    console.log('✅ Perguntas processadas:', {
+      totalPerguntas: questions.length,
+      perguntasComAlternativas: questionsComAlternativas.length
+    });
+    
     if (questionsComAlternativas.length === 0) {
-      console.log('Nenhuma pergunta com alternativas encontrada, usando JSON local');
-      const response = await fetch('/perguntas_dpc_33.json');
-      if (!response.ok) {
-        throw new Error('Failed to fetch questions from local JSON');
-      }
-      return await response.json();
+      console.warn('⚠️ Nenhuma pergunta com alternativas, usando JSON local');
+      return await loadLocalQuestions();
     }
     
-    console.log(`Encontradas ${questionsComAlternativas.length} perguntas com alternativas no Supabase`);
     return questionsComAlternativas;
+    
   } catch (error) {
-    console.error('Erro ao buscar perguntas:', error);
-    // Fallback para o JSON local em caso de erro
+    console.error('💥 Erro geral ao buscar perguntas:', error);
+    return await loadLocalQuestions();
+  }
+};
+
+const loadLocalQuestions = async (): Promise<Question[]> => {
+  try {
+    console.log('📁 Carregando perguntas do JSON local...');
     const response = await fetch('/perguntas_dpc_33.json');
+    
     if (!response.ok) {
-      throw new Error('Failed to fetch questions');
+      throw new Error(`HTTP ${response.status}: ${response.statusText}`);
     }
-    return await response.json();
+    
+    const questions = await response.json();
+    console.log('✅ Perguntas carregadas do JSON local:', questions?.length || 0);
+    
+    return questions || [];
+  } catch (error) {
+    console.error('💥 Erro ao carregar JSON local:', error);
+    throw new Error('Falha ao carregar perguntas do arquivo local');
   }
 };
