@@ -30,7 +30,7 @@ export type Database = {
         }
         Relationships: [
           {
-            foreignKeyName: "alternativas_pergunta_id_fkey"
+            foreignKeyName: "fk_alternativas_pergunta"
             columns: ["pergunta_id"]
             isOneToOne: false
             referencedRelation: "perguntas"

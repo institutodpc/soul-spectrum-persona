@@ -5,7 +5,6 @@ import GradientButton from "@/components/ui-custom/GradientButton";
 import GlassmorphicCard from "@/components/ui-custom/GlassmorphicCard";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
-import DatabaseDebug from "@/components/debug/DatabaseDebug";
 
 const Index = () => {
   const navigate = useNavigate();
@@ -29,9 +28,6 @@ const Index = () => {
       {/* Main content */}
       <main className="flex-grow flex items-center justify-center px-4 sm:px-6 lg:px-8 mt-20">
         <div className="max-w-4xl w-full space-y-12 py-12">
-          {/* Database Debug Section - Important for setup */}
-          <DatabaseDebug />
-
           {/* Hero section */}
           <div className="text-center space-y-6">
             <h1 className="text-4xl sm:text-5xl font-bold tracking-tight holographic-text text-center px-0 mx-[120px] md:text-6xl">
