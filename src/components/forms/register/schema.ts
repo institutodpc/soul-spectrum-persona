@@ -8,18 +8,10 @@ export const formSchema = z.object({
   sobrenome: z.string().min(2, {
     message: "O sobrenome deve ter pelo menos 2 caracteres.",
   }),
-  dataNascimento: z.date({
-    required_error: "Por favor, selecione uma data de nascimento.",
-  }),
-  sexo: z.enum(["masculino", "feminino", "outro"], {
-    required_error: "Por favor, selecione uma opção.",
-  }),
-  estado: z.string({
-    required_error: "Por favor, selecione um estado.",
-  }),
-  cidade: z.string({
-    required_error: "Por favor, selecione uma cidade.",
-  }),
+  dataNascimento: z.date().optional(),
+  sexo: z.enum(["masculino", "feminino", "outro"]).optional(),
+  estado: z.string().optional(),
+  cidade: z.string().optional(),
   congregacao: z.string().min(2, {
     message: "Por favor, informe sua congregação.",
   }),

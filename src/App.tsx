@@ -6,13 +6,18 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import Register from "./pages/Register";
-import Login from "./pages/Login";
 import Diagnostic from "./pages/Diagnostic";
 import Results from "./pages/Results";
 import NotFound from "./pages/NotFound";
-import Setup from "./pages/Setup";
 
-const queryClient = new QueryClient();
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      retry: 2,
+      refetchOnWindowFocus: false,
+    },
+  },
+});
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
@@ -23,10 +28,8 @@ const App = () => (
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/register" element={<Register />} />
-          <Route path="/login" element={<Login />} />
           <Route path="/diagnostic" element={<Diagnostic />} />
           <Route path="/results" element={<Results />} />
-          <Route path="/setup" element={<Setup />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>

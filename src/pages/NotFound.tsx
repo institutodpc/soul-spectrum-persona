@@ -18,16 +18,26 @@ const NotFound = () => {
     <div className="min-h-screen flex flex-col items-center justify-center bg-background">
       <div className="text-center max-w-md px-4">
         <h1 className="text-6xl font-bold mb-4">404</h1>
-        <p className="text-xl text-muted-foreground mb-6">Oops! Page not found</p>
-        <Link 
-          to="/" 
-          className={cn(
-            buttonVariants({ variant: "default" }),
-            "bg-gradient-to-br from-dpc-pink to-dpc-coral hover:opacity-90 transition-opacity"
-          )}
-        >
-          Return to Home
-        </Link>
+        <p className="text-xl text-muted-foreground mb-6">Página não encontrada</p>
+        <div className="flex gap-4 justify-center">
+          <Link 
+            to="/" 
+            className={cn(
+              buttonVariants({ variant: "default" }),
+              "bg-gradient-to-br from-dpc-pink to-dpc-coral hover:opacity-90 transition-opacity"
+            )}
+          >
+            Voltar ao Início
+          </Link>
+          <Link 
+            to="/register" 
+            className={cn(
+              buttonVariants({ variant: "outline" })
+            )}
+          >
+            Cadastro
+          </Link>
+        </div>
       </div>
     </div>
   );

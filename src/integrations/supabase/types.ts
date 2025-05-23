@@ -110,6 +110,48 @@ export type Database = {
         }
         Relationships: []
       }
+      profiles: {
+        Row: {
+          cidade: string | null
+          congregacao: string | null
+          created_at: string | null
+          data_nascimento: string | null
+          email: string
+          estado: string | null
+          id: string
+          name: string
+          sexo: string | null
+          sobrenome: string
+          whatsapp: string
+        }
+        Insert: {
+          cidade?: string | null
+          congregacao?: string | null
+          created_at?: string | null
+          data_nascimento?: string | null
+          email: string
+          estado?: string | null
+          id: string
+          name: string
+          sexo?: string | null
+          sobrenome: string
+          whatsapp: string
+        }
+        Update: {
+          cidade?: string | null
+          congregacao?: string | null
+          created_at?: string | null
+          data_nascimento?: string | null
+          email?: string
+          estado?: string | null
+          id?: string
+          name?: string
+          sexo?: string | null
+          sobrenome?: string
+          whatsapp?: string
+        }
+        Relationships: []
+      }
       respostas: {
         Row: {
           id: string

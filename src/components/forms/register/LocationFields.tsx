@@ -27,14 +27,13 @@ const LocationFields = () => {
   
   const selectedState = watch("estado");
 
-  // Efeito para buscar cidades quando o estado é selecionado
+  // Fetch cities when state is selected
   useEffect(() => {
     if (selectedState) {
       setLoading(true);
       fetchCitiesByState(selectedState)
         .then(citiesData => {
           setCities(citiesData);
-          // Limpa a cidade selecionada quando o estado muda
           setValue("cidade", "");
         })
         .catch(error => {
@@ -56,8 +55,8 @@ const LocationFields = () => {
         name="estado"
         render={({ field }) => (
           <FormItem>
-            <FormLabel>Estado</FormLabel>
-            <Select onValueChange={field.onChange} defaultValue={field.value}>
+            <FormLabel>Estado (opcional)</FormLabel>
+            <Select onValueChange={field.onChange} value={field.value}>
               <FormControl>
                 <SelectTrigger>
                   <SelectValue placeholder="Selecione um estado" />
@@ -81,7 +80,7 @@ const LocationFields = () => {
         name="cidade"
         render={({ field }) => (
           <FormItem>
-            <FormLabel>Cidade</FormLabel>
+            <FormLabel>Cidade (opcional)</FormLabel>
             {selectedState ? (
               <Select onValueChange={field.onChange} value={field.value}>
                 <FormControl>
