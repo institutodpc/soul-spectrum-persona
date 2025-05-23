@@ -34,7 +34,10 @@ export const submitDiagnostic = async (answers: Answer[]): Promise<DiagnosticRes
       .eq('slug', dominantProfile)
       .single();
     
-    if (error) throw error;
+    if (error) {
+      console.error('❌ Erro ao buscar perfil dominante:', error);
+      throw error;
+    }
     
     // Save responses to Supabase if user is logged in
     const { data: { user } } = await supabase.auth.getUser();
@@ -52,7 +55,9 @@ export const submitDiagnostic = async (answers: Answer[]): Promise<DiagnosticRes
         .insert(responsesToSave);
         
       if (saveError) {
-        console.error('Error saving responses:', saveError);
+        console.error('❌ Erro ao salvar respostas:', saveError);
+      } else {
+        console.log('✅ Respostas salvas com sucesso');
       }
     }
     
@@ -63,7 +68,7 @@ export const submitDiagnostic = async (answers: Answer[]): Promise<DiagnosticRes
     };
     
   } catch (error) {
-    console.error('Error in diagnostic submission:', error);
+    console.error('💥 Erro no envio do diagnóstico:', error);
     throw error;
   }
 };
@@ -72,25 +77,49 @@ export const fetchQuestions = async (): Promise<Question[]> => {
   try {
     console.log('🔍 Iniciando busca de perguntas...');
     
-    // Primeiro, verificar se as tabelas existem
+    // Verificar se as tabelas têm dados
+    const { data: perguntasCount, error: perguntasCountError } = await supabase
+      .from('perguntas')
+      .select('*', { count: 'exact', head: true });
+    
+    const { data: alternativasCount, error: alternativasCountError } = await supabase
+      .from('alternativas')
+      .select('*', { count: 'exact', head: true });
+    
+    const { data: perfisCount, error: perfisCountError } = await supabase
+      .from('perfis')
+      .select('*', { count: 'exact', head: true });
+    
+    console.log('📊 Verificação inicial de dados:', { 
+      perguntasCount: perguntasCount !== null,
+      alternativasCount: alternativasCount !== null,
+      perfisCount: perfisCount !== null,
+      errors: {
+        perguntas: perguntasCountError?.message || null,
+        alternativas: alternativasCountError?.message || null,
+        perfis: perfisCountError?.message || null
+      }
+    });
+    
+    // Se alguma tabela está vazia, usar JSON local
+    if (perguntasCountError || alternativasCountError || perfisCountError) {
+      console.warn('⚠️ Erro ao verificar tabelas, usando JSON local');
+      return await loadLocalQuestions();
+    }
+    
+    // Buscar perguntas
     const { data: perguntasData, error: perguntasError } = await supabase
       .from('perguntas')
       .select('*')
       .order('id');
     
     console.log('📊 Resultado busca perguntas:', { 
-      perguntasData, 
-      perguntasError,
-      count: perguntasData?.length || 0 
+      count: perguntasData?.length || 0,
+      error: perguntasError?.message || null
     });
     
-    if (perguntasError) {
-      console.error('❌ Erro ao buscar perguntas:', perguntasError);
-      return await loadLocalQuestions();
-    }
-    
-    if (!perguntasData || perguntasData.length === 0) {
-      console.warn('⚠️ Nenhuma pergunta encontrada no Supabase');
+    if (perguntasError || !perguntasData || perguntasData.length === 0) {
+      console.warn('⚠️ Nenhuma pergunta encontrada no Supabase ou erro, usando JSON local');
       return await loadLocalQuestions();
     }
     
@@ -100,18 +129,12 @@ export const fetchQuestions = async (): Promise<Question[]> => {
       .select('*');
     
     console.log('📊 Resultado busca alternativas:', { 
-      alternativasData, 
-      alternativasError,
-      count: alternativasData?.length || 0 
+      count: alternativasData?.length || 0,
+      error: alternativasError?.message || null
     });
     
-    if (alternativasError) {
-      console.error('❌ Erro ao buscar alternativas:', alternativasError);
-      return await loadLocalQuestions();
-    }
-    
-    if (!alternativasData || alternativasData.length === 0) {
-      console.warn('⚠️ Nenhuma alternativa encontrada no Supabase');
+    if (alternativasError || !alternativasData || alternativasData.length === 0) {
+      console.warn('⚠️ Nenhuma alternativa encontrada no Supabase ou erro, usando JSON local');
       return await loadLocalQuestions();
     }
     

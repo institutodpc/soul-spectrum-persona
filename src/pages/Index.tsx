@@ -29,10 +29,8 @@ const Index = () => {
       {/* Main content */}
       <main className="flex-grow flex items-center justify-center px-4 sm:px-6 lg:px-8 mt-20">
         <div className="max-w-4xl w-full space-y-12 py-12">
-          {/* Debug Section - Only visible in development */}
-          {process.env.NODE_ENV === 'development' && (
-            <DatabaseDebug />
-          )}
+          {/* Database Debug Section - Important for setup */}
+          <DatabaseDebug />
 
           {/* Hero section */}
           <div className="text-center space-y-6">
