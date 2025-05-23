@@ -13,29 +13,17 @@ export const useDiagnostic = (questions: Question[] | undefined) => {
   const [selectedOption, setSelectedOption] = useState<string | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  // Verificar a autenticação quando o componente monta
-  useEffect(() => {
-    const checkAuth = async () => {
-      const { data: { session } } = await supabase.auth.getSession();
-      if (!session) {
-        toast.error("Por favor, faça login para continuar o diagnóstico");
-        navigate("/register");
-      }
-    };
-
-    checkAuth();
-  }, [navigate]);
-
+  // Early return if no questions
   if (!questions || questions.length === 0) {
     return {
-      currentQuestion,
+      currentQuestion: 0,
       totalQuestions: 0,
-      selectedOption,
-      isSubmitting,
+      selectedOption: null,
+      isSubmitting: false,
       handleOptionSelect: () => {},
       handleNext: () => {},
       handlePrevious: () => {},
-      answers,
+      answers: [],
     };
   }
 
@@ -51,12 +39,13 @@ export const useDiagnostic = (questions: Question[] | undefined) => {
           setAnswers(parsedAnswers);
           
           // Restaurar a posição da pergunta atual baseada nas respostas salvas
-          setCurrentQuestion(Math.min(parsedAnswers.length, questions.length - 1));
+          const currentPos = Math.min(parsedAnswers.length, questions.length - 1);
+          setCurrentQuestion(currentPos);
           
-          // Restaurar a seleção atual
-          if (parsedAnswers.length > 0 && currentQuestion < parsedAnswers.length) {
-            const currentQuestionData = questions[currentQuestion];
-            const savedAnswer = parsedAnswers.find(a => a.perguntaId === currentQuestionData.id);
+          // Restaurar a seleção atual se existe
+          if (parsedAnswers.length > currentPos) {
+            const currentQuestionData = questions[currentPos];
+            const savedAnswer = parsedAnswers.find((a: Answer) => a.perguntaId === currentQuestionData.id);
             
             if (savedAnswer) {
               const option = currentQuestionData.opcoes.find(o => o.texto === savedAnswer.resposta);
@@ -88,89 +77,95 @@ export const useDiagnostic = (questions: Question[] | undefined) => {
   };
   
   const handleNext = async () => {
-    if (selectedOption) {
-      const currentQuestionData = questions[currentQuestion];
-      const selectedOptionData = currentQuestionData.opcoes.find(option => option.id === selectedOption);
+    if (!selectedOption) {
+      toast.error("Por favor, selecione uma opção para continuar.");
+      return;
+    }
+
+    const currentQuestionData = questions[currentQuestion];
+    const selectedOptionData = currentQuestionData.opcoes.find(option => option.id === selectedOption);
+    
+    if (!selectedOptionData) {
+      toast.error("Opção selecionada inválida.");
+      return;
+    }
+
+    // Verificar se já respondemos esta pergunta
+    const existingAnswerIndex = answers.findIndex(a => a.perguntaId === currentQuestionData.id);
+    
+    const newAnswer: Answer = {
+      perguntaId: currentQuestionData.id,
+      resposta: selectedOptionData.texto,
+      perfis: selectedOptionData.perfis,
+    };
+    
+    let updatedAnswers: Answer[];
+    
+    if (existingAnswerIndex !== -1) {
+      // Atualizar resposta existente
+      updatedAnswers = [...answers];
+      updatedAnswers[existingAnswerIndex] = newAnswer;
+    } else {
+      // Adicionar nova resposta
+      updatedAnswers = [...answers, newAnswer];
+    }
+    
+    setAnswers(updatedAnswers);
+    
+    // Move para próxima pergunta ou finaliza
+    if (currentQuestion < totalQuestions - 1) {
+      const nextQuestionIndex = currentQuestion + 1;
+      setCurrentQuestion(nextQuestionIndex);
       
-      if (selectedOptionData) {
-        // Verificar se já respondemos esta pergunta
-        const existingAnswerIndex = answers.findIndex(a => a.perguntaId === currentQuestionData.id);
-        
-        const newAnswer: Answer = {
-          perguntaId: currentQuestionData.id,
-          resposta: selectedOptionData.texto,
-          perfis: selectedOptionData.perfis,
-        };
-        
-        let updatedAnswers: Answer[];
-        
-        if (existingAnswerIndex !== -1) {
-          // Atualizar resposta existente
-          updatedAnswers = [...answers];
-          updatedAnswers[existingAnswerIndex] = newAnswer;
-        } else {
-          // Adicionar nova resposta
-          updatedAnswers = [...answers, newAnswer];
-        }
-        
-        setAnswers(updatedAnswers);
-        
-        // Move para próxima pergunta ou finaliza
-        if (currentQuestion < totalQuestions - 1) {
-          setCurrentQuestion(currentQuestion + 1);
-          
-          // Verificar se a próxima pergunta já foi respondida
-          const nextQuestion = questions[currentQuestion + 1];
-          const nextAnswer = updatedAnswers.find(a => a.perguntaId === nextQuestion.id);
-          
-          if (nextAnswer) {
-            // Restaurar resposta anterior para esta pergunta
-            const previousOption = nextQuestion.opcoes.find(o => o.texto === nextAnswer.resposta);
-            setSelectedOption(previousOption?.id || null);
-          } else {
-            setSelectedOption(null);
-          }
-        } else {
-          // Submit all answers and navigate to results
-          setIsSubmitting(true);
-          try {
-            const result = await submitDiagnostic(updatedAnswers);
-            
-            // Mostrar mensagem de sucesso antes de navegar
-            toast.success("Diagnóstico concluído com sucesso!");
-            
-            // Limpar respostas salvas após conclusão bem-sucedida
-            localStorage.removeItem('diagnostic_answers');
-            
-            // Navegar com o resultado
-            navigate("/results", { state: { result } });
-          } catch (error) {
-            console.error("Error submitting diagnostic:", error);
-            
-            // Verificar se é erro de autenticação
-            const { data: { session } } = await supabase.auth.getSession();
-            if (!session) {
-              toast.error("Sua sessão expirou. Por favor, faça login novamente.");
-              navigate("/register");
-              return;
-            }
-            
-            toast.error("Houve um erro ao processar seu diagnóstico. Por favor, tente novamente.");
-            setIsSubmitting(false);
-          }
-        }
+      // Verificar se a próxima pergunta já foi respondida
+      const nextQuestion = questions[nextQuestionIndex];
+      const nextAnswer = updatedAnswers.find(a => a.perguntaId === nextQuestion.id);
+      
+      if (nextAnswer) {
+        // Restaurar resposta anterior para esta pergunta
+        const previousOption = nextQuestion.opcoes.find(o => o.texto === nextAnswer.resposta);
+        setSelectedOption(previousOption?.id || null);
+      } else {
+        setSelectedOption(null);
       }
     } else {
-      toast.error("Por favor, selecione uma opção para continuar.");
+      // Submit all answers and navigate to results
+      setIsSubmitting(true);
+      try {
+        const result = await submitDiagnostic(updatedAnswers);
+        
+        // Mostrar mensagem de sucesso antes de navegar
+        toast.success("Diagnóstico concluído com sucesso!");
+        
+        // Limpar respostas salvas após conclusão bem-sucedida
+        localStorage.removeItem('diagnostic_answers');
+        
+        // Navegar com o resultado
+        navigate("/results", { state: { result } });
+      } catch (error) {
+        console.error("Error submitting diagnostic:", error);
+        
+        // Verificar se é erro de autenticação
+        const { data: { session } } = await supabase.auth.getSession();
+        if (!session) {
+          toast.error("Sua sessão expirou. Por favor, faça login novamente.");
+          navigate("/register");
+          return;
+        }
+        
+        toast.error("Houve um erro ao processar seu diagnóstico. Por favor, tente novamente.");
+        setIsSubmitting(false);
+      }
     }
   };
   
   const handlePrevious = () => {
     if (currentQuestion > 0) {
-      setCurrentQuestion(currentQuestion - 1);
+      const prevQuestionIndex = currentQuestion - 1;
+      setCurrentQuestion(prevQuestionIndex);
       
       // Restaurar seleção anterior se disponível
-      const previousQuestion = questions[currentQuestion - 1];
+      const previousQuestion = questions[prevQuestionIndex];
       const previousAnswer = answers.find(a => a.perguntaId === previousQuestion.id);
       
       if (previousAnswer) {

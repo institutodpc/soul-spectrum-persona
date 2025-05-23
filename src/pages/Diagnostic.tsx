@@ -17,14 +17,12 @@ import { Loader2 } from "lucide-react";
 
 const Diagnostic = () => {
   const navigate = useNavigate();
-  const [isCheckingAuth, setIsCheckingAuth] = useState(true);
+  const [isAuthChecked, setIsAuthChecked] = useState(false);
 
-  // Fetch questions using React Query
+  // Fetch questions using React Query - enabled by default
   const { data: questions, isLoading, error, refetch } = useQuery({
     queryKey: ['questions'],
     queryFn: fetchQuestions,
-    // Don't fetch until we've checked authentication
-    enabled: !isCheckingAuth,
     retry: 3,
     staleTime: 1000 * 60 * 5, // 5 minutos
   });
@@ -42,9 +40,8 @@ const Diagnostic = () => {
   } = useDiagnostic(questions);
 
   useEffect(() => {
-    // Check authentication
+    // Check authentication but don't block the UI
     const checkAuth = async () => {
-      setIsCheckingAuth(true);
       try {
         const { data: { session } } = await supabase.auth.getSession();
         if (!session) {
@@ -52,16 +49,17 @@ const Diagnostic = () => {
           navigate("/register");
           return;
         }
-        // Setup auth state listener to handle session changes
+
+        // Setup auth state listener
         const { data: { subscription } } = supabase.auth.onAuthStateChange((event, currentSession) => {
           if (event === 'SIGNED_OUT' || !currentSession) {
             toast.error("Sua sessão expirou. Por favor, faça login novamente.");
-            localStorage.removeItem('diagnostic_answers'); // Limpar respostas salvas
+            localStorage.removeItem('diagnostic_answers');
             navigate("/register");
           }
         });
         
-        setIsCheckingAuth(false);
+        setIsAuthChecked(true);
         
         return () => {
           subscription.unsubscribe();
@@ -70,26 +68,18 @@ const Diagnostic = () => {
         console.error("Erro ao verificar autenticação:", error);
         toast.error("Erro ao verificar sua autenticação. Por favor, tente novamente.");
         navigate("/register");
-      } finally {
-        setIsCheckingAuth(false);
       }
     };
     
     checkAuth();
   }, [navigate]);
 
-  // Enable refetch when isCheckingAuth becomes false
-  useEffect(() => {
-    if (!isCheckingAuth) {
-      refetch();
-    }
-  }, [isCheckingAuth, refetch]);
-
   const handleRetryFetch = () => {
     refetch();
   };
 
-  if (isCheckingAuth) {
+  // Show loading while checking auth (but don't block everything)
+  if (!isAuthChecked) {
     return (
       <div className="min-h-screen flex flex-col items-center justify-center">
         <Loader2 className="h-12 w-12 animate-spin text-primary" />
@@ -108,9 +98,11 @@ const Diagnostic = () => {
   }
 
   if (error) {
+    console.error("Erro ao carregar perguntas:", error);
     return (
       <div className="min-h-screen flex flex-col items-center justify-center">
-        <p className="text-lg text-red-500">Erro ao carregar perguntas. Por favor, tente novamente.</p>
+        <p className="text-lg text-red-500 mb-4">Erro ao carregar perguntas. Por favor, tente novamente.</p>
+        <p className="text-sm text-gray-500 mb-4">Detalhes: {error.message}</p>
         <Button onClick={handleRetryFetch} className="mt-4">
           Tentar novamente
         </Button>
@@ -130,7 +122,16 @@ const Diagnostic = () => {
   }
 
   const currentQuestionData = questions[currentQuestion];
-  const progress = Math.round((answers.length / totalQuestions) * 100);
+  if (!currentQuestionData) {
+    return (
+      <div className="min-h-screen flex flex-col items-center justify-center">
+        <p className="text-lg text-red-500">Erro: Pergunta não encontrada.</p>
+        <Button onClick={() => navigate("/register")} className="mt-4">
+          Voltar para o cadastro
+        </Button>
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen flex flex-col relative overflow-hidden">
