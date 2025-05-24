@@ -4,38 +4,55 @@ import { Question } from "@/types/diagnostic";
 import { syncQuestions } from "@/scripts/syncQuestions";
 import { loadLocalQuestions } from "./loadLocalQuestions";
 
+// Função para verificar se precisa sincronizar
+const shouldSync = async (): Promise<boolean> => {
+  try {
+    // Verificar se as tabelas têm dados
+    const { count: perguntasCount, error: perguntasError } = await supabase
+      .from('perguntas')
+      .select('*', { count: 'exact', head: true });
+    
+    const { count: alternativasCount, error: alternativasError } = await supabase
+      .from('alternativas')
+      .select('*', { count: 'exact', head: true });
+    
+    // Se houver erro ou não houver dados, precisa sincronizar
+    if (perguntasError || alternativasError || !perguntasCount || !alternativasCount) {
+      return true;
+    }
+    
+    // Verificar se temos o número esperado de perguntas (33)
+    if (perguntasCount < 33) {
+      console.log(`🔄 Sincronização necessária: apenas ${perguntasCount} perguntas encontradas, esperado 33`);
+      return true;
+    }
+    
+    return false;
+  } catch (error) {
+    console.error('💥 Erro ao verificar necessidade de sincronização:', error);
+    return true; // Em caso de erro, tenta sincronizar
+  }
+};
+
 export const fetchQuestions = async (): Promise<Question[]> => {
   try {
     console.log('🔍 Iniciando busca de perguntas...');
     
-    // Verificar se as tabelas têm dados
-    const { data: perguntasCount, error: perguntasCountError } = await supabase
-      .from('perguntas')
-      .select('*', { count: 'exact', head: true });
+    // Verificar se precisa sincronizar automaticamente
+    const needsSync = await shouldSync();
     
-    const { data: alternativasCount, error: alternativasCountError } = await supabase
-      .from('alternativas')
-      .select('*', { count: 'exact', head: true });
-    
-    console.log('📊 Verificação inicial de dados:', { 
-      perguntasCount: perguntasCount !== null,
-      alternativasCount: alternativasCount !== null,
-      errors: {
-        perguntas: perguntasCountError?.message || null,
-        alternativas: alternativasCountError?.message || null
-      }
-    });
-    
-    // Se alguma tabela está vazia ou com erro, sincronizar automaticamente
-    if (perguntasCountError || alternativasCountError || perguntasCount === null || alternativasCount === null) {
-      console.warn('⚠️ Dados não encontrados no Supabase, iniciando sincronização automática...');
-      
+    if (needsSync) {
+      console.log('🔄 Iniciando sincronização automática...');
       try {
         const syncResult = await syncQuestions();
-        console.log('✅ Sincronização automática concluída:', syncResult);
+        if (syncResult.success) {
+          console.log('✅ Sincronização automática concluída com sucesso!');
+        } else {
+          console.warn('⚠️ Sincronização falhou, usando JSON local:', syncResult.message);
+          return await loadLocalQuestions();
+        }
       } catch (syncError) {
         console.error('💥 Erro na sincronização automática:', syncError);
-        // Se a sincronização falhar, usar JSON local
         return await loadLocalQuestions();
       }
     }
@@ -52,7 +69,7 @@ export const fetchQuestions = async (): Promise<Question[]> => {
     });
     
     if (perguntasError || !perguntasData || perguntasData.length === 0) {
-      console.warn('⚠️ Nenhuma pergunta encontrada no Supabase após sincronização, usando JSON local');
+      console.warn('⚠️ Nenhuma pergunta encontrada no Supabase, usando JSON local');
       return await loadLocalQuestions();
     }
     
@@ -67,7 +84,7 @@ export const fetchQuestions = async (): Promise<Question[]> => {
     });
     
     if (alternativasError || !alternativasData || alternativasData.length === 0) {
-      console.warn('⚠️ Nenhuma alternativa encontrada no Supabase após sincronização, usando JSON local');
+      console.warn('⚠️ Nenhuma alternativa encontrada no Supabase, usando JSON local');
       return await loadLocalQuestions();
     }
     

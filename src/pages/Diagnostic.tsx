@@ -4,7 +4,6 @@ import { useQuery } from "@tanstack/react-query";
 import DiagnosticQuestion from "@/components/diagnostic/DiagnosticQuestion";
 import DiagnosticProgress from "@/components/diagnostic/DiagnosticProgress";
 import DiagnosticNavigation from "@/components/diagnostic/DiagnosticNavigation";
-import UpdateQuestionsButton from "@/components/admin/UpdateQuestionsButton";
 import { fetchQuestions } from "@/services/diagnosticService";
 import { useDiagnostic } from "@/hooks/use-diagnostic";
 
@@ -31,6 +30,7 @@ const Diagnostic = () => {
         <div className="text-center">
           <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-dpc-pink mx-auto mb-4"></div>
           <p className="text-gray-600">Carregando perguntas...</p>
+          <p className="text-sm text-gray-500 mt-2">Sincronizando dados automaticamente...</p>
         </div>
       </div>
     );
@@ -41,7 +41,7 @@ const Diagnostic = () => {
       <div className="min-h-screen bg-gradient-to-br from-dpc-mint via-white to-dpc-coral/20 flex items-center justify-center">
         <div className="text-center">
           <p className="text-red-600 mb-4">Erro ao carregar perguntas</p>
-          <UpdateQuestionsButton />
+          <p className="text-gray-600">Tente recarregar a página</p>
         </div>
       </div>
     );
@@ -52,7 +52,7 @@ const Diagnostic = () => {
       <div className="min-h-screen bg-gradient-to-br from-dpc-mint via-white to-dpc-coral/20 flex items-center justify-center">
         <div className="text-center">
           <p className="text-gray-600 mb-4">Nenhuma pergunta encontrada</p>
-          <UpdateQuestionsButton />
+          <p className="text-sm text-gray-500">Recarregue a página para tentar novamente</p>
         </div>
       </div>
     );
@@ -64,11 +64,6 @@ const Diagnostic = () => {
     <div className="min-h-screen bg-gradient-to-br from-dpc-mint via-white to-dpc-coral/20">
       <div className="container mx-auto px-4 py-8">
         <div className="max-w-4xl mx-auto">
-          {/* Admin button - temporary */}
-          <div className="mb-4 text-center">
-            <UpdateQuestionsButton />
-          </div>
-
           <DiagnosticProgress 
             currentQuestion={currentQuestion + 1} 
             totalQuestions={totalQuestions} 
