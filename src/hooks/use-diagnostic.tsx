@@ -13,25 +13,12 @@ export const useDiagnostic = (questions: Question[] | undefined) => {
   const [selectedOption, setSelectedOption] = useState<string | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  // Early return if no questions
-  if (!questions || questions.length === 0) {
-    return {
-      currentQuestion: 0,
-      totalQuestions: 0,
-      selectedOption: null,
-      isSubmitting: false,
-      handleOptionSelect: () => {},
-      handleNext: () => {},
-      handlePrevious: () => {},
-      answers: [],
-    };
-  }
-
-  const totalQuestions = questions.length;
+  // Always declare all hooks first, before any conditional logic
+  const totalQuestions = questions?.length || 0;
 
   // Restaurar respostas anteriores quando as perguntas são carregadas
   useEffect(() => {
-    if (answers.length === 0 && questions.length > 0) {
+    if (answers.length === 0 && questions && questions.length > 0) {
       const savedAnswers = localStorage.getItem('diagnostic_answers');
       if (savedAnswers) {
         try {
@@ -68,6 +55,20 @@ export const useDiagnostic = (questions: Question[] | undefined) => {
       localStorage.setItem('diagnostic_answers', JSON.stringify(answers));
     }
   }, [answers]);
+
+  // Handle conditional logic AFTER all hooks are declared
+  if (!questions || questions.length === 0) {
+    return {
+      currentQuestion: 0,
+      totalQuestions: 0,
+      selectedOption: null,
+      isSubmitting: false,
+      handleOptionSelect: () => {},
+      handleNext: () => {},
+      handlePrevious: () => {},
+      answers: [],
+    };
+  }
 
   const handleOptionSelect = (optionId: string, selectedQuestion: Question) => {
     const selectedOptionData = selectedQuestion.opcoes.find(option => option.id === optionId);
