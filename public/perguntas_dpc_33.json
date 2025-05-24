@@ -2,1221 +2,1254 @@
 [
   {
     "id": "1",
-    "texto": "Pergunta representando o perfil 'Lamentador'. Como você reage quando está sob pressão espiritual?",
+    "texto": "Como você normalmente reage em situações que revelam traços do perfil 'Lamentador'?",
     "opcoes": [
       {
         "id": "1A",
-        "texto": "Resposta característica de lamentador.",
+        "texto": "Costumo me sentir sobrecarregado emocionalmente, expressando que tudo está sempre ruim.",
         "perfis": [
-          "lamentador"
+          "lamentador",
+          "vitimista"
         ]
       },
       {
         "id": "1B",
-        "texto": "Resposta relacionada a ansiedade e controle.",
+        "texto": "Me cobro muito internamente para fazer o certo, mesmo quando não consigo.",
         "perfis": [
-          "controlador",
-          "ansioso"
+          "perfeccionista",
+          "culpado"
         ]
       },
       {
         "id": "1C",
-        "texto": "Resposta indicando sentimento de culpa e autopunição.",
+        "texto": "Evito pensar sobre isso, me distraio com tarefas, internet ou qualquer outra coisa.",
         "perfis": [
-          "culpado",
-          "nao_se_perdoa"
+          "escravo_mundo",
+          "fornicador_digital"
         ]
       },
       {
         "id": "1D",
-        "texto": "Resposta ligada a busca de aprovação.",
+        "texto": "Fico me perguntando o que as pessoas vão pensar de mim nessa situação.",
         "perfis": [
-          "desesperado_aprovacao",
-          "obcecado_opiniao"
+          "obcecado_opiniao",
+          "desesperado_aprovacao"
         ]
       }
     ]
   },
   {
     "id": "2",
-    "texto": "Pergunta representando o perfil 'Perfeccionista'. Como você reage quando está sob pressão espiritual?",
+    "texto": "Como você normalmente reage em situações que revelam traços do perfil 'Perfeccionista'?",
     "opcoes": [
       {
         "id": "2A",
-        "texto": "Resposta característica de perfeccionista.",
+        "texto": "Costumo me sentir sobrecarregado emocionalmente, expressando que tudo está sempre ruim.",
         "perfis": [
-          "perfeccionista"
+          "lamentador",
+          "vitimista"
         ]
       },
       {
         "id": "2B",
-        "texto": "Resposta relacionada a ansiedade e controle.",
+        "texto": "Me cobro muito internamente para fazer o certo, mesmo quando não consigo.",
         "perfis": [
-          "controlador",
-          "ansioso"
+          "perfeccionista",
+          "culpado"
         ]
       },
       {
         "id": "2C",
-        "texto": "Resposta indicando sentimento de culpa e autopunição.",
+        "texto": "Evito pensar sobre isso, me distraio com tarefas, internet ou qualquer outra coisa.",
         "perfis": [
-          "culpado",
-          "nao_se_perdoa"
+          "escravo_mundo",
+          "fornicador_digital"
         ]
       },
       {
         "id": "2D",
-        "texto": "Resposta ligada a busca de aprovação.",
+        "texto": "Fico me perguntando o que as pessoas vão pensar de mim nessa situação.",
         "perfis": [
-          "desesperado_aprovacao",
-          "obcecado_opiniao"
+          "obcecado_opiniao",
+          "desesperado_aprovacao"
         ]
       }
     ]
   },
   {
     "id": "3",
-    "texto": "Pergunta representando o perfil 'Procrastinador'. Como você reage quando está sob pressão espiritual?",
+    "texto": "Como você normalmente reage em situações que revelam traços do perfil 'Procrastinador'?",
     "opcoes": [
       {
         "id": "3A",
-        "texto": "Resposta característica de procrastinador.",
+        "texto": "Costumo me sentir sobrecarregado emocionalmente, expressando que tudo está sempre ruim.",
         "perfis": [
-          "procrastinador"
+          "lamentador",
+          "vitimista"
         ]
       },
       {
         "id": "3B",
-        "texto": "Resposta relacionada a ansiedade e controle.",
+        "texto": "Me cobro muito internamente para fazer o certo, mesmo quando não consigo.",
         "perfis": [
-          "controlador",
-          "ansioso"
+          "perfeccionista",
+          "culpado"
         ]
       },
       {
         "id": "3C",
-        "texto": "Resposta indicando sentimento de culpa e autopunição.",
+        "texto": "Evito pensar sobre isso, me distraio com tarefas, internet ou qualquer outra coisa.",
         "perfis": [
-          "culpado",
-          "nao_se_perdoa"
+          "escravo_mundo",
+          "fornicador_digital"
         ]
       },
       {
         "id": "3D",
-        "texto": "Resposta ligada a busca de aprovação.",
+        "texto": "Fico me perguntando o que as pessoas vão pensar de mim nessa situação.",
         "perfis": [
-          "desesperado_aprovacao",
-          "obcecado_opiniao"
+          "obcecado_opiniao",
+          "desesperado_aprovacao"
         ]
       }
     ]
   },
   {
     "id": "4",
-    "texto": "Pergunta representando o perfil 'Inseguro'. Como você reage quando está sob pressão espiritual?",
+    "texto": "Como você normalmente reage em situações que revelam traços do perfil 'Inseguro'?",
     "opcoes": [
       {
         "id": "4A",
-        "texto": "Resposta característica de inseguro.",
+        "texto": "Costumo me sentir sobrecarregado emocionalmente, expressando que tudo está sempre ruim.",
         "perfis": [
-          "inseguro"
+          "lamentador",
+          "vitimista"
         ]
       },
       {
         "id": "4B",
-        "texto": "Resposta relacionada a ansiedade e controle.",
+        "texto": "Me cobro muito internamente para fazer o certo, mesmo quando não consigo.",
         "perfis": [
-          "controlador",
-          "ansioso"
+          "perfeccionista",
+          "culpado"
         ]
       },
       {
         "id": "4C",
-        "texto": "Resposta indicando sentimento de culpa e autopunição.",
+        "texto": "Evito pensar sobre isso, me distraio com tarefas, internet ou qualquer outra coisa.",
         "perfis": [
-          "culpado",
-          "nao_se_perdoa"
+          "escravo_mundo",
+          "fornicador_digital"
         ]
       },
       {
         "id": "4D",
-        "texto": "Resposta ligada a busca de aprovação.",
+        "texto": "Fico me perguntando o que as pessoas vão pensar de mim nessa situação.",
         "perfis": [
-          "desesperado_aprovacao",
-          "obcecado_opiniao"
+          "obcecado_opiniao",
+          "desesperado_aprovacao"
         ]
       }
     ]
   },
   {
     "id": "5",
-    "texto": "Pergunta representando o perfil 'Controlador'. Como você reage quando está sob pressão espiritual?",
+    "texto": "Como você normalmente reage em situações que revelam traços do perfil 'Controlador'?",
     "opcoes": [
       {
         "id": "5A",
-        "texto": "Resposta característica de controlador.",
+        "texto": "Costumo me sentir sobrecarregado emocionalmente, expressando que tudo está sempre ruim.",
         "perfis": [
-          "controlador"
+          "lamentador",
+          "vitimista"
         ]
       },
       {
         "id": "5B",
-        "texto": "Resposta relacionada a ansiedade e controle.",
+        "texto": "Me cobro muito internamente para fazer o certo, mesmo quando não consigo.",
         "perfis": [
-          "controlador",
-          "ansioso"
+          "perfeccionista",
+          "culpado"
         ]
       },
       {
         "id": "5C",
-        "texto": "Resposta indicando sentimento de culpa e autopunição.",
+        "texto": "Evito pensar sobre isso, me distraio com tarefas, internet ou qualquer outra coisa.",
         "perfis": [
-          "culpado",
-          "nao_se_perdoa"
+          "escravo_mundo",
+          "fornicador_digital"
         ]
       },
       {
         "id": "5D",
-        "texto": "Resposta ligada a busca de aprovação.",
+        "texto": "Fico me perguntando o que as pessoas vão pensar de mim nessa situação.",
         "perfis": [
-          "desesperado_aprovacao",
-          "obcecado_opiniao"
+          "obcecado_opiniao",
+          "desesperado_aprovacao"
         ]
       }
     ]
   },
   {
     "id": "6",
-    "texto": "Pergunta representando o perfil 'Perfeccionista Espiritual'. Como você reage quando está sob pressão espiritual?",
+    "texto": "Como você normalmente reage em situações que revelam traços do perfil 'Perfeccionista espiritual'?",
     "opcoes": [
       {
         "id": "6A",
-        "texto": "Resposta característica de perfeccionista espiritual.",
+        "texto": "Costumo me sentir sobrecarregado emocionalmente, expressando que tudo está sempre ruim.",
         "perfis": [
-          "perfeccionista_espiritual"
+          "lamentador",
+          "vitimista"
         ]
       },
       {
         "id": "6B",
-        "texto": "Resposta relacionada a ansiedade e controle.",
+        "texto": "Me cobro muito internamente para fazer o certo, mesmo quando não consigo.",
         "perfis": [
-          "controlador",
-          "ansioso"
+          "perfeccionista",
+          "culpado"
         ]
       },
       {
         "id": "6C",
-        "texto": "Resposta indicando sentimento de culpa e autopunição.",
+        "texto": "Evito pensar sobre isso, me distraio com tarefas, internet ou qualquer outra coisa.",
         "perfis": [
-          "culpado",
-          "nao_se_perdoa"
+          "escravo_mundo",
+          "fornicador_digital"
         ]
       },
       {
         "id": "6D",
-        "texto": "Resposta ligada a busca de aprovação.",
+        "texto": "Fico me perguntando o que as pessoas vão pensar de mim nessa situação.",
         "perfis": [
-          "desesperado_aprovacao",
-          "obcecado_opiniao"
+          "obcecado_opiniao",
+          "desesperado_aprovacao"
         ]
       }
     ]
   },
   {
     "id": "7",
-    "texto": "Pergunta representando o perfil 'Obcecado Opiniao'. Como você reage quando está sob pressão espiritual?",
+    "texto": "Como você normalmente reage em situações que revelam traços do perfil 'Obcecado opiniao'?",
     "opcoes": [
       {
         "id": "7A",
-        "texto": "Resposta característica de obcecado opiniao.",
+        "texto": "Costumo me sentir sobrecarregado emocionalmente, expressando que tudo está sempre ruim.",
         "perfis": [
-          "obcecado_opiniao"
+          "lamentador",
+          "vitimista"
         ]
       },
       {
         "id": "7B",
-        "texto": "Resposta relacionada a ansiedade e controle.",
+        "texto": "Me cobro muito internamente para fazer o certo, mesmo quando não consigo.",
         "perfis": [
-          "controlador",
-          "ansioso"
+          "perfeccionista",
+          "culpado"
         ]
       },
       {
         "id": "7C",
-        "texto": "Resposta indicando sentimento de culpa e autopunição.",
+        "texto": "Evito pensar sobre isso, me distraio com tarefas, internet ou qualquer outra coisa.",
         "perfis": [
-          "culpado",
-          "nao_se_perdoa"
+          "escravo_mundo",
+          "fornicador_digital"
         ]
       },
       {
         "id": "7D",
-        "texto": "Resposta ligada a busca de aprovação.",
+        "texto": "Fico me perguntando o que as pessoas vão pensar de mim nessa situação.",
         "perfis": [
-          "desesperado_aprovacao",
-          "obcecado_opiniao"
+          "obcecado_opiniao",
+          "desesperado_aprovacao"
         ]
       }
     ]
   },
   {
     "id": "8",
-    "texto": "Pergunta representando o perfil 'Culpado'. Como você reage quando está sob pressão espiritual?",
+    "texto": "Como você normalmente reage em situações que revelam traços do perfil 'Culpado'?",
     "opcoes": [
       {
         "id": "8A",
-        "texto": "Resposta característica de culpado.",
+        "texto": "Costumo me sentir sobrecarregado emocionalmente, expressando que tudo está sempre ruim.",
         "perfis": [
-          "culpado"
+          "lamentador",
+          "vitimista"
         ]
       },
       {
         "id": "8B",
-        "texto": "Resposta relacionada a ansiedade e controle.",
+        "texto": "Me cobro muito internamente para fazer o certo, mesmo quando não consigo.",
         "perfis": [
-          "controlador",
-          "ansioso"
+          "perfeccionista",
+          "culpado"
         ]
       },
       {
         "id": "8C",
-        "texto": "Resposta indicando sentimento de culpa e autopunição.",
+        "texto": "Evito pensar sobre isso, me distraio com tarefas, internet ou qualquer outra coisa.",
         "perfis": [
-          "culpado",
-          "nao_se_perdoa"
+          "escravo_mundo",
+          "fornicador_digital"
         ]
       },
       {
         "id": "8D",
-        "texto": "Resposta ligada a busca de aprovação.",
+        "texto": "Fico me perguntando o que as pessoas vão pensar de mim nessa situação.",
         "perfis": [
-          "desesperado_aprovacao",
-          "obcecado_opiniao"
+          "obcecado_opiniao",
+          "desesperado_aprovacao"
         ]
       }
     ]
   },
   {
     "id": "9",
-    "texto": "Pergunta representando o perfil 'Desconfiado'. Como você reage quando está sob pressão espiritual?",
+    "texto": "Como você normalmente reage em situações que revelam traços do perfil 'Desconfiado'?",
     "opcoes": [
       {
         "id": "9A",
-        "texto": "Resposta característica de desconfiado.",
+        "texto": "Costumo me sentir sobrecarregado emocionalmente, expressando que tudo está sempre ruim.",
         "perfis": [
-          "desconfiado"
+          "lamentador",
+          "vitimista"
         ]
       },
       {
         "id": "9B",
-        "texto": "Resposta relacionada a ansiedade e controle.",
+        "texto": "Me cobro muito internamente para fazer o certo, mesmo quando não consigo.",
         "perfis": [
-          "controlador",
-          "ansioso"
+          "perfeccionista",
+          "culpado"
         ]
       },
       {
         "id": "9C",
-        "texto": "Resposta indicando sentimento de culpa e autopunição.",
+        "texto": "Evito pensar sobre isso, me distraio com tarefas, internet ou qualquer outra coisa.",
         "perfis": [
-          "culpado",
-          "nao_se_perdoa"
+          "escravo_mundo",
+          "fornicador_digital"
         ]
       },
       {
         "id": "9D",
-        "texto": "Resposta ligada a busca de aprovação.",
+        "texto": "Fico me perguntando o que as pessoas vão pensar de mim nessa situação.",
         "perfis": [
-          "desesperado_aprovacao",
-          "obcecado_opiniao"
+          "obcecado_opiniao",
+          "desesperado_aprovacao"
         ]
       }
     ]
   },
   {
     "id": "10",
-    "texto": "Pergunta representando o perfil 'Invejoso Espiritual'. Como você reage quando está sob pressão espiritual?",
+    "texto": "Como você normalmente reage em situações que revelam traços do perfil 'Invejoso espiritual'?",
     "opcoes": [
       {
         "id": "10A",
-        "texto": "Resposta característica de invejoso espiritual.",
+        "texto": "Costumo me sentir sobrecarregado emocionalmente, expressando que tudo está sempre ruim.",
         "perfis": [
-          "invejoso_espiritual"
+          "lamentador",
+          "vitimista"
         ]
       },
       {
         "id": "10B",
-        "texto": "Resposta relacionada a ansiedade e controle.",
+        "texto": "Me cobro muito internamente para fazer o certo, mesmo quando não consigo.",
         "perfis": [
-          "controlador",
-          "ansioso"
+          "perfeccionista",
+          "culpado"
         ]
       },
       {
         "id": "10C",
-        "texto": "Resposta indicando sentimento de culpa e autopunição.",
+        "texto": "Evito pensar sobre isso, me distraio com tarefas, internet ou qualquer outra coisa.",
         "perfis": [
-          "culpado",
-          "nao_se_perdoa"
+          "escravo_mundo",
+          "fornicador_digital"
         ]
       },
       {
         "id": "10D",
-        "texto": "Resposta ligada a busca de aprovação.",
+        "texto": "Fico me perguntando o que as pessoas vão pensar de mim nessa situação.",
         "perfis": [
-          "desesperado_aprovacao",
-          "obcecado_opiniao"
+          "obcecado_opiniao",
+          "desesperado_aprovacao"
         ]
       }
     ]
   },
   {
     "id": "11",
-    "texto": "Pergunta representando o perfil 'Mentiroso'. Como você reage quando está sob pressão espiritual?",
+    "texto": "Como você normalmente reage em situações que revelam traços do perfil 'Mentiroso'?",
     "opcoes": [
       {
         "id": "11A",
-        "texto": "Resposta característica de mentiroso.",
+        "texto": "Costumo me sentir sobrecarregado emocionalmente, expressando que tudo está sempre ruim.",
         "perfis": [
-          "mentiroso"
+          "lamentador",
+          "vitimista"
         ]
       },
       {
         "id": "11B",
-        "texto": "Resposta relacionada a ansiedade e controle.",
+        "texto": "Me cobro muito internamente para fazer o certo, mesmo quando não consigo.",
         "perfis": [
-          "controlador",
-          "ansioso"
+          "perfeccionista",
+          "culpado"
         ]
       },
       {
         "id": "11C",
-        "texto": "Resposta indicando sentimento de culpa e autopunição.",
+        "texto": "Evito pensar sobre isso, me distraio com tarefas, internet ou qualquer outra coisa.",
         "perfis": [
-          "culpado",
-          "nao_se_perdoa"
+          "escravo_mundo",
+          "fornicador_digital"
         ]
       },
       {
         "id": "11D",
-        "texto": "Resposta ligada a busca de aprovação.",
+        "texto": "Fico me perguntando o que as pessoas vão pensar de mim nessa situação.",
         "perfis": [
-          "desesperado_aprovacao",
-          "obcecado_opiniao"
+          "obcecado_opiniao",
+          "desesperado_aprovacao"
         ]
       }
     ]
   },
   {
     "id": "12",
-    "texto": "Pergunta representando o perfil 'Hipocrita'. Como você reage quando está sob pressão espiritual?",
+    "texto": "Como você normalmente reage em situações que revelam traços do perfil 'Hipocrita'?",
     "opcoes": [
       {
         "id": "12A",
-        "texto": "Resposta característica de hipocrita.",
+        "texto": "Costumo me sentir sobrecarregado emocionalmente, expressando que tudo está sempre ruim.",
         "perfis": [
-          "hipocrita"
+          "lamentador",
+          "vitimista"
         ]
       },
       {
         "id": "12B",
-        "texto": "Resposta relacionada a ansiedade e controle.",
+        "texto": "Me cobro muito internamente para fazer o certo, mesmo quando não consigo.",
         "perfis": [
-          "controlador",
-          "ansioso"
+          "perfeccionista",
+          "culpado"
         ]
       },
       {
         "id": "12C",
-        "texto": "Resposta indicando sentimento de culpa e autopunição.",
+        "texto": "Evito pensar sobre isso, me distraio com tarefas, internet ou qualquer outra coisa.",
         "perfis": [
-          "culpado",
-          "nao_se_perdoa"
+          "escravo_mundo",
+          "fornicador_digital"
         ]
       },
       {
         "id": "12D",
-        "texto": "Resposta ligada a busca de aprovação.",
+        "texto": "Fico me perguntando o que as pessoas vão pensar de mim nessa situação.",
         "perfis": [
-          "desesperado_aprovacao",
-          "obcecado_opiniao"
+          "obcecado_opiniao",
+          "desesperado_aprovacao"
         ]
       }
     ]
   },
   {
     "id": "13",
-    "texto": "Pergunta representando o perfil 'Tolo'. Como você reage quando está sob pressão espiritual?",
+    "texto": "Como você normalmente reage em situações que revelam traços do perfil 'Tolo'?",
     "opcoes": [
       {
         "id": "13A",
-        "texto": "Resposta característica de tolo.",
+        "texto": "Costumo me sentir sobrecarregado emocionalmente, expressando que tudo está sempre ruim.",
         "perfis": [
-          "tolo"
+          "lamentador",
+          "vitimista"
         ]
       },
       {
         "id": "13B",
-        "texto": "Resposta relacionada a ansiedade e controle.",
+        "texto": "Me cobro muito internamente para fazer o certo, mesmo quando não consigo.",
         "perfis": [
-          "controlador",
-          "ansioso"
+          "perfeccionista",
+          "culpado"
         ]
       },
       {
         "id": "13C",
-        "texto": "Resposta indicando sentimento de culpa e autopunição.",
+        "texto": "Evito pensar sobre isso, me distraio com tarefas, internet ou qualquer outra coisa.",
         "perfis": [
-          "culpado",
-          "nao_se_perdoa"
+          "escravo_mundo",
+          "fornicador_digital"
         ]
       },
       {
         "id": "13D",
-        "texto": "Resposta ligada a busca de aprovação.",
+        "texto": "Fico me perguntando o que as pessoas vão pensar de mim nessa situação.",
         "perfis": [
-          "desesperado_aprovacao",
-          "obcecado_opiniao"
+          "obcecado_opiniao",
+          "desesperado_aprovacao"
         ]
       }
     ]
   },
   {
     "id": "14",
-    "texto": "Pergunta representando o perfil 'Invejoso'. Como você reage quando está sob pressão espiritual?",
+    "texto": "Como você normalmente reage em situações que revelam traços do perfil 'Invejoso'?",
     "opcoes": [
       {
         "id": "14A",
-        "texto": "Resposta característica de invejoso.",
+        "texto": "Costumo me sentir sobrecarregado emocionalmente, expressando que tudo está sempre ruim.",
         "perfis": [
-          "invejoso"
+          "lamentador",
+          "vitimista"
         ]
       },
       {
         "id": "14B",
-        "texto": "Resposta relacionada a ansiedade e controle.",
+        "texto": "Me cobro muito internamente para fazer o certo, mesmo quando não consigo.",
         "perfis": [
-          "controlador",
-          "ansioso"
+          "perfeccionista",
+          "culpado"
         ]
       },
       {
         "id": "14C",
-        "texto": "Resposta indicando sentimento de culpa e autopunição.",
+        "texto": "Evito pensar sobre isso, me distraio com tarefas, internet ou qualquer outra coisa.",
         "perfis": [
-          "culpado",
-          "nao_se_perdoa"
+          "escravo_mundo",
+          "fornicador_digital"
         ]
       },
       {
         "id": "14D",
-        "texto": "Resposta ligada a busca de aprovação.",
+        "texto": "Fico me perguntando o que as pessoas vão pensar de mim nessa situação.",
         "perfis": [
-          "desesperado_aprovacao",
-          "obcecado_opiniao"
+          "obcecado_opiniao",
+          "desesperado_aprovacao"
         ]
       }
     ]
   },
   {
     "id": "15",
-    "texto": "Pergunta representando o perfil 'Bajulador'. Como você reage quando está sob pressão espiritual?",
+    "texto": "Como você normalmente reage em situações que revelam traços do perfil 'Bajulador'?",
     "opcoes": [
       {
         "id": "15A",
-        "texto": "Resposta característica de bajulador.",
+        "texto": "Costumo me sentir sobrecarregado emocionalmente, expressando que tudo está sempre ruim.",
         "perfis": [
-          "bajulador"
+          "lamentador",
+          "vitimista"
         ]
       },
       {
         "id": "15B",
-        "texto": "Resposta relacionada a ansiedade e controle.",
+        "texto": "Me cobro muito internamente para fazer o certo, mesmo quando não consigo.",
         "perfis": [
-          "controlador",
-          "ansioso"
+          "perfeccionista",
+          "culpado"
         ]
       },
       {
         "id": "15C",
-        "texto": "Resposta indicando sentimento de culpa e autopunição.",
+        "texto": "Evito pensar sobre isso, me distraio com tarefas, internet ou qualquer outra coisa.",
         "perfis": [
-          "culpado",
-          "nao_se_perdoa"
+          "escravo_mundo",
+          "fornicador_digital"
         ]
       },
       {
         "id": "15D",
-        "texto": "Resposta ligada a busca de aprovação.",
+        "texto": "Fico me perguntando o que as pessoas vão pensar de mim nessa situação.",
         "perfis": [
-          "desesperado_aprovacao",
-          "obcecado_opiniao"
+          "obcecado_opiniao",
+          "desesperado_aprovacao"
         ]
       }
     ]
   },
   {
     "id": "16",
-    "texto": "Pergunta representando o perfil 'Nao Procura Espirito'. Como você reage quando está sob pressão espiritual?",
+    "texto": "Como você normalmente reage em situações que revelam traços do perfil 'Nao procura espirito'?",
     "opcoes": [
       {
         "id": "16A",
-        "texto": "Resposta característica de nao procura espirito.",
+        "texto": "Costumo me sentir sobrecarregado emocionalmente, expressando que tudo está sempre ruim.",
         "perfis": [
-          "nao_procura_espirito"
+          "lamentador",
+          "vitimista"
         ]
       },
       {
         "id": "16B",
-        "texto": "Resposta relacionada a ansiedade e controle.",
+        "texto": "Me cobro muito internamente para fazer o certo, mesmo quando não consigo.",
         "perfis": [
-          "controlador",
-          "ansioso"
+          "perfeccionista",
+          "culpado"
         ]
       },
       {
         "id": "16C",
-        "texto": "Resposta indicando sentimento de culpa e autopunição.",
+        "texto": "Evito pensar sobre isso, me distraio com tarefas, internet ou qualquer outra coisa.",
         "perfis": [
-          "culpado",
-          "nao_se_perdoa"
+          "escravo_mundo",
+          "fornicador_digital"
         ]
       },
       {
         "id": "16D",
-        "texto": "Resposta ligada a busca de aprovação.",
+        "texto": "Fico me perguntando o que as pessoas vão pensar de mim nessa situação.",
         "perfis": [
-          "desesperado_aprovacao",
-          "obcecado_opiniao"
+          "obcecado_opiniao",
+          "desesperado_aprovacao"
         ]
       }
     ]
   },
   {
     "id": "17",
-    "texto": "Pergunta representando o perfil 'Falta Sabedoria'. Como você reage quando está sob pressão espiritual?",
+    "texto": "Como você normalmente reage em situações que revelam traços do perfil 'Falta sabedoria'?",
     "opcoes": [
       {
         "id": "17A",
-        "texto": "Resposta característica de falta sabedoria.",
+        "texto": "Costumo me sentir sobrecarregado emocionalmente, expressando que tudo está sempre ruim.",
         "perfis": [
-          "falta_sabedoria"
+          "lamentador",
+          "vitimista"
         ]
       },
       {
         "id": "17B",
-        "texto": "Resposta relacionada a ansiedade e controle.",
+        "texto": "Me cobro muito internamente para fazer o certo, mesmo quando não consigo.",
         "perfis": [
-          "controlador",
-          "ansioso"
+          "perfeccionista",
+          "culpado"
         ]
       },
       {
         "id": "17C",
-        "texto": "Resposta indicando sentimento de culpa e autopunição.",
+        "texto": "Evito pensar sobre isso, me distraio com tarefas, internet ou qualquer outra coisa.",
         "perfis": [
-          "culpado",
-          "nao_se_perdoa"
+          "escravo_mundo",
+          "fornicador_digital"
         ]
       },
       {
         "id": "17D",
-        "texto": "Resposta ligada a busca de aprovação.",
+        "texto": "Fico me perguntando o que as pessoas vão pensar de mim nessa situação.",
         "perfis": [
-          "desesperado_aprovacao",
-          "obcecado_opiniao"
+          "obcecado_opiniao",
+          "desesperado_aprovacao"
         ]
       }
     ]
   },
   {
     "id": "18",
-    "texto": "Pergunta representando o perfil 'Eu Nao'. Como você reage quando está sob pressão espiritual?",
+    "texto": "Como você normalmente reage em situações que revelam traços do perfil 'Eu nao'?",
     "opcoes": [
       {
         "id": "18A",
-        "texto": "Resposta característica de eu nao.",
+        "texto": "Costumo me sentir sobrecarregado emocionalmente, expressando que tudo está sempre ruim.",
         "perfis": [
-          "eu_nao"
+          "lamentador",
+          "vitimista"
         ]
       },
       {
         "id": "18B",
-        "texto": "Resposta relacionada a ansiedade e controle.",
+        "texto": "Me cobro muito internamente para fazer o certo, mesmo quando não consigo.",
         "perfis": [
-          "controlador",
-          "ansioso"
+          "perfeccionista",
+          "culpado"
         ]
       },
       {
         "id": "18C",
-        "texto": "Resposta indicando sentimento de culpa e autopunição.",
+        "texto": "Evito pensar sobre isso, me distraio com tarefas, internet ou qualquer outra coisa.",
         "perfis": [
-          "culpado",
-          "nao_se_perdoa"
+          "escravo_mundo",
+          "fornicador_digital"
         ]
       },
       {
         "id": "18D",
-        "texto": "Resposta ligada a busca de aprovação.",
+        "texto": "Fico me perguntando o que as pessoas vão pensar de mim nessa situação.",
         "perfis": [
-          "desesperado_aprovacao",
-          "obcecado_opiniao"
+          "obcecado_opiniao",
+          "desesperado_aprovacao"
         ]
       }
     ]
   },
   {
     "id": "19",
-    "texto": "Pergunta representando o perfil 'Orgulhoso'. Como você reage quando está sob pressão espiritual?",
+    "texto": "Como você normalmente reage em situações que revelam traços do perfil 'Orgulhoso'?",
     "opcoes": [
       {
         "id": "19A",
-        "texto": "Resposta característica de orgulhoso.",
+        "texto": "Costumo me sentir sobrecarregado emocionalmente, expressando que tudo está sempre ruim.",
         "perfis": [
-          "orgulhoso"
+          "lamentador",
+          "vitimista"
         ]
       },
       {
         "id": "19B",
-        "texto": "Resposta relacionada a ansiedade e controle.",
+        "texto": "Me cobro muito internamente para fazer o certo, mesmo quando não consigo.",
         "perfis": [
-          "controlador",
-          "ansioso"
+          "perfeccionista",
+          "culpado"
         ]
       },
       {
         "id": "19C",
-        "texto": "Resposta indicando sentimento de culpa e autopunição.",
+        "texto": "Evito pensar sobre isso, me distraio com tarefas, internet ou qualquer outra coisa.",
         "perfis": [
-          "culpado",
-          "nao_se_perdoa"
+          "escravo_mundo",
+          "fornicador_digital"
         ]
       },
       {
         "id": "19D",
-        "texto": "Resposta ligada a busca de aprovação.",
+        "texto": "Fico me perguntando o que as pessoas vão pensar de mim nessa situação.",
         "perfis": [
-          "desesperado_aprovacao",
-          "obcecado_opiniao"
+          "obcecado_opiniao",
+          "desesperado_aprovacao"
         ]
       }
     ]
   },
   {
     "id": "20",
-    "texto": "Pergunta representando o perfil 'Senhor Desculpas'. Como você reage quando está sob pressão espiritual?",
+    "texto": "Como você normalmente reage em situações que revelam traços do perfil 'Senhor desculpas'?",
     "opcoes": [
       {
         "id": "20A",
-        "texto": "Resposta característica de senhor desculpas.",
+        "texto": "Costumo me sentir sobrecarregado emocionalmente, expressando que tudo está sempre ruim.",
         "perfis": [
-          "senhor_desculpas"
+          "lamentador",
+          "vitimista"
         ]
       },
       {
         "id": "20B",
-        "texto": "Resposta relacionada a ansiedade e controle.",
+        "texto": "Me cobro muito internamente para fazer o certo, mesmo quando não consigo.",
         "perfis": [
-          "controlador",
-          "ansioso"
+          "perfeccionista",
+          "culpado"
         ]
       },
       {
         "id": "20C",
-        "texto": "Resposta indicando sentimento de culpa e autopunição.",
+        "texto": "Evito pensar sobre isso, me distraio com tarefas, internet ou qualquer outra coisa.",
         "perfis": [
-          "culpado",
-          "nao_se_perdoa"
+          "escravo_mundo",
+          "fornicador_digital"
         ]
       },
       {
         "id": "20D",
-        "texto": "Resposta ligada a busca de aprovação.",
+        "texto": "Fico me perguntando o que as pessoas vão pensar de mim nessa situação.",
         "perfis": [
-          "desesperado_aprovacao",
-          "obcecado_opiniao"
+          "obcecado_opiniao",
+          "desesperado_aprovacao"
         ]
       }
     ]
   },
   {
     "id": "21",
-    "texto": "Pergunta representando o perfil 'Adora Dinheiro'. Como você reage quando está sob pressão espiritual?",
+    "texto": "Como você normalmente reage em situações que revelam traços do perfil 'Adora dinheiro'?",
     "opcoes": [
       {
         "id": "21A",
-        "texto": "Resposta característica de adora dinheiro.",
+        "texto": "Costumo me sentir sobrecarregado emocionalmente, expressando que tudo está sempre ruim.",
         "perfis": [
-          "adora_dinheiro"
+          "lamentador",
+          "vitimista"
         ]
       },
       {
         "id": "21B",
-        "texto": "Resposta relacionada a ansiedade e controle.",
+        "texto": "Me cobro muito internamente para fazer o certo, mesmo quando não consigo.",
         "perfis": [
-          "controlador",
-          "ansioso"
+          "perfeccionista",
+          "culpado"
         ]
       },
       {
         "id": "21C",
-        "texto": "Resposta indicando sentimento de culpa e autopunição.",
+        "texto": "Evito pensar sobre isso, me distraio com tarefas, internet ou qualquer outra coisa.",
         "perfis": [
-          "culpado",
-          "nao_se_perdoa"
+          "escravo_mundo",
+          "fornicador_digital"
         ]
       },
       {
         "id": "21D",
-        "texto": "Resposta ligada a busca de aprovação.",
+        "texto": "Fico me perguntando o que as pessoas vão pensar de mim nessa situação.",
         "perfis": [
-          "desesperado_aprovacao",
-          "obcecado_opiniao"
+          "obcecado_opiniao",
+          "desesperado_aprovacao"
         ]
       }
     ]
   },
   {
     "id": "22",
-    "texto": "Pergunta representando o perfil 'Nao Se Perdoa'. Como você reage quando está sob pressão espiritual?",
+    "texto": "Como você normalmente reage em situações que revelam traços do perfil 'Nao se perdoa'?",
     "opcoes": [
       {
         "id": "22A",
-        "texto": "Resposta característica de nao se perdoa.",
+        "texto": "Costumo me sentir sobrecarregado emocionalmente, expressando que tudo está sempre ruim.",
         "perfis": [
-          "nao_se_perdoa"
+          "lamentador",
+          "vitimista"
         ]
       },
       {
         "id": "22B",
-        "texto": "Resposta relacionada a ansiedade e controle.",
+        "texto": "Me cobro muito internamente para fazer o certo, mesmo quando não consigo.",
         "perfis": [
-          "controlador",
-          "ansioso"
+          "perfeccionista",
+          "culpado"
         ]
       },
       {
         "id": "22C",
-        "texto": "Resposta indicando sentimento de culpa e autopunição.",
+        "texto": "Evito pensar sobre isso, me distraio com tarefas, internet ou qualquer outra coisa.",
         "perfis": [
-          "culpado",
-          "nao_se_perdoa"
+          "escravo_mundo",
+          "fornicador_digital"
         ]
       },
       {
         "id": "22D",
-        "texto": "Resposta ligada a busca de aprovação.",
+        "texto": "Fico me perguntando o que as pessoas vão pensar de mim nessa situação.",
         "perfis": [
-          "desesperado_aprovacao",
-          "obcecado_opiniao"
+          "obcecado_opiniao",
+          "desesperado_aprovacao"
         ]
       }
     ]
   },
   {
     "id": "23",
-    "texto": "Pergunta representando o perfil 'Desesperado Aprovacao'. Como você reage quando está sob pressão espiritual?",
+    "texto": "Como você normalmente reage em situações que revelam traços do perfil 'Desesperado aprovacao'?",
     "opcoes": [
       {
         "id": "23A",
-        "texto": "Resposta característica de desesperado aprovacao.",
+        "texto": "Costumo me sentir sobrecarregado emocionalmente, expressando que tudo está sempre ruim.",
         "perfis": [
-          "desesperado_aprovacao"
+          "lamentador",
+          "vitimista"
         ]
       },
       {
         "id": "23B",
-        "texto": "Resposta relacionada a ansiedade e controle.",
+        "texto": "Me cobro muito internamente para fazer o certo, mesmo quando não consigo.",
         "perfis": [
-          "controlador",
-          "ansioso"
+          "perfeccionista",
+          "culpado"
         ]
       },
       {
         "id": "23C",
-        "texto": "Resposta indicando sentimento de culpa e autopunição.",
+        "texto": "Evito pensar sobre isso, me distraio com tarefas, internet ou qualquer outra coisa.",
         "perfis": [
-          "culpado",
-          "nao_se_perdoa"
+          "escravo_mundo",
+          "fornicador_digital"
         ]
       },
       {
         "id": "23D",
-        "texto": "Resposta ligada a busca de aprovação.",
+        "texto": "Fico me perguntando o que as pessoas vão pensar de mim nessa situação.",
         "perfis": [
-          "desesperado_aprovacao",
-          "obcecado_opiniao"
+          "obcecado_opiniao",
+          "desesperado_aprovacao"
         ]
       }
     ]
   },
   {
     "id": "24",
-    "texto": "Pergunta representando o perfil 'Julgador'. Como você reage quando está sob pressão espiritual?",
+    "texto": "Como você normalmente reage em situações que revelam traços do perfil 'Julgador'?",
     "opcoes": [
       {
         "id": "24A",
-        "texto": "Resposta característica de julgador.",
+        "texto": "Costumo me sentir sobrecarregado emocionalmente, expressando que tudo está sempre ruim.",
         "perfis": [
-          "julgador"
+          "lamentador",
+          "vitimista"
         ]
       },
       {
         "id": "24B",
-        "texto": "Resposta relacionada a ansiedade e controle.",
+        "texto": "Me cobro muito internamente para fazer o certo, mesmo quando não consigo.",
         "perfis": [
-          "controlador",
-          "ansioso"
+          "perfeccionista",
+          "culpado"
         ]
       },
       {
         "id": "24C",
-        "texto": "Resposta indicando sentimento de culpa e autopunição.",
+        "texto": "Evito pensar sobre isso, me distraio com tarefas, internet ou qualquer outra coisa.",
         "perfis": [
-          "culpado",
-          "nao_se_perdoa"
+          "escravo_mundo",
+          "fornicador_digital"
         ]
       },
       {
         "id": "24D",
-        "texto": "Resposta ligada a busca de aprovação.",
+        "texto": "Fico me perguntando o que as pessoas vão pensar de mim nessa situação.",
         "perfis": [
-          "desesperado_aprovacao",
-          "obcecado_opiniao"
+          "obcecado_opiniao",
+          "desesperado_aprovacao"
         ]
       }
     ]
   },
   {
     "id": "25",
-    "texto": "Pergunta representando o perfil 'Nao Ora'. Como você reage quando está sob pressão espiritual?",
+    "texto": "Como você normalmente reage em situações que revelam traços do perfil 'Nao ora'?",
     "opcoes": [
       {
         "id": "25A",
-        "texto": "Resposta característica de nao ora.",
+        "texto": "Costumo me sentir sobrecarregado emocionalmente, expressando que tudo está sempre ruim.",
         "perfis": [
-          "nao_ora"
+          "lamentador",
+          "vitimista"
         ]
       },
       {
         "id": "25B",
-        "texto": "Resposta relacionada a ansiedade e controle.",
+        "texto": "Me cobro muito internamente para fazer o certo, mesmo quando não consigo.",
         "perfis": [
-          "controlador",
-          "ansioso"
+          "perfeccionista",
+          "culpado"
         ]
       },
       {
         "id": "25C",
-        "texto": "Resposta indicando sentimento de culpa e autopunição.",
+        "texto": "Evito pensar sobre isso, me distraio com tarefas, internet ou qualquer outra coisa.",
         "perfis": [
-          "culpado",
-          "nao_se_perdoa"
+          "escravo_mundo",
+          "fornicador_digital"
         ]
       },
       {
         "id": "25D",
-        "texto": "Resposta ligada a busca de aprovação.",
+        "texto": "Fico me perguntando o que as pessoas vão pensar de mim nessa situação.",
         "perfis": [
-          "desesperado_aprovacao",
-          "obcecado_opiniao"
+          "obcecado_opiniao",
+          "desesperado_aprovacao"
         ]
       }
     ]
   },
   {
     "id": "26",
-    "texto": "Pergunta representando o perfil 'Escravo Mundo'. Como você reage quando está sob pressão espiritual?",
+    "texto": "Como você normalmente reage em situações que revelam traços do perfil 'Escravo mundo'?",
     "opcoes": [
       {
         "id": "26A",
-        "texto": "Resposta característica de escravo mundo.",
+        "texto": "Costumo me sentir sobrecarregado emocionalmente, expressando que tudo está sempre ruim.",
         "perfis": [
-          "escravo_mundo"
+          "lamentador",
+          "vitimista"
         ]
       },
       {
         "id": "26B",
-        "texto": "Resposta relacionada a ansiedade e controle.",
+        "texto": "Me cobro muito internamente para fazer o certo, mesmo quando não consigo.",
         "perfis": [
-          "controlador",
-          "ansioso"
+          "perfeccionista",
+          "culpado"
         ]
       },
       {
         "id": "26C",
-        "texto": "Resposta indicando sentimento de culpa e autopunição.",
+        "texto": "Evito pensar sobre isso, me distraio com tarefas, internet ou qualquer outra coisa.",
         "perfis": [
-          "culpado",
-          "nao_se_perdoa"
+          "escravo_mundo",
+          "fornicador_digital"
         ]
       },
       {
         "id": "26D",
-        "texto": "Resposta ligada a busca de aprovação.",
+        "texto": "Fico me perguntando o que as pessoas vão pensar de mim nessa situação.",
         "perfis": [
-          "desesperado_aprovacao",
-          "obcecado_opiniao"
+          "obcecado_opiniao",
+          "desesperado_aprovacao"
         ]
       }
     ]
   },
   {
     "id": "27",
-    "texto": "Pergunta representando o perfil 'Impaciente'. Como você reage quando está sob pressão espiritual?",
+    "texto": "Como você normalmente reage em situações que revelam traços do perfil 'Impaciente'?",
     "opcoes": [
       {
         "id": "27A",
-        "texto": "Resposta característica de impaciente.",
+        "texto": "Costumo me sentir sobrecarregado emocionalmente, expressando que tudo está sempre ruim.",
         "perfis": [
-          "impaciente"
+          "lamentador",
+          "vitimista"
         ]
       },
       {
         "id": "27B",
-        "texto": "Resposta relacionada a ansiedade e controle.",
+        "texto": "Me cobro muito internamente para fazer o certo, mesmo quando não consigo.",
         "perfis": [
-          "controlador",
-          "ansioso"
+          "perfeccionista",
+          "culpado"
         ]
       },
       {
         "id": "27C",
-        "texto": "Resposta indicando sentimento de culpa e autopunição.",
+        "texto": "Evito pensar sobre isso, me distraio com tarefas, internet ou qualquer outra coisa.",
         "perfis": [
-          "culpado",
-          "nao_se_perdoa"
+          "escravo_mundo",
+          "fornicador_digital"
         ]
       },
       {
         "id": "27D",
-        "texto": "Resposta ligada a busca de aprovação.",
+        "texto": "Fico me perguntando o que as pessoas vão pensar de mim nessa situação.",
         "perfis": [
-          "desesperado_aprovacao",
-          "obcecado_opiniao"
+          "obcecado_opiniao",
+          "desesperado_aprovacao"
         ]
       }
     ]
   },
   {
     "id": "28",
-    "texto": "Pergunta representando o perfil 'Nao Jejua'. Como você reage quando está sob pressão espiritual?",
+    "texto": "Como você normalmente reage em situações que revelam traços do perfil 'Nao jejua'?",
     "opcoes": [
       {
         "id": "28A",
-        "texto": "Resposta característica de nao jejua.",
+        "texto": "Costumo me sentir sobrecarregado emocionalmente, expressando que tudo está sempre ruim.",
         "perfis": [
-          "nao_jejua"
+          "lamentador",
+          "vitimista"
         ]
       },
       {
         "id": "28B",
-        "texto": "Resposta relacionada a ansiedade e controle.",
+        "texto": "Me cobro muito internamente para fazer o certo, mesmo quando não consigo.",
         "perfis": [
-          "controlador",
-          "ansioso"
+          "perfeccionista",
+          "culpado"
         ]
       },
       {
         "id": "28C",
-        "texto": "Resposta indicando sentimento de culpa e autopunição.",
+        "texto": "Evito pensar sobre isso, me distraio com tarefas, internet ou qualquer outra coisa.",
         "perfis": [
-          "culpado",
-          "nao_se_perdoa"
+          "escravo_mundo",
+          "fornicador_digital"
         ]
       },
       {
         "id": "28D",
-        "texto": "Resposta ligada a busca de aprovação.",
+        "texto": "Fico me perguntando o que as pessoas vão pensar de mim nessa situação.",
         "perfis": [
-          "desesperado_aprovacao",
-          "obcecado_opiniao"
+          "obcecado_opiniao",
+          "desesperado_aprovacao"
         ]
       }
     ]
   },
   {
     "id": "29",
-    "texto": "Pergunta representando o perfil 'Nao Conhece Coracao'. Como você reage quando está sob pressão espiritual?",
+    "texto": "Como você normalmente reage em situações que revelam traços do perfil 'Nao conhece coracao'?",
     "opcoes": [
       {
         "id": "29A",
-        "texto": "Resposta característica de nao conhece coracao.",
+        "texto": "Costumo me sentir sobrecarregado emocionalmente, expressando que tudo está sempre ruim.",
         "perfis": [
-          "nao_conhece_coracao"
+          "lamentador",
+          "vitimista"
         ]
       },
       {
         "id": "29B",
-        "texto": "Resposta relacionada a ansiedade e controle.",
+        "texto": "Me cobro muito internamente para fazer o certo, mesmo quando não consigo.",
         "perfis": [
-          "controlador",
-          "ansioso"
+          "perfeccionista",
+          "culpado"
         ]
       },
       {
         "id": "29C",
-        "texto": "Resposta indicando sentimento de culpa e autopunição.",
+        "texto": "Evito pensar sobre isso, me distraio com tarefas, internet ou qualquer outra coisa.",
         "perfis": [
-          "culpado",
-          "nao_se_perdoa"
+          "escravo_mundo",
+          "fornicador_digital"
         ]
       },
       {
         "id": "29D",
-        "texto": "Resposta ligada a busca de aprovação.",
+        "texto": "Fico me perguntando o que as pessoas vão pensar de mim nessa situação.",
         "perfis": [
-          "desesperado_aprovacao",
-          "obcecado_opiniao"
+          "obcecado_opiniao",
+          "desesperado_aprovacao"
         ]
       }
     ]
   },
   {
     "id": "30",
-    "texto": "Pergunta representando o perfil 'Fornicador Digital'. Como você reage quando está sob pressão espiritual?",
+    "texto": "Como você normalmente reage em situações que revelam traços do perfil 'Fornicador digital'?",
     "opcoes": [
       {
         "id": "30A",
-        "texto": "Resposta característica de fornicador digital.",
+        "texto": "Costumo me sentir sobrecarregado emocionalmente, expressando que tudo está sempre ruim.",
         "perfis": [
-          "fornicador_digital"
+          "lamentador",
+          "vitimista"
         ]
       },
       {
         "id": "30B",
-        "texto": "Resposta relacionada a ansiedade e controle.",
+        "texto": "Me cobro muito internamente para fazer o certo, mesmo quando não consigo.",
         "perfis": [
-          "controlador",
-          "ansioso"
+          "perfeccionista",
+          "culpado"
         ]
       },
       {
         "id": "30C",
-        "texto": "Resposta indicando sentimento de culpa e autopunição.",
+        "texto": "Evito pensar sobre isso, me distraio com tarefas, internet ou qualquer outra coisa.",
         "perfis": [
-          "culpado",
-          "nao_se_perdoa"
+          "escravo_mundo",
+          "fornicador_digital"
         ]
       },
       {
         "id": "30D",
-        "texto": "Resposta ligada a busca de aprovação.",
+        "texto": "Fico me perguntando o que as pessoas vão pensar de mim nessa situação.",
         "perfis": [
-          "desesperado_aprovacao",
-          "obcecado_opiniao"
+          "obcecado_opiniao",
+          "desesperado_aprovacao"
         ]
       }
     ]
   },
   {
     "id": "31",
-    "texto": "Pergunta representando o perfil 'Nao Estuda Biblia'. Como você reage quando está sob pressão espiritual?",
+    "texto": "Como você normalmente reage em situações que revelam traços do perfil 'Nao estuda biblia'?",
     "opcoes": [
       {
         "id": "31A",
-        "texto": "Resposta característica de nao estuda biblia.",
+        "texto": "Costumo me sentir sobrecarregado emocionalmente, expressando que tudo está sempre ruim.",
         "perfis": [
-          "nao_estuda_biblia"
+          "lamentador",
+          "vitimista"
         ]
       },
       {
         "id": "31B",
-        "texto": "Resposta relacionada a ansiedade e controle.",
+        "texto": "Me cobro muito internamente para fazer o certo, mesmo quando não consigo.",
         "perfis": [
-          "controlador",
-          "ansioso"
+          "perfeccionista",
+          "culpado"
         ]
       },
       {
         "id": "31C",
-        "texto": "Resposta indicando sentimento de culpa e autopunição.",
+        "texto": "Evito pensar sobre isso, me distraio com tarefas, internet ou qualquer outra coisa.",
         "perfis": [
-          "culpado",
-          "nao_se_perdoa"
+          "escravo_mundo",
+          "fornicador_digital"
         ]
       },
       {
         "id": "31D",
-        "texto": "Resposta ligada a busca de aprovação.",
+        "texto": "Fico me perguntando o que as pessoas vão pensar de mim nessa situação.",
         "perfis": [
-          "desesperado_aprovacao",
-          "obcecado_opiniao"
+          "obcecado_opiniao",
+          "desesperado_aprovacao"
         ]
       }
     ]
   },
   {
     "id": "32",
-    "texto": "Pergunta representando o perfil 'Imprudente'. Como você reage quando está sob pressão espiritual?",
+    "texto": "Como você normalmente reage em situações que revelam traços do perfil 'Imprudente'?",
     "opcoes": [
       {
         "id": "32A",
-        "texto": "Resposta característica de imprudente.",
+        "texto": "Costumo me sentir sobrecarregado emocionalmente, expressando que tudo está sempre ruim.",
         "perfis": [
-          "imprudente"
+          "lamentador",
+          "vitimista"
         ]
       },
       {
         "id": "32B",
-        "texto": "Resposta relacionada a ansiedade e controle.",
+        "texto": "Me cobro muito internamente para fazer o certo, mesmo quando não consigo.",
         "perfis": [
-          "controlador",
-          "ansioso"
+          "perfeccionista",
+          "culpado"
         ]
       },
       {
         "id": "32C",
-        "texto": "Resposta indicando sentimento de culpa e autopunição.",
+        "texto": "Evito pensar sobre isso, me distraio com tarefas, internet ou qualquer outra coisa.",
         "perfis": [
-          "culpado",
-          "nao_se_perdoa"
+          "escravo_mundo",
+          "fornicador_digital"
         ]
       },
       {
         "id": "32D",
-        "texto": "Resposta ligada a busca de aprovação.",
+        "texto": "Fico me perguntando o que as pessoas vão pensar de mim nessa situação.",
         "perfis": [
-          "desesperado_aprovacao",
-          "obcecado_opiniao"
+          "obcecado_opiniao",
+          "desesperado_aprovacao"
         ]
       }
     ]
   },
   {
     "id": "33",
-    "texto": "Pergunta representando o perfil 'Vitimista'. Como você reage quando está sob pressão espiritual?",
+    "texto": "Como você normalmente reage em situações que revelam traços do perfil 'Vitimista'?",
     "opcoes": [
       {
         "id": "33A",
-        "texto": "Resposta característica de vitimista.",
+        "texto": "Costumo me sentir sobrecarregado emocionalmente, expressando que tudo está sempre ruim.",
         "perfis": [
+          "lamentador",
           "vitimista"
         ]
       },
       {
         "id": "33B",
-        "texto": "Resposta relacionada a ansiedade e controle.",
+        "texto": "Me cobro muito internamente para fazer o certo, mesmo quando não consigo.",
         "perfis": [
-          "controlador",
-          "ansioso"
+          "perfeccionista",
+          "culpado"
         ]
       },
       {
         "id": "33C",
-        "texto": "Resposta indicando sentimento de culpa e autopunição.",
+        "texto": "Evito pensar sobre isso, me distraio com tarefas, internet ou qualquer outra coisa.",
         "perfis": [
-          "culpado",
-          "nao_se_perdoa"
+          "escravo_mundo",
+          "fornicador_digital"
         ]
       },
       {
         "id": "33D",
-        "texto": "Resposta ligada a busca de aprovação.",
+        "texto": "Fico me perguntando o que as pessoas vão pensar de mim nessa situação.",
         "perfis": [
-          "desesperado_aprovacao",
-          "obcecado_opiniao"
+          "obcecado_opiniao",
+          "desesperado_aprovacao"
         ]
       }
     ]
