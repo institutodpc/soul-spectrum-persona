@@ -1,6 +1,7 @@
 
 import { supabase } from "@/integrations/supabase/client";
 import { Answer, DiagnosticResult, Profile, Question } from "@/types/diagnostic";
+import { syncQuestions } from "@/scripts/syncQuestions";
 
 export const submitDiagnostic = async (answers: Answer[]): Promise<DiagnosticResult> => {
   try {
@@ -86,28 +87,30 @@ export const fetchQuestions = async (): Promise<Question[]> => {
       .from('alternativas')
       .select('*', { count: 'exact', head: true });
     
-    const { data: perfisCount, error: perfisCountError } = await supabase
-      .from('perfis')
-      .select('*', { count: 'exact', head: true });
-    
     console.log('📊 Verificação inicial de dados:', { 
       perguntasCount: perguntasCount !== null,
       alternativasCount: alternativasCount !== null,
-      perfisCount: perfisCount !== null,
       errors: {
         perguntas: perguntasCountError?.message || null,
-        alternativas: alternativasCountError?.message || null,
-        perfis: perfisCountError?.message || null
+        alternativas: alternativasCountError?.message || null
       }
     });
     
-    // Se alguma tabela está vazia, usar JSON local
-    if (perguntasCountError || alternativasCountError || perfisCountError) {
-      console.warn('⚠️ Erro ao verificar tabelas, usando JSON local');
-      return await loadLocalQuestions();
+    // Se alguma tabela está vazia ou com erro, sincronizar automaticamente
+    if (perguntasCountError || alternativasCountError || perguntasCount === null || alternativasCount === null) {
+      console.warn('⚠️ Dados não encontrados no Supabase, iniciando sincronização automática...');
+      
+      try {
+        const syncResult = await syncQuestions();
+        console.log('✅ Sincronização automática concluída:', syncResult);
+      } catch (syncError) {
+        console.error('💥 Erro na sincronização automática:', syncError);
+        // Se a sincronização falhar, usar JSON local
+        return await loadLocalQuestions();
+      }
     }
     
-    // Buscar perguntas
+    // Buscar perguntas após possível sincronização
     const { data: perguntasData, error: perguntasError } = await supabase
       .from('perguntas')
       .select('*')
@@ -119,7 +122,7 @@ export const fetchQuestions = async (): Promise<Question[]> => {
     });
     
     if (perguntasError || !perguntasData || perguntasData.length === 0) {
-      console.warn('⚠️ Nenhuma pergunta encontrada no Supabase ou erro, usando JSON local');
+      console.warn('⚠️ Nenhuma pergunta encontrada no Supabase após sincronização, usando JSON local');
       return await loadLocalQuestions();
     }
     
@@ -134,7 +137,7 @@ export const fetchQuestions = async (): Promise<Question[]> => {
     });
     
     if (alternativasError || !alternativasData || alternativasData.length === 0) {
-      console.warn('⚠️ Nenhuma alternativa encontrada no Supabase ou erro, usando JSON local');
+      console.warn('⚠️ Nenhuma alternativa encontrada no Supabase após sincronização, usando JSON local');
       return await loadLocalQuestions();
     }
     
