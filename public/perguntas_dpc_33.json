@@ -2,1255 +2,859 @@
 [
   {
     "id": "1",
-    "texto": "Como você normalmente reage em situações que revelam traços do perfil 'Lamentador'?",
+    "texto": "Em suas lutas e provações de fé, como você costuma reagir?",
     "opcoes": [
       {
         "id": "1A",
-        "texto": "Costumo me sentir sobrecarregado emocionalmente, expressando que tudo está sempre ruim.",
-        "perfis": [
-          "lamentador",
-          "vitimista"
-        ]
+        "texto": "Tendo a focar nos problemas e expressar minha insatisfação sobre a situação a outros irmãos na fé.",
+        "perfis": ["lamentador"]
       },
       {
         "id": "1B",
-        "texto": "Me cobro muito internamente para fazer o certo, mesmo quando não consigo.",
-        "perfis": [
-          "perfeccionista",
-          "culpado"
-        ]
+        "texto": "Sinto uma forte autocobrança por não ter lidado com a situação de uma forma que considero ideal ou exemplar, o que me causa frustração espiritual.",
+        "perfis": ["perfeccionista", "perfeccionista_espiritual"]
       },
       {
         "id": "1C",
-        "texto": "Evito pensar sobre isso, me distraio com tarefas, internet ou qualquer outra coisa.",
-        "perfis": [
-          "escravo_mundo",
-          "fornicador_digital"
-        ]
+        "texto": "Postergo ações espirituais necessárias para enfrentar a situação, como orar ou buscar conselho na Palavra, preferindo me ocupar com outras atividades.",
+        "perfis": ["procrastinador"]
       },
       {
         "id": "1D",
-        "texto": "Fico me perguntando o que as pessoas vão pensar de mim nessa situação.",
-        "perfis": [
-          "obcecado_opiniao",
-          "desesperado_aprovacao"
-        ]
+        "texto": "Minha confiança na minha fé ou na capacidade de Deus para me ajudar é abalada, gerando incerteza e insegurança sobre o futuro.",
+        "perfis": ["inseguro"]
       }
     ]
   },
   {
     "id": "2",
-    "texto": "Como você normalmente reage em situações que revelam traços do perfil 'Perfeccionista'?",
+    "texto": "No seu serviço e comunhão na igreja, qual seu comportamento habitual?",
     "opcoes": [
       {
         "id": "2A",
-        "texto": "Costumo me sentir sobrecarregado emocionalmente, expressando que tudo está sempre ruim.",
-        "perfis": [
-          "lamentador",
-          "vitimista"
-        ]
+        "texto": "Procuro influenciar as decisões e a organização das atividades, sentindo desconforto se as coisas não seguem a minha perspectiva ou plano.",
+        "perfis": ["controlador"]
       },
       {
         "id": "2B",
-        "texto": "Me cobro muito internamente para fazer o certo, mesmo quando não consigo.",
-        "perfis": [
-          "perfeccionista",
-          "culpado"
-        ]
+        "texto": "A aprovação e a percepção que os irmãos na fé têm de mim e do meu serviço são considerações centrais para minha motivação e satisfação.",
+        "perfis": ["obcecado_opiniao", "desesperado_aprovacao"]
       },
       {
         "id": "2C",
-        "texto": "Evito pensar sobre isso, me distraio com tarefas, internet ou qualquer outra coisa.",
-        "perfis": [
-          "escravo_mundo",
-          "fornicador_digital"
-        ]
+        "texto": "Sinto o peso de erros ou falhas passadas no serviço, mesmo após arrependimento e perdão, o que limita minha liberdade e alegria em servir.",
+        "perfis": ["culpado", "que_nao_se_perdoa"]
       },
       {
         "id": "2D",
-        "texto": "Fico me perguntando o que as pessoas vão pensar de mim nessa situação.",
-        "perfis": [
-          "obcecado_opiniao",
-          "desesperado_aprovacao"
-        ]
+        "texto": "Tenho uma dificuldade latente em confiar plenamente na liderança espiritual ou nas intenções de outros irmãos em contextos ministeriais.",
+        "perfis": ["desconfiado"]
       }
     ]
   },
   {
     "id": "3",
-    "texto": "Como você normalmente reage em situações que revelam traços do perfil 'Procrastinador'?",
+    "texto": "Ao ver o crescimento ou dons de outros na fé, qual sua reação interna?",
     "opcoes": [
       {
         "id": "3A",
-        "texto": "Costumo me sentir sobrecarregado emocionalmente, expressando que tudo está sempre ruim.",
-        "perfis": [
-          "lamentador",
-          "vitimista"
-        ]
+        "texto": "Sinto um desejo de possuir os mesmos dons, o nível de espiritualidade ou a posição ministerial que o outro alcançou, gerando descontentamento.",
+        "perfis": ["invejoso", "invejoso_espiritual"]
       },
       {
         "id": "3B",
-        "texto": "Me cobro muito internamente para fazer o certo, mesmo quando não consigo.",
-        "perfis": [
-          "perfeccionista",
-          "culpado"
-        ]
+        "texto": "Expresso elogios de forma efusiva ou estratégica, por vezes com a intenção de causar uma impressão positiva ou obter algum tipo de reconhecimento ou benefício.",
+        "perfis": ["bajulador"]
       },
       {
         "id": "3C",
-        "texto": "Evito pensar sobre isso, me distraio com tarefas, internet ou qualquer outra coisa.",
-        "perfis": [
-          "escravo_mundo",
-          "fornicador_digital"
-        ]
+        "texto": "Frequentemente apresento justificativas para explicar por que não me dedico a certas práticas espirituais ou não alcanço resultados semelhantes aos de outros.",
+        "perfis": ["senhor_das_desculpas", "eu_nao"]
       },
       {
         "id": "3D",
-        "texto": "Fico me perguntando o que as pessoas vão pensar de mim nessa situação.",
-        "perfis": [
-          "obcecado_opiniao",
-          "desesperado_aprovacao"
-        ]
+        "texto": "Inclino-me a realizar uma análise crítica das falhas ou supostas imperfeições do irmão, em vez de me alegrar genuinamente com suas bênçãos.",
+        "perfis": ["julgador"]
       }
     ]
   },
   {
     "id": "4",
-    "texto": "Como você normalmente reage em situações que revelam traços do perfil 'Inseguro'?",
+    "texto": "Conhecimento da Palavra e coerência fé-vida: como você se avalia?",
     "opcoes": [
       {
         "id": "4A",
-        "texto": "Costumo me sentir sobrecarregado emocionalmente, expressando que tudo está sempre ruim.",
-        "perfis": [
-          "lamentador",
-          "vitimista"
-        ]
+        "texto": "Não demonstro um interesse proeminente ou consistente em aprofundar meu conhecimento da Bíblia ou das doutrinas cristãs fundamentais.",
+        "perfis": ["nao_procura_espirito_conhecimento", "que_nao_estuda_biblia"]
       },
       {
         "id": "4B",
-        "texto": "Me cobro muito internamente para fazer o certo, mesmo quando não consigo.",
-        "perfis": [
-          "perfeccionista",
-          "culpado"
-        ]
+        "texto": "Considero meu entendimento atual da fé como suficiente, e reconheço que minhas ações, por vezes, não refletem a sabedoria divina como poderiam.",
+        "perfis": ["que_falta_sabedoria", "tolo"]
       },
       {
         "id": "4C",
-        "texto": "Evito pensar sobre isso, me distraio com tarefas, internet ou qualquer outra coisa.",
-        "perfis": [
-          "escravo_mundo",
-          "fornicador_digital"
-        ]
+        "texto": "Percebo que minhas palavras sobre a fé e os valores cristãos nem sempre estão em total consonância com minhas atitudes e escolhas cotidianas.",
+        "perfis": ["hipocrita"]
       },
       {
         "id": "4D",
-        "texto": "Fico me perguntando o que as pessoas vão pensar de mim nessa situação.",
-        "perfis": [
-          "obcecado_opiniao",
-          "desesperado_aprovacao"
-        ]
+        "texto": "Em algumas situações, minhas declarações sobre minha vida cristã ou experiências espirituais podem não corresponder com total fidelidade à realidade.",
+        "perfis": ["mentiroso"]
       }
     ]
   },
   {
     "id": "5",
-    "texto": "Como você normalmente reage em situações que revelam traços do perfil 'Controlador'?",
+    "texto": "Bens, dinheiro e influências do mundo: qual sua postura em Cristo?",
     "opcoes": [
       {
         "id": "5A",
-        "texto": "Costumo me sentir sobrecarregado emocionalmente, expressando que tudo está sempre ruim.",
-        "perfis": [
-          "lamentador",
-          "vitimista"
-        ]
+        "texto": "A aquisição de bens materiais e a busca por segurança financeira tendem a ocupar uma posição central em minhas prioridades, por vezes sobrepondo-se ao Reino de Deus.",
+        "perfis": ["que_adora_dinheiro_esquece_reino"]
       },
       {
         "id": "5B",
-        "texto": "Me cobro muito internamente para fazer o certo, mesmo quando não consigo.",
-        "perfis": [
-          "perfeccionista",
-          "culpado"
-        ]
+        "texto": "Sinto uma forte atração por elementos, valores e tendências do mundo secular, o que pode me desviar dos princípios e da simplicidade do Evangelho.",
+        "perfis": ["escravo_mundo"]
       },
       {
         "id": "5C",
-        "texto": "Evito pensar sobre isso, me distraio com tarefas, internet ou qualquer outra coisa.",
-        "perfis": [
-          "escravo_mundo",
-          "fornicador_digital"
-        ]
+        "texto": "A espera pelo tempo de Deus ou por respostas concretas em oração frequentemente me gera desconforto, impaciência e ansiedade.",
+        "perfis": ["impaciente"]
       },
       {
         "id": "5D",
-        "texto": "Fico me perguntando o que as pessoas vão pensar de mim nessa situação.",
-        "perfis": [
-          "obcecado_opiniao",
-          "desesperado_aprovacao"
-        ]
+        "texto": "Em momentos de busca por satisfação ou entretenimento, por vezes recorro a conteúdos ou interações digitais de natureza moralmente questionável ou inadequada para um cristão.",
+        "perfis": ["fornicador_digital"]
       }
     ]
   },
   {
     "id": "6",
-    "texto": "Como você normalmente reage em situações que revelam traços do perfil 'Perfeccionista espiritual'?",
+    "texto": "Sua vida de oração, jejum e autoconhecimento em Deus: como está?",
     "opcoes": [
       {
         "id": "6A",
-        "texto": "Costumo me sentir sobrecarregado emocionalmente, expressando que tudo está sempre ruim.",
-        "perfis": [
-          "lamentador",
-          "vitimista"
-        ]
+        "texto": "A prática da oração não é um hábito consistente e prioritário em minha rotina, sendo frequentemente negligenciada.",
+        "perfis": ["que_nao_ora"]
       },
       {
         "id": "6B",
-        "texto": "Me cobro muito internamente para fazer o certo, mesmo quando não consigo.",
-        "perfis": [
-          "perfeccionista",
-          "culpado"
-        ]
+        "texto": "Não incluo o jejum como uma disciplina espiritual regular e relevante em minha vida cristã para buscar a Deus e mortificar a carne.",
+        "perfis": ["que_nao_jejua"]
       },
       {
         "id": "6C",
-        "texto": "Evito pensar sobre isso, me distraio com tarefas, internet ou qualquer outra coisa.",
-        "perfis": [
-          "escravo_mundo",
-          "fornicador_digital"
-        ]
+        "texto": "Tenho uma compreensão limitada das minhas próprias motivações, fraquezas e inclinações pecaminosas mais profundas, à luz da Palavra de Deus.",
+        "perfis": ["que_nao_conhece_seu_coracao"]
       },
       {
         "id": "6D",
-        "texto": "Fico me perguntando o que as pessoas vão pensar de mim nessa situação.",
-        "perfis": [
-          "obcecado_opiniao",
-          "desesperado_aprovacao"
-        ]
+        "texto": "Minhas decisões são frequentemente tomadas de forma impulsiva ou baseadas em emoções, sem buscar a direção clara de Deus ou considerar as consequências espirituais.",
+        "perfis": ["imprudente"]
       }
     ]
   },
   {
     "id": "7",
-    "texto": "Como você normalmente reage em situações que revelam traços do perfil 'Obcecado opiniao'?",
+    "texto": "Desafios que exigem fé e perseverança: sua reação principal?",
     "opcoes": [
       {
         "id": "7A",
-        "texto": "Costumo me sentir sobrecarregado emocionalmente, expressando que tudo está sempre ruim.",
-        "perfis": [
-          "lamentador",
-          "vitimista"
-        ]
+        "texto": "Constantemente me vejo expressando queixas sobre as dificuldades e me percebo como alguém especialmente prejudicado pelas circunstâncias.",
+        "perfis": ["lamentador", "vitimista"]
       },
       {
         "id": "7B",
-        "texto": "Me cobro muito internamente para fazer o certo, mesmo quando não consigo.",
-        "perfis": [
-          "perfeccionista",
-          "culpado"
-        ]
+        "texto": "A busca por um ideal de como um cristão 'perfeito' reagiria me paralisa ou me impede de aceitar minhas próprias falhas e limitações no processo.",
+        "perfis": ["perfeccionista", "perfeccionista_espiritual"]
       },
       {
         "id": "7C",
-        "texto": "Evito pensar sobre isso, me distraio com tarefas, internet ou qualquer outra coisa.",
-        "perfis": [
-          "escravo_mundo",
-          "fornicador_digital"
-        ]
+        "texto": "Evito me engajar plenamente nas responsabilidades e disciplinas que a fé exige em tempos de provação, preferindo adiar confrontos ou buscar distrações.",
+        "perfis": ["procrastinador"]
       },
       {
         "id": "7D",
-        "texto": "Fico me perguntando o que as pessoas vão pensar de mim nessa situação.",
-        "perfis": [
-          "obcecado_opiniao",
-          "desesperado_aprovacao"
-        ]
+        "texto": "Manifesto dúvidas significativas sobre minha identidade em Cristo ou sobre a real provisão e cuidado de Deus para a situação específica.",
+        "perfis": ["inseguro"]
       }
     ]
   },
   {
     "id": "8",
-    "texto": "Como você normalmente reage em situações que revelam traços do perfil 'Culpado'?",
+    "texto": "No serviço ou liderança na igreja: seu comportamento comum?",
     "opcoes": [
       {
         "id": "8A",
-        "texto": "Costumo me sentir sobrecarregado emocionalmente, expressando que tudo está sempre ruim.",
-        "perfis": [
-          "lamentador",
-          "vitimista"
-        ]
+        "texto": "Procuro manter o controle sobre todos os aspectos e processos, o que pode gerar atrito ou desânimo quando outros não seguem minhas direções ou sugestões.",
+        "perfis": ["controlador"]
       },
       {
         "id": "8B",
-        "texto": "Me cobro muito internamente para fazer o certo, mesmo quando não consigo.",
-        "perfis": [
-          "perfeccionista",
-          "culpado"
-        ]
+        "texto": "Minha preocupação principal é com a imagem que transmito aos outros irmãos e líderes, buscando ativamente aprovação e reconhecimento externo.",
+        "perfis": ["obcecado_opiniao", "desesperado_aprovacao"]
       },
       {
         "id": "8C",
-        "texto": "Evito pensar sobre isso, me distraio com tarefas, internet ou qualquer outra coisa.",
-        "perfis": [
-          "escravo_mundo",
-          "fornicador_digital"
-        ]
+        "texto": "Tenho dificuldade em me perdoar por falhas cometidas no serviço ou em ministérios passados, o que me mantém preso a sentimentos de culpa e inadequação.",
+        "perfis": ["culpado", "que_nao_se_perdoa"]
       },
       {
         "id": "8D",
-        "texto": "Fico me perguntando o que as pessoas vão pensar de mim nessa situação.",
-        "perfis": [
-          "obcecado_opiniao",
-          "desesperado_aprovacao"
-        ]
+        "texto": "Minha capacidade de confiar na direção de Deus através dos líderes estabelecidos ou na sinceridade e intenções dos outros irmãos é frequentemente reduzida.",
+        "perfis": ["desconfiado"]
       }
     ]
   },
   {
     "id": "9",
-    "texto": "Como você normalmente reage em situações que revelam traços do perfil 'Desconfiado'?",
+    "texto": "Ao destaque espiritual de outros (dons, ministério): qual sua reação?",
     "opcoes": [
       {
         "id": "9A",
-        "texto": "Costumo me sentir sobrecarregado emocionalmente, expressando que tudo está sempre ruim.",
-        "perfis": [
-          "lamentador",
-          "vitimista"
-        ]
+        "texto": "Sinto um forte desejo de possuir os mesmos dons, reconhecimento ou a posição espiritual do outro, o que me causa descontentamento com minha própria jornada.",
+        "perfis": ["invejoso", "invejoso_espiritual"]
       },
       {
         "id": "9B",
-        "texto": "Me cobro muito internamente para fazer o certo, mesmo quando não consigo.",
-        "perfis": [
-          "perfeccionista",
-          "culpado"
-        ]
+        "texto": "Tendo a exagerar nos elogios a irmãos em posições de destaque ou com testemunhos impactantes, buscando sua proximidade ou algum tipo de benefício social ou ministerial.",
+        "perfis": ["bajulador"]
       },
       {
         "id": "9C",
-        "texto": "Evito pensar sobre isso, me distraio com tarefas, internet ou qualquer outra coisa.",
-        "perfis": [
-          "escravo_mundo",
-          "fornicador_digital"
-        ]
+        "texto": "Utilizo argumentos e justificativas para explicar por que não me dedico com a mesma intensidade ou por que não alcancei um nível similar de maturidade ou serviço.",
+        "perfis": ["eu_nao", "senhor_das_desculpas"]
       },
       {
         "id": "9D",
-        "texto": "Fico me perguntando o que as pessoas vão pensar de mim nessa situação.",
-        "perfis": [
-          "obcecado_opiniao",
-          "desesperado_aprovacao"
-        ]
+        "texto": "Inclino-me a realizar uma análise crítica das falhas, motivações ou pontos fracos do irmão, em vez de me alegrar e glorificar a Deus por sua bênção e crescimento.",
+        "perfis": ["julgador"]
       }
     ]
   },
   {
     "id": "10",
-    "texto": "Como você normalmente reage em situações que revelam traços do perfil 'Invejoso espiritual'?",
+    "texto": "Conhecimento da Palavra e prática da fé: seu comportamento usual?",
     "opcoes": [
       {
         "id": "10A",
-        "texto": "Costumo me sentir sobrecarregado emocionalmente, expressando que tudo está sempre ruim.",
-        "perfis": [
-          "lamentador",
-          "vitimista"
-        ]
+        "texto": "Não demonstro um interesse ativo e consistente em aprofundar meu conhecimento bíblico ou teológico, considerando que o entendimento básico é suficiente.",
+        "perfis": ["nao_procura_espirito_conhecimento", "que_nao_estuda_biblia"]
       },
       {
         "id": "10B",
-        "texto": "Me cobro muito internamente para fazer o certo, mesmo quando não consigo.",
-        "perfis": [
-          "perfeccionista",
-          "culpado"
-        ]
+        "texto": "Acredito que meu entendimento da fé é geralmente adequado, mas reconheço que minhas ações, por vezes, carecem da prudência e sabedoria que a Palavra ensina.",
+        "perfis": ["que_falta_sabedoria", "tolo", "imprudente"]
       },
       {
         "id": "10C",
-        "texto": "Evito pensar sobre isso, me distraio com tarefas, internet ou qualquer outra coisa.",
-        "perfis": [
-          "escravo_mundo",
-          "fornicador_digital"
-        ]
+        "texto": "Percebo uma desconexão entre minhas declarações de fé e valores cristãos e minhas atitudes e reações no cotidiano, gerando uma inconsistência.",
+        "perfis": ["hipocrita"]
       },
       {
         "id": "10D",
-        "texto": "Fico me perguntando o que as pessoas vão pensar de mim nessa situação.",
-        "perfis": [
-          "obcecado_opiniao",
-          "desesperado_aprovacao"
-        ]
+        "texto": "Em certas conversas ou ao compartilhar testemunhos, minhas declarações sobre minha vida e experiências cristãs podem não ser totalmente precisas ou completas.",
+        "perfis": ["mentiroso"]
       }
     ]
   },
   {
     "id": "11",
-    "texto": "Como você normalmente reage em situações que revelam traços do perfil 'Mentiroso'?",
+    "texto": "Dinheiro, bens e cultura mundana: como influenciam sua vida com Deus?",
     "opcoes": [
       {
         "id": "11A",
-        "texto": "Costumo me sentir sobrecarregado emocionalmente, expressando que tudo está sempre ruim.",
-        "perfis": [
-          "lamentador",
-          "vitimista"
-        ]
+        "texto": "A prioridade para a aquisição de recursos financeiros e bens materiais tende a ser muito alta, por vezes desviando meu foco e energia do Reino de Deus e do serviço.",
+        "perfis": ["que_adora_dinheiro_esquece_reino"]
       },
       {
         "id": "11B",
-        "texto": "Me cobro muito internamente para fazer o certo, mesmo quando não consigo.",
-        "perfis": [
-          "perfeccionista",
-          "culpado"
-        ]
+        "texto": "Sinto-me fortemente atraído por elementos culturais, entretenimento e tendências da sociedade, o que pode me levar a ceder a valores e práticas não cristãs.",
+        "perfis": ["escravo_mundo"]
       },
       {
         "id": "11C",
-        "texto": "Evito pensar sobre isso, me distraio com tarefas, internet ou qualquer outra coisa.",
-        "perfis": [
-          "escravo_mundo",
-          "fornicador_digital"
-        ]
+        "texto": "A espera pelo tempo de Deus para respostas às minhas orações ou para a provisão de necessidades costuma me gerar grande desconforto, ansiedade e busca por soluções imediatas.",
+        "perfis": ["impaciente"]
       },
       {
         "id": "11D",
-        "texto": "Fico me perguntando o que as pessoas vão pensar de mim nessa situação.",
-        "perfis": [
-          "obcecado_opiniao",
-          "desesperado_aprovacao"
-        ]
+        "texto": "Busco entretenimento, alívio ou satisfação em meios digitais através de conteúdos ou interações que conflitam com a pureza e os princípios cristãos.",
+        "perfis": ["fornicador_digital"]
       }
     ]
   },
   {
     "id": "12",
-    "texto": "Como você normalmente reage em situações que revelam traços do perfil 'Hipocrita'?",
+    "texto": "Sua vida de oração, jejum e autoexame à luz da Palavra: como descreve?",
     "opcoes": [
       {
         "id": "12A",
-        "texto": "Costumo me sentir sobrecarregado emocionalmente, expressando que tudo está sempre ruim.",
-        "perfis": [
-          "lamentador",
-          "vitimista"
-        ]
+        "texto": "Minha prática de oração é irregular, pouco frequente ou superficial, não sendo uma prioridade real e vital em minha rotina espiritual.",
+        "perfis": ["que_nao_ora"]
       },
       {
         "id": "12B",
-        "texto": "Me cobro muito internamente para fazer o certo, mesmo quando não consigo.",
-        "perfis": [
-          "perfeccionista",
-          "culpado"
-        ]
+        "texto": "A disciplina do jejum não faz parte de minha rotina cristã regular, ou não a considero particularmente relevante para meu crescimento espiritual e intimidade com Deus.",
+        "perfis": ["que_nao_jejua"]
       },
       {
         "id": "12C",
-        "texto": "Evito pensar sobre isso, me distraio com tarefas, internet ou qualquer outra coisa.",
-        "perfis": [
-          "escravo_mundo",
-          "fornicador_digital"
-        ]
+        "texto": "Tenho dificuldade em reconhecer e compreender minhas próprias motivações internas, inclinações carnais e sentimentos profundos sob a ótica da Palavra de Deus.",
+        "perfis": ["que_nao_conhece_seu_coracao"]
       },
       {
         "id": "12D",
-        "texto": "Fico me perguntando o que as pessoas vão pensar de mim nessa situação.",
-        "perfis": [
-          "obcecado_opiniao",
-          "desesperado_aprovacao"
-        ]
+        "texto": "Minhas decisões são muitas vezes impulsionadas por reações emocionais imediatas ou por conveniência, sem uma busca consistente pela direção divina ou ponderação das consequências espirituais.",
+        "perfis": ["imprudente"]
       }
     ]
   },
   {
     "id": "13",
-    "texto": "Como você normalmente reage em situações que revelam traços do perfil 'Tolo'?",
+    "texto": "Ao encarar suas falhas e pecados: qual sua reação interna comum?",
     "opcoes": [
       {
         "id": "13A",
-        "texto": "Costumo me sentir sobrecarregado emocionalmente, expressando que tudo está sempre ruim.",
-        "perfis": [
-          "lamentador",
-          "vitimista"
-        ]
+        "texto": "Sinto-me profundamente abatido por meus erros e tendo a expressar descontentamento e desesperança com minha condição espiritual, focando na minha incapacidade.",
+        "perfis": ["lamentador", "vitimista"]
       },
       {
         "id": "13B",
-        "texto": "Me cobro muito internamente para fazer o certo, mesmo quando não consigo.",
-        "perfis": [
-          "perfeccionista",
-          "culpado"
-        ]
+        "texto": "Exijo de mim mesmo um padrão de santidade e perfeição que me impede de aceitar minhas falhas como parte do processo de santificação, gerando grande culpa e autocrítica.",
+        "perfis": ["perfeccionista", "perfeccionista_espiritual", "culpado"]
       },
       {
         "id": "13C",
-        "texto": "Evito pensar sobre isso, me distraio com tarefas, internet ou qualquer outra coisa.",
-        "perfis": [
-          "escravo_mundo",
-          "fornicador_digital"
-        ]
+        "texto": "Postergo a busca por arrependimento genuíno e confissão, frequentemente arranjando desculpas, minimizando o erro ou me distraindo para não lidar com a questão.",
+        "perfis": ["procrastinador", "senhor_das_desculpas"]
       },
       {
         "id": "13D",
-        "texto": "Fico me perguntando o que as pessoas vão pensar de mim nessa situação.",
-        "perfis": [
-          "obcecado_opiniao",
-          "desesperado_aprovacao"
-        ]
+        "texto": "Minha confiança na graça perdoadora de Deus ou na segurança do meu chamado em Cristo é abalada, gerando profunda insegurança espiritual e medo.",
+        "perfis": ["inseguro"]
       }
     ]
   },
   {
     "id": "14",
-    "texto": "Como você normalmente reage em situações que revelam traços do perfil 'Invejoso'?",
+    "texto": "No serviço a Deus e aos irmãos na fé: qual seu comportamento típico?",
     "opcoes": [
       {
         "id": "14A",
-        "texto": "Costumo me sentir sobrecarregado emocionalmente, expressando que tudo está sempre ruim.",
-        "perfis": [
-          "lamentador",
-          "vitimista"
-        ]
+        "texto": "Busco manter o controle sobre o ministério, projeto ou situação, o que pode gerar atrito ou desmotivação em outras lideranças ou irmãos envolvidos.",
+        "perfis": ["controlador"]
       },
       {
         "id": "14B",
-        "texto": "Me cobro muito internamente para fazer o certo, mesmo quando não consigo.",
-        "perfis": [
-          "perfeccionista",
-          "culpado"
-        ]
+        "texto": "Minha preocupação principal é a forma como sou percebido e avaliado pelos outros crentes, buscando aprovação e reconhecimento explícito no meu serviço.",
+        "perfis": ["obcecado_opiniao", "desesperado_aprovacao"]
       },
       {
         "id": "14C",
-        "texto": "Evito pensar sobre isso, me distraio com tarefas, internet ou qualquer outra coisa.",
-        "perfis": [
-          "escravo_mundo",
-          "fornicador_digital"
-        ]
+        "texto": "Tenho grande dificuldade em liberar o sentimento de culpa e inadequação por falhas passadas no serviço ou em relacionamentos dentro da igreja, mesmo após confissão.",
+        "perfis": ["que_nao_se_perdoa"]
       },
       {
         "id": "14D",
-        "texto": "Fico me perguntando o que as pessoas vão pensar de mim nessa situação.",
-        "perfis": [
-          "obcecado_opiniao",
-          "desesperado_aprovacao"
-        ]
+        "texto": "Minha capacidade de confiar na direção espiritual de Deus através de líderes ou na honestidade e boas intenções de irmãos com quem deveria colaborar é limitada e hesitante.",
+        "perfis": ["desconfiado"]
       }
     ]
   },
   {
     "id": "15",
-    "texto": "Como você normalmente reage em situações que revelam traços do perfil 'Bajulador'?",
+    "texto": "Bênçãos ou avanço espiritual de outros: sua reação mais comum?",
     "opcoes": [
       {
         "id": "15A",
-        "texto": "Costumo me sentir sobrecarregado emocionalmente, expressando que tudo está sempre ruim.",
-        "perfis": [
-          "lamentador",
-          "vitimista"
-        ]
+        "texto": "Sinto um incômodo desejo de possuir os mesmos dons espirituais, oportunidades ou a aparente prosperidade que o outro desfruta, causando-me descontentamento.",
+        "perfis": ["invejoso", "invejoso_espiritual"]
       },
       {
         "id": "15B",
-        "texto": "Me cobro muito internamente para fazer o certo, mesmo quando não consigo.",
-        "perfis": [
-          "perfeccionista",
-          "culpado"
-        ]
+        "texto": "Tendo a exagerar nos elogios e na demonstração de admiração a irmãos em posições de destaque ou com grandes testemunhos, por vezes buscando sua simpatia ou influência.",
+        "perfis": ["bajulador"]
       },
       {
         "id": "15C",
-        "texto": "Evito pensar sobre isso, me distraio com tarefas, internet ou qualquer outra coisa.",
-        "perfis": [
-          "escravo_mundo",
-          "fornicador_digital"
-        ]
+        "texto": "Utilizo uma variedade de argumentos e justificativas para explicar por que não me dedico com o mesmo fervor ou por que não alcancei um nível similar de maturidade ou serviço a Deus.",
+        "perfis": ["eu_nao", "senhor_das_desculpas"]
       },
       {
         "id": "15D",
-        "texto": "Fico me perguntando o que as pessoas vão pensar de mim nessa situação.",
-        "perfis": [
-          "obcecado_opiniao",
-          "desesperado_aprovacao"
-        ]
+        "texto": "Inclino-me a realizar uma análise crítica das falhas, das motivações ou de supostas imperfeições do irmão abençoado, em vez de me alegrar genuinamente com seu progresso.",
+        "perfis": ["julgador"]
       }
     ]
   },
   {
     "id": "16",
-    "texto": "Como você normalmente reage em situações que revelam traços do perfil 'Nao procura espirito'?",
+    "texto": "Estudo da Bíblia e vida cristã na prática: como você se observa?",
     "opcoes": [
       {
         "id": "16A",
-        "texto": "Costumo me sentir sobrecarregado emocionalmente, expressando que tudo está sempre ruim.",
-        "perfis": [
-          "lamentador",
-          "vitimista"
-        ]
+        "texto": "Não demonstro um interesse forte ou disciplinado em aprofundar meu conhecimento bíblico, considerando que o básico que já sei é suficiente para minha fé.",
+        "perfis": ["nao_procura_espirito_conhecimento", "que_nao_estuda_biblia"]
       },
       {
         "id": "16B",
-        "texto": "Me cobro muito internamente para fazer o certo, mesmo quando não consigo.",
-        "perfis": [
-          "perfeccionista",
-          "culpado"
-        ]
+        "texto": "Acredito que meu entendimento geral da fé é adequado, o que, por vezes, me leva a agir sem buscar diligentemente a sabedoria e a prudência ensinadas nas Escrituras.",
+        "perfis": ["tolo", "que_falta_sabedoria"]
       },
       {
         "id": "16C",
-        "texto": "Evito pensar sobre isso, me distraio com tarefas, internet ou qualquer outra coisa.",
-        "perfis": [
-          "escravo_mundo",
-          "fornicador_digital"
-        ]
+        "texto": "Minhas palavras sobre fé, moralidade e meus valores cristãos nem sempre se alinham consistentemente com minhas atitudes e escolhas no dia a dia, gerando uma visível inconsistência.",
+        "perfis": ["hipocrita"]
       },
       {
         "id": "16D",
-        "texto": "Fico me perguntando o que as pessoas vão pensar de mim nessa situação.",
-        "perfis": [
-          "obcecado_opiniao",
-          "desesperado_aprovacao"
-        ]
+        "texto": "Em certas conversas, testemunhos ou relatos sobre minha vida cristã e experiências com Deus, minhas declarações podem não ser totalmente precisas ou podem omitir verdades relevantes.",
+        "perfis": ["mentiroso"]
       }
     ]
   },
   {
     "id": "17",
-    "texto": "Como você normalmente reage em situações que revelam traços do perfil 'Falta sabedoria'?",
+    "texto": "Dinheiro e as seduções do mundo: como afetam sua caminhada com Cristo?",
     "opcoes": [
       {
         "id": "17A",
-        "texto": "Costumo me sentir sobrecarregado emocionalmente, expressando que tudo está sempre ruim.",
-        "perfis": [
-          "lamentador",
-          "vitimista"
-        ]
+        "texto": "A prioridade para a aquisição de recursos financeiros, conforto e bens materiais tende a ser excessivamente alta, por vezes desviando meu foco principal do Reino de Deus e do serviço ao próximo.",
+        "perfis": ["que_adora_dinheiro_esquece_reino"]
       },
       {
         "id": "17B",
-        "texto": "Me cobro muito internamente para fazer o certo, mesmo quando não consigo.",
-        "perfis": [
-          "perfeccionista",
-          "culpado"
-        ]
+        "texto": "Sinto-me fortemente atraído e influenciado por elementos culturais, entretenimentos e tendências da sociedade, o que pode me levar a ceder a valores não cristãos e a prazeres mundanos.",
+        "perfis": ["escravo_mundo"]
       },
       {
         "id": "17C",
-        "texto": "Evito pensar sobre isso, me distraio com tarefas, internet ou qualquer outra coisa.",
-        "perfis": [
-          "escravo_mundo",
-          "fornicador_digital"
-        ]
+        "texto": "A espera pelo tempo determinado por Deus ou por respostas concretas em oração costuma me gerar grande desconforto e ansiedade, levando-me a buscar soluções rápidas e humanas.",
+        "perfis": ["impaciente"]
       },
       {
         "id": "17D",
-        "texto": "Fico me perguntando o que as pessoas vão pensar de mim nessa situação.",
-        "perfis": [
-          "obcecado_opiniao",
-          "desesperado_aprovacao"
-        ]
+        "texto": "Busco entretenimento, alívio emocional ou satisfação pessoal em meios digitais que não estão alinhados com a pureza, a santidade e os princípios cristãos, por vezes caindo em tentações online.",
+        "perfis": ["fornicador_digital"]
       }
     ]
   },
   {
     "id": "18",
-    "texto": "Como você normalmente reage em situações que revelam traços do perfil 'Eu nao'?",
+    "texto": "Sua vida de oração, jejum e autoconsciência na fé: como a descreve?",
     "opcoes": [
       {
         "id": "18A",
-        "texto": "Costumo me sentir sobrecarregado emocionalmente, expressando que tudo está sempre ruim.",
-        "perfis": [
-          "lamentador",
-          "vitimista"
-        ]
+        "texto": "Minha prática de oração é inconsistente, superficial ou pouco frequente, não sendo uma prioridade real e transformadora em minha rotina espiritual diária.",
+        "perfis": ["que_nao_ora"]
       },
       {
         "id": "18B",
-        "texto": "Me cobro muito internamente para fazer o certo, mesmo quando não consigo.",
-        "perfis": [
-          "perfeccionista",
-          "culpado"
-        ]
+        "texto": "A disciplina do jejum não faz parte integrante de minha rotina cristã regular, ou não a considero especialmente relevante ou necessária para meu crescimento espiritual e busca por Deus.",
+        "perfis": ["que_nao_jejua"]
       },
       {
         "id": "18C",
-        "texto": "Evito pensar sobre isso, me distraio com tarefas, internet ou qualquer outra coisa.",
-        "perfis": [
-          "escravo_mundo",
-          "fornicador_digital"
-        ]
+        "texto": "Tenho considerável dificuldade em reconhecer, admitir e compreender minhas próprias motivações internas mais profundas, minhas fraquezas recorrentes e meus sentimentos sob a ótica da Palavra de Deus.",
+        "perfis": ["que_nao_conhece_seu_coracao"]
       },
       {
         "id": "18D",
-        "texto": "Fico me perguntando o que as pessoas vão pensar de mim nessa situação.",
-        "perfis": [
-          "obcecado_opiniao",
-          "desesperado_aprovacao"
-        ]
+        "texto": "Minhas decisões são muitas vezes impulsionadas por reações imediatas, impulsos ou emoções momentâneas, sem buscar a direção clara e específica de Deus ou ponderar as consequências espirituais e morais.",
+        "perfis": ["imprudente"]
       }
     ]
   },
   {
     "id": "19",
-    "texto": "Como você normalmente reage em situações que revelam traços do perfil 'Orgulhoso'?",
+    "texto": "Em tempos de sequidão ou desânimo espiritual: sua reação mais comum?",
     "opcoes": [
       {
         "id": "19A",
-        "texto": "Costumo me sentir sobrecarregado emocionalmente, expressando que tudo está sempre ruim.",
-        "perfis": [
-          "lamentador",
-          "vitimista"
-        ]
+        "texto": "Tendo a focar nos aspectos negativos da situação e a expressar repetidamente minhas queixas e frustrações sobre a aparente falta de bênçãos ou as dificuldades persistentes.",
+        "perfis": ["lamentador", "vitimista"]
       },
       {
         "id": "19B",
-        "texto": "Me cobro muito internamente para fazer o certo, mesmo quando não consigo.",
-        "perfis": [
-          "perfeccionista",
-          "culpado"
-        ]
+        "texto": "Sinto que minha fé deveria ser inabalável e isenta de falhas, o que me leva a uma severa frustração, autocrítica excessiva e desânimo quando enfrento dúvidas ou fraquezas.",
+        "perfis": ["perfeccionista_espiritual"]
       },
       {
         "id": "19C",
-        "texto": "Evito pensar sobre isso, me distraio com tarefas, internet ou qualquer outra coisa.",
-        "perfis": [
-          "escravo_mundo",
-          "fornicador_digital"
-        ]
+        "texto": "Postergo ou evito a busca por apoio espiritual em comunhão, aprofundamento na oração ou na leitura bíblica, preferindo me isolar ou me distrair com assuntos seculares e outras ocupações.",
+        "perfis": ["procrastinador"]
       },
       {
         "id": "19D",
-        "texto": "Fico me perguntando o que as pessoas vão pensar de mim nessa situação.",
-        "perfis": [
-          "obcecado_opiniao",
-          "desesperado_aprovacao"
-        ]
+        "texto": "Minha confiança na minha salvação pessoal ou no cuidado providencial de Deus é seriamente abalada, gerando profunda incerteza e questionamentos sobre minha real posição em Cristo.",
+        "perfis": ["inseguro"]
       }
     ]
   },
   {
     "id": "20",
-    "texto": "Como você normalmente reage em situações que revelam traços do perfil 'Senhor desculpas'?",
+    "texto": "Em tomadas de decisão na igreja ou grupo: seu comportamento típico?",
     "opcoes": [
       {
         "id": "20A",
-        "texto": "Costumo me sentir sobrecarregado emocionalmente, expressando que tudo está sempre ruim.",
-        "perfis": [
-          "lamentador",
-          "vitimista"
-        ]
+        "texto": "Busco ativamente influenciar as decisões para que se alinhem com minha própria visão e perspectiva, sentindo considerável frustração ou contrariedade se não sou ouvido ou seguido.",
+        "perfis": ["controlador"]
       },
       {
         "id": "20B",
-        "texto": "Me cobro muito internamente para fazer o certo, mesmo quando não consigo.",
-        "perfis": [
-          "perfeccionista",
-          "culpado"
-        ]
+        "texto": "A opinião e o reconhecimento dos outros irmãos e especialmente dos líderes sobre minhas ideias e contribuições são cruciais para mim, e busco ativamente sua aprovação e validação.",
+        "perfis": ["obcecado_opiniao", "desesperado_aprovacao"]
       },
       {
         "id": "20C",
-        "texto": "Evito pensar sobre isso, me distraio com tarefas, internet ou qualquer outra coisa.",
-        "perfis": [
-          "escravo_mundo",
-          "fornicador_digital"
-        ]
+        "texto": "Sinto que minhas falhas ou erros passados, mesmo que já confessados e perdoados, me desqualificam ou me impedem de participar plenamente, contribuir de forma significativa ou ser verdadeiramente útil no corpo.",
+        "perfis": ["culpado", "que_nao_se_perdoa"]
       },
       {
         "id": "20D",
-        "texto": "Fico me perguntando o que as pessoas vão pensar de mim nessa situação.",
-        "perfis": [
-          "obcecado_opiniao",
-          "desesperado_aprovacao"
-        ]
+        "texto": "Minha capacidade de confiar na direção de Deus através da liderança da igreja ou nas intenções e sinceridade dos irmãos envolvidos em decisões é frequentemente um desafio para mim.",
+        "perfis": ["desconfiado"]
       }
     ]
   },
   {
     "id": "21",
-    "texto": "Como você normalmente reage em situações que revelam traços do perfil 'Adora dinheiro'?",
+    "texto": "Quando outro crente é abençoado ou se destaca no ministério: sua reação íntima?",
     "opcoes": [
       {
         "id": "21A",
-        "texto": "Costumo me sentir sobrecarregado emocionalmente, expressando que tudo está sempre ruim.",
-        "perfis": [
-          "lamentador",
-          "vitimista"
-        ]
+        "texto": "Sinto uma pontada de inveja ou um desejo competitivo de possuir os mesmos dons, reconhecimento ou a posição espiritual do outro, desejando secretamente estar no lugar dele(a).",
+        "perfis": ["invejoso", "invejoso_espiritual"]
       },
       {
         "id": "21B",
-        "texto": "Me cobro muito internamente para fazer o certo, mesmo quando não consigo.",
-        "perfis": [
-          "perfeccionista",
-          "culpado"
-        ]
+        "texto": "Tendo a elogiar o irmão(ã) de forma exagerada ou calculada, por vezes com o objetivo implícito de me associar à sua influência ou obter sua aprovação e favor.",
+        "perfis": ["bajulador"]
       },
       {
         "id": "21C",
-        "texto": "Evito pensar sobre isso, me distraio com tarefas, internet ou qualquer outra coisa.",
-        "perfis": [
-          "escravo_mundo",
-          "fornicador_digital"
-        ]
+        "texto": "Frequentemente elaboro desculpas ou justificativas internas para explicar por que não me dedico com a mesma intensidade, por que não busco as mesmas coisas ou por que não recebo o mesmo tipo de bênçãos.",
+        "perfis": ["eu_nao", "senhor_das_desculpas"]
       },
       {
         "id": "21D",
-        "texto": "Fico me perguntando o que as pessoas vão pensar de mim nessa situação.",
-        "perfis": [
-          "obcecado_opiniao",
-          "desesperado_aprovacao"
-        ]
+        "texto": "Foco em analisar criticamente as possíveis falhas, as motivações questionáveis ou as supostas imperfeições do irmão(ã) abençoado, em vez de me alegrar sinceramente com sua prosperidade ou crescimento em Deus.",
+        "perfis": ["julgador"]
       }
     ]
   },
   {
     "id": "22",
-    "texto": "Como você normalmente reage em situações que revelam traços do perfil 'Nao se perdoa'?",
+    "texto": "Sua vivência da fé e relação com a verdade da Palavra: como se descreve?",
     "opcoes": [
       {
         "id": "22A",
-        "texto": "Costumo me sentir sobrecarregado emocionalmente, expressando que tudo está sempre ruim.",
-        "perfis": [
-          "lamentador",
-          "vitimista"
-        ]
+        "texto": "Não tenho um interesse ativo, disciplinado ou prioritário em aprofundar meu conhecimento pessoal e prático da Bíblia, lendo-a apenas esporadicamente ou de forma superficial.",
+        "perfis": ["nao_procura_espirito_conhecimento", "que_nao_estuda_biblia"]
       },
       {
         "id": "22B",
-        "texto": "Me cobro muito internamente para fazer o certo, mesmo quando não consigo.",
-        "perfis": [
-          "perfeccionista",
-          "culpado"
-        ]
+        "texto": "Acredito que meu entendimento atual da fé e da Bíblia é geralmente suficiente, e reconheço que minhas ações podem ser, por vezes, impulsivas ou carentes da sabedoria prática que a Palavra oferece.",
+        "perfis": ["que_falta_sabedoria", "tolo"]
       },
       {
         "id": "22C",
-        "texto": "Evito pensar sobre isso, me distraio com tarefas, internet ou qualquer outra coisa.",
-        "perfis": [
-          "escravo_mundo",
-          "fornicador_digital"
-        ]
+        "texto": "Percebo que minhas atitudes, reações e escolhas diárias frequentemente não refletem de forma consistente o que eu professo crer sobre os ensinamentos de Jesus e os valores do Reino.",
+        "perfis": ["hipocrita"]
       },
       {
         "id": "22D",
-        "texto": "Fico me perguntando o que as pessoas vão pensar de mim nessa situação.",
-        "perfis": [
-          "obcecado_opiniao",
-          "desesperado_aprovacao"
-        ]
+        "texto": "Em certas conversas sobre minha vida de fé, testemunhos ou experiências espirituais, minhas declarações e relatos podem não ser totalmente fiéis à realidade dos fatos ou podem ser seletivamente apresentados.",
+        "perfis": ["mentiroso"]
       }
     ]
   },
   {
     "id": "23",
-    "texto": "Como você normalmente reage em situações que revelam traços do perfil 'Desesperado aprovacao'?",
+    "texto": "Bens, finanças e encantos do mundo: sua postura como seguidor de Jesus?",
     "opcoes": [
       {
         "id": "23A",
-        "texto": "Costumo me sentir sobrecarregado emocionalmente, expressando que tudo está sempre ruim.",
-        "perfis": [
-          "lamentador",
-          "vitimista"
-        ]
+        "texto": "A busca por segurança financeira, acúmulo de dinheiro e aquisição de bens materiais muitas vezes se torna uma prioridade excessiva, competindo com meu tempo, energia e dedicação ao Reino de Deus.",
+        "perfis": ["que_adora_dinheiro_esquece_reino"]
       },
       {
         "id": "23B",
-        "texto": "Me cobro muito internamente para fazer o certo, mesmo quando não consigo.",
-        "perfis": [
-          "perfeccionista",
-          "culpado"
-        ]
+        "texto": "Sinto-me fortemente atraído e, por vezes, seduzido por elementos, entretenimentos, valores e tendências do mundo secular, o que pode me levar a negligenciar meus princípios cristãos e a comunhão com os irmãos.",
+        "perfis": ["escravo_mundo"]
       },
       {
         "id": "23C",
-        "texto": "Evito pensar sobre isso, me distraio com tarefas, internet ou qualquer outra coisa.",
-        "perfis": [
-          "escravo_mundo",
-          "fornicador_digital"
-        ]
+        "texto": "A espera pelo tempo de Deus para o atendimento de minhas orações, para a solução de problemas ou para a provisão de necessidades costuma me gerar grande desconforto, impaciência e ansiedade, buscando soluções imediatas por meus próprios meios.",
+        "perfis": ["impaciente"]
       },
       {
         "id": "23D",
-        "texto": "Fico me perguntando o que as pessoas vão pensar de mim nessa situação.",
-        "perfis": [
-          "obcecado_opiniao",
-          "desesperado_aprovacao"
-        ]
+        "texto": "Busco entretenimento, alívio para o estresse ou satisfação pessoal em meios digitais (internet, redes sociais, jogos) que não estão alinhados com a pureza, a santidade e os princípios cristãos, cedendo a tentações online que sei serem prejudiciais.",
+        "perfis": ["fornicador_digital"]
       }
     ]
   },
   {
     "id": "24",
-    "texto": "Como você normalmente reage em situações que revelam traços do perfil 'Julgador'?",
+    "texto": "Disciplinas espirituais e autoconhecimento em Deus: sua prática realista?",
     "opcoes": [
       {
         "id": "24A",
-        "texto": "Costumo me sentir sobrecarregado emocionalmente, expressando que tudo está sempre ruim.",
-        "perfis": [
-          "lamentador",
-          "vitimista"
-        ]
+        "texto": "Minha vida de oração é predominantemente inconsistente, reativa (apenas em crises) ou quase inexistente, não sendo uma prioridade real e transformadora em minha rotina espiritual.",
+        "perfis": ["que_nao_ora"]
       },
       {
         "id": "24B",
-        "texto": "Me cobro muito internamente para fazer o certo, mesmo quando não consigo.",
-        "perfis": [
-          "perfeccionista",
-          "culpado"
-        ]
+        "texto": "A disciplina bíblica do jejum não faz parte de minha rotina cristã regular e intencional, ou não a considero particularmente relevante ou necessária para meu crescimento espiritual, consagração e busca por Deus.",
+        "perfis": ["que_nao_jejua"]
       },
       {
         "id": "24C",
-        "texto": "Evito pensar sobre isso, me distraio com tarefas, internet ou qualquer outra coisa.",
-        "perfis": [
-          "escravo_mundo",
-          "fornicador_digital"
-        ]
+        "texto": "Tenho significativa dificuldade em reconhecer, nomear e compreender minhas próprias motivações internas mais profundas, minhas fraquezas espirituais recorrentes e a natureza real dos meus sentimentos e pensamentos sob a ótica da Palavra de Deus.",
+        "perfis": ["que_nao_conhece_seu_coracao"]
       },
       {
         "id": "24D",
-        "texto": "Fico me perguntando o que as pessoas vão pensar de mim nessa situação.",
-        "perfis": [
-          "obcecado_opiniao",
-          "desesperado_aprovacao"
-        ]
+        "texto": "Minhas decisões e escolhas importantes são muitas vezes impulsionadas por reações emocionais imediatas, por pressões externas ou por conveniência pessoal, sem uma busca consistente e paciente pela direção divina ou sem ponderar as consequências espirituais e morais a longo prazo.",
+        "perfis": ["imprudente"]
       }
     ]
   },
   {
     "id": "25",
-    "texto": "Como você normalmente reage em situações que revelam traços do perfil 'Nao ora'?",
+    "texto": "Diante de um problema ou forte desafio: sua reação na fé?",
     "opcoes": [
       {
         "id": "25A",
-        "texto": "Costumo me sentir sobrecarregado emocionalmente, expressando que tudo está sempre ruim.",
-        "perfis": [
-          "lamentador",
-          "vitimista"
-        ]
+        "texto": "Foco intensamente nos aspectos negativos do problema e expresso frequentemente minhas preocupações, temores e queixas sobre as dificuldades para as pessoas ao meu redor.",
+        "perfis": ["lamentador"]
       },
       {
         "id": "25B",
-        "texto": "Me cobro muito internamente para fazer o certo, mesmo quando não consigo.",
-        "perfis": [
-          "perfeccionista",
-          "culpado"
-        ]
+        "texto": "Sinto que deveria ter previsto ou lidado com a situação de forma ideal e espiritualmente madura, o que me gera grande autocobrança, frustração e sentimento de fracasso espiritual.",
+        "perfis": ["perfeccionista"]
       },
       {
         "id": "25C",
-        "texto": "Evito pensar sobre isso, me distraio com tarefas, internet ou qualquer outra coisa.",
-        "perfis": [
-          "escravo_mundo",
-          "fornicador_digital"
-        ]
+        "texto": "Adio ou evito tomar as ações espirituais que sei serem necessárias (como orar especificamente, jejuar, buscar a Palavra ou aconselhamento), preferindo me ocupar com outras coisas ou esperar que a situação se resolva sozinha.",
+        "perfis": ["procrastinador"]
       },
       {
         "id": "25D",
-        "texto": "Fico me perguntando o que as pessoas vão pensar de mim nessa situação.",
-        "perfis": [
-          "obcecado_opiniao",
-          "desesperado_aprovacao"
-        ]
+        "texto": "Minha confiança em minha capacidade de lidar com a situação com fé ou na intervenção de Deus é consideravelmente reduzida, e sinto-me inseguro e hesitante sobre os próximos passos a tomar.",
+        "perfis": ["inseguro"]
       }
     ]
   },
   {
     "id": "26",
-    "texto": "Como você normalmente reage em situações que revelam traços do perfil 'Escravo mundo'?",
+    "texto": "Ao servir na igreja ou em ministérios: sua principal tendência?",
     "opcoes": [
       {
         "id": "26A",
-        "texto": "Costumo me sentir sobrecarregado emocionalmente, expressando que tudo está sempre ruim.",
-        "perfis": [
-          "lamentador",
-          "vitimista"
-        ]
+        "texto": "Busco ativamente influenciar as decisões e a organização das atividades para que sigam minha visão ou método, sentindo desconforto ou resistência se as coisas tomam um rumo diferente do que planejei.",
+        "perfis": ["controlador"]
       },
       {
         "id": "26B",
-        "texto": "Me cobro muito internamente para fazer o certo, mesmo quando não consigo.",
-        "perfis": [
-          "perfeccionista",
-          "culpado"
-        ]
+        "texto": "A aprovação, o reconhecimento e a percepção positiva dos irmãos na fé e da liderança sobre meu desempenho e dedicação no serviço são extremamente importantes para minha motivação.",
+        "perfis": ["obcecado_opiniao"]
       },
       {
         "id": "26C",
-        "texto": "Evito pensar sobre isso, me distraio com tarefas, internet ou qualquer outra coisa.",
-        "perfis": [
-          "escravo_mundo",
-          "fornicador_digital"
-        ]
+        "texto": "Frequentemente sinto o peso e a lembrança de erros ou falhas cometidas no passado em contextos de serviço, mesmo após arrependimento, o que afeta minha liberdade, ousadia e desempenho atual.",
+        "perfis": ["culpado"]
       },
       {
         "id": "26D",
-        "texto": "Fico me perguntando o que as pessoas vão pensar de mim nessa situação.",
-        "perfis": [
-          "obcecado_opiniao",
-          "desesperado_aprovacao"
-        ]
+        "texto": "Minha capacidade de confiar plenamente na liderança espiritual da igreja, nas intenções de outros irmãos ou na eficácia do trabalho em equipe no ministério é frequentemente limitada ou testada.",
+        "perfis": ["desconfiado"]
       }
     ]
   },
   {
     "id": "27",
-    "texto": "Como você normalmente reage em situações que revelam traços do perfil 'Impaciente'?",
+    "texto": "Crescimento, dons ou bênçãos na vida de outros: sua reação interna?",
     "opcoes": [
       {
         "id": "27A",
-        "texto": "Costumo me sentir sobrecarregado emocionalmente, expressando que tudo está sempre ruim.",
-        "perfis": [
-          "lamentador",
-          "vitimista"
-        ]
+        "texto": "Sinto um desejo intenso e por vezes angustiante de possuir os mesmos dons, o mesmo nível de espiritualidade percebido, ou de estar na mesma posição de influência ou reconhecimento que o outro.",
+        "perfis": ["invejoso"]
       },
       {
         "id": "27B",
-        "texto": "Me cobro muito internamente para fazer o certo, mesmo quando não consigo.",
-        "perfis": [
-          "perfeccionista",
-          "culpado"
-        ]
+        "texto": "Expresso elogios e admiração de forma notável e, por vezes, exagerada, podendo haver uma motivação sutil de gerar uma impressão positiva sobre mim mesmo ou obter algum tipo de benefício relacional.",
+        "perfis": ["bajulador"]
       },
       {
         "id": "27C",
-        "texto": "Evito pensar sobre isso, me distraio com tarefas, internet ou qualquer outra coisa.",
-        "perfis": [
-          "escravo_mundo",
-          "fornicador_digital"
-        ]
+        "texto": "Rapidamente apresento a mim mesmo ou a outros uma série de razões e justificativas para explicar por que não me dedico a certas práticas espirituais com a mesma intensidade ou por que não alcanço resultados espirituais semelhantes aos daquele irmão.",
+        "perfis": ["senhor_das_desculpas"]
       },
       {
         "id": "27D",
-        "texto": "Fico me perguntando o que as pessoas vão pensar de mim nessa situação.",
-        "perfis": [
-          "obcecado_opiniao",
-          "desesperado_aprovacao"
-        ]
+        "texto": "Inclino-me a realizar uma análise crítica, procurando por falhas, inconsistências ou supostas imperfeições na vida ou no ministério do irmão que está se destacando, em vez de simplesmente me alegrar com sua bênção.",
+        "perfis": ["julgador"]
       }
     ]
   },
   {
     "id": "28",
-    "texto": "Como você normalmente reage em situações que revelam traços do perfil 'Nao jejua'?",
+    "texto": "Sua busca por conhecer a Palavra e viver a fé com integridade: como avalia?",
     "opcoes": [
       {
         "id": "28A",
-        "texto": "Costumo me sentir sobrecarregado emocionalmente, expressando que tudo está sempre ruim.",
-        "perfis": [
-          "lamentador",
-          "vitimista"
-        ]
+        "texto": "Não tenho um interesse proeminente, nem uma disciplina consistente, em aprofundar meu conhecimento da Bíblia, das doutrinas cristãs fundamentais ou da história da igreja.",
+        "perfis": ["nao_procura_espirito_conhecimento"]
       },
       {
         "id": "28B",
-        "texto": "Me cobro muito internamente para fazer o certo, mesmo quando não consigo.",
-        "perfis": [
-          "perfeccionista",
-          "culpado"
-        ]
+        "texto": "Acredito que meu entendimento atual dos princípios da fé é suficiente para minha caminhada, e reconheço que, em algumas situações, minhas ações e decisões podem não refletir plenamente a sabedoria e a prudência ensinadas por Deus.",
+        "perfis": ["que_falta_sabedoria", "tolo"]
       },
       {
         "id": "28C",
-        "texto": "Evito pensar sobre isso, me distraio com tarefas, internet ou qualquer outra coisa.",
-        "perfis": [
-          "escravo_mundo",
-          "fornicador_digital"
-        ]
+        "texto": "Percebo que minhas palavras sobre a fé, meus discursos sobre moralidade e os valores cristãos que defendo nem sempre estão em total e consistente alinhamento com minhas atitudes, reações e escolhas no dia a dia.",
+        "perfis": ["hipocrita"]
       },
       {
         "id": "28D",
-        "texto": "Fico me perguntando o que as pessoas vão pensar de mim nessa situação.",
-        "perfis": [
-          "obcecado_opiniao",
-          "desesperado_aprovacao"
-        ]
+        "texto": "Em algumas situações, especialmente ao compartilhar experiências ou dar testemunho, minhas declarações sobre minha vida cristã, minhas lutas ou vitórias podem não corresponder totalmente à realidade, ou podem ser exageradas ou minimizadas para causar certo impacto.",
+        "perfis": ["mentiroso"]
       }
     ]
   },
   {
     "id": "29",
-    "texto": "Como você normalmente reage em situações que revelam traços do perfil 'Nao conhece coracao'?",
+    "texto": "Bens materiais, dinheiro e as pressões do mundo: sua prática como cristão?",
     "opcoes": [
       {
         "id": "29A",
-        "texto": "Costumo me sentir sobrecarregado emocionalmente, expressando que tudo está sempre ruim.",
-        "perfis": [
-          "lamentador",
-          "vitimista"
-        ]
+        "texto": "A aquisição de bens, o conforto material e a busca por estabilidade e prosperidade financeira tendem a ocupar uma posição central e dominante em minhas prioridades e preocupações, por vezes superando meu foco no Reino de Deus e na eternidade.",
+        "perfis": ["que_adora_dinheiro_esquece_reino"]
       },
       {
         "id": "29B",
-        "texto": "Me cobro muito internamente para fazer o certo, mesmo quando não consigo.",
-        "perfis": [
-          "perfeccionista",
-          "culpado"
-        ]
+        "texto": "Sinto uma forte e persistente atração por elementos, valores, entretenimentos e tendências do mundo secular, o que frequentemente representa um desafio para manter meus princípios cristãos e uma vida separada para Deus.",
+        "perfis": ["escravo_mundo"]
       },
       {
         "id": "29C",
-        "texto": "Evito pensar sobre isso, me distraio com tarefas, internet ou qualquer outra coisa.",
-        "perfis": [
-          "escravo_mundo",
-          "fornicador_digital"
-        ]
+        "texto": "A espera pelo tempo de Deus para o cumprimento de Suas promessas ou por respostas específicas em oração costuma me gerar grande desconforto, ansiedade e uma tentação de buscar soluções por meus próprios meios ou Atalhos.",
+        "perfis": ["impaciente"]
       },
       {
         "id": "29D",
-        "texto": "Fico me perguntando o que as pessoas vão pensar de mim nessa situação.",
-        "perfis": [
-          "obcecado_opiniao",
-          "desesperado_aprovacao"
-        ]
+        "texto": "Em momentos de busca por satisfação pessoal, alívio de tensões ou simples entretenimento, recorro a conteúdos, imagens, vídeos ou interações digitais que sei serem inadequados, impuros ou moralmente comprometedores para um cristão.",
+        "perfis": ["fornicador_digital"]
       }
     ]
   },
   {
     "id": "30",
-    "texto": "Como você normalmente reage em situações que revelam traços do perfil 'Fornicador digital'?",
+    "texto": "Vida devocional (oração, Palavra), jejum e autoconhecimento em Deus: sua realidade?",
     "opcoes": [
       {
         "id": "30A",
-        "texto": "Costumo me sentir sobrecarregado emocionalmente, expressando que tudo está sempre ruim.",
-        "perfis": [
-          "lamentador",
-          "vitimista"
-        ]
+        "texto": "A prática da oração e da meditação na Palavra não é um hábito consistente, fervoroso e prioritário em minha rotina, e acabo frequentemente negligenciando esses momentos vitais de comunhão com Deus.",
+        "perfis": ["que_nao_ora"]
       },
       {
         "id": "30B",
-        "texto": "Me cobro muito internamente para fazer o certo, mesmo quando não consigo.",
-        "perfis": [
-          "perfeccionista",
-          "culpado"
-        ]
+        "texto": "Não incluo o jejum como uma prática espiritual regular e significativa em minha vida cristã, ou não vejo claramente sua relevância e poder para o crescimento espiritual, para vencer tentações e para buscar a face de Deus.",
+        "perfis": ["que_nao_jejua"]
       },
       {
         "id": "30C",
-        "texto": "Evito pensar sobre isso, me distraio com tarefas, internet ou qualquer outra coisa.",
-        "perfis": [
-          "escravo_mundo",
-          "fornicador_digital"
-        ]
+        "texto": "Minha compreensão das minhas próprias motivações mais profundas, das minhas áreas de fraqueza crônicas, das sutilezas do meu pecado e dos sentimentos que me dominam, tudo isso à luz da Palavra, ainda é bastante limitada e superficial.",
+        "perfis": ["que_nao_conhece_seu_coracao"]
       },
       {
         "id": "30D",
-        "texto": "Fico me perguntando o que as pessoas vão pensar de mim nessa situação.",
-        "perfis": [
-          "obcecado_opiniao",
-          "desesperado_aprovacao"
-        ]
+        "texto": "Minhas decisões e escolhas, mesmo as importantes, são frequentemente tomadas de forma impulsiva, baseadas em minhas emoções do momento ou em cálculos puramente humanos, sem buscar diligentemente a direção específica de Deus ou considerar as consequências espirituais e eternas.",
+        "perfis": ["imprudente"]
       }
     ]
   },
   {
     "id": "31",
-    "texto": "Como você normalmente reage em situações que revelam traços do perfil 'Nao estuda biblia'?",
+    "texto": "Tempos de aridez espiritual ou forte desânimo na fé: sua reação típica?",
     "opcoes": [
       {
         "id": "31A",
-        "texto": "Costumo me sentir sobrecarregado emocionalmente, expressando que tudo está sempre ruim.",
-        "perfis": [
-          "lamentador",
-          "vitimista"
-        ]
+        "texto": "Concentro-me nos aspectos negativos da situação, na ausência de progresso espiritual e expresso frequentemente minhas queixas e frustrações sobre a aparente falta de resposta de Deus ou sobre as dificuldades da vida cristã.",
+        "perfis": ["lamentador", "vitimista"]
       },
       {
         "id": "31B",
-        "texto": "Me cobro muito internamente para fazer o certo, mesmo quando não consigo.",
-        "perfis": [
-          "perfeccionista",
-          "culpado"
-        ]
+        "texto": "Sinto que minha fé e minha vida espiritual deveriam ser imunes a crises, dúvidas ou desânimos, o que me leva a uma intensa frustração, autocondenação e a questionar a validade da minha experiência com Deus.",
+        "perfis": ["perfeccionista_espiritual"]
       },
       {
         "id": "31C",
-        "texto": "Evito pensar sobre isso, me distraio com tarefas, internet ou qualquer outra coisa.",
-        "perfis": [
-          "escravo_mundo",
-          "fornicador_digital"
-        ]
+        "texto": "Adio ou evito buscar ativamente o apoio da comunhão dos santos, aprofundar-me em oração e súplica, ou mergulhar na leitura e meditação da Bíblia, preferindo me isolar, me resignar ou me distrair com assuntos e atividades seculares.",
+        "perfis": ["procrastinador"]
       },
       {
         "id": "31D",
-        "texto": "Fico me perguntando o que as pessoas vão pensar de mim nessa situação.",
-        "perfis": [
-          "obcecado_opiniao",
-          "desesperado_aprovacao"
-        ]
+        "texto": "Minha confiança fundamental na minha salvação, na bondade de Deus ou no Seu cuidado providencial para com minha vida é seriamente abalada, gerando profunda incerteza, ansiedade e questionamentos sobre minha real posição e futuro em Cristo.",
+        "perfis": ["inseguro"]
       }
     ]
   },
   {
     "id": "32",
-    "texto": "Como você normalmente reage em situações que revelam traços do perfil 'Imprudente'?",
+    "texto": "Em decisões e projetos na igreja ou grupo: seu comportamento principal?",
     "opcoes": [
       {
         "id": "32A",
-        "texto": "Costumo me sentir sobrecarregado emocionalmente, expressando que tudo está sempre ruim.",
-        "perfis": [
-          "lamentador",
-          "vitimista"
-        ]
+        "texto": "Busco ativamente influenciar e, se possível, direcionar as decisões para que se alinhem com minha própria visão, minhas ideias e meus métodos preferidos, sentindo considerável frustração, irritação ou desânimo se minha perspectiva não prevalece.",
+        "perfis": ["controlador"]
       },
       {
         "id": "32B",
-        "texto": "Me cobro muito internamente para fazer o certo, mesmo quando não consigo.",
-        "perfis": [
-          "perfeccionista",
-          "culpado"
-        ]
+        "texto": "A opinião, o reconhecimento e a aprovação explícita dos outros irmãos, e especialmente dos líderes, sobre minhas sugestões, participações e contribuições são absolutamente cruciais para mim, e busco ativamente essa validação externa para me sentir valorizado.",
+        "perfis": ["obcecado_opiniao", "desesperado_aprovacao"]
       },
       {
         "id": "32C",
-        "texto": "Evito pensar sobre isso, me distraio com tarefas, internet ou qualquer outra coisa.",
-        "perfis": [
-          "escravo_mundo",
-          "fornicador_digital"
-        ]
+        "texto": "Sinto que minhas falhas, erros ou pecados passados, mesmo que já confessados e teoricamente perdoados, ainda me assombram e me impedem de participar plenamente, de contribuir com ousadia ou de ser genuinamente útil e eficaz no corpo de Cristo.",
+        "perfis": ["culpado", "que_nao_se_perdoa"]
       },
       {
         "id": "32D",
-        "texto": "Fico me perguntando o que as pessoas vão pensar de mim nessa situação.",
-        "perfis": [
-          "obcecado_opiniao",
-          "desesperado_aprovacao"
-        ]
+        "texto": "Minha capacidade de confiar na direção de Deus através da liderança constituída na igreja, ou mesmo nas intenções, na sinceridade e na competência dos irmãos com quem trabalho em decisões e projetos, é frequentemente um desafio significativo para mim.",
+        "perfis": ["desconfiado"]
       }
     ]
   },
   {
     "id": "33",
-    "texto": "Como você normalmente reage em situações que revelam traços do perfil 'Vitimista'?",
+    "texto": "Quando outro crente se destaca em dons, unção ou influência: sua reação íntima?",
     "opcoes": [
       {
         "id": "33A",
-        "texto": "Costumo me sentir sobrecarregado emocionalmente, expressando que tudo está sempre ruim.",
-        "perfis": [
-          "lamentador",
-          "vitimista"
-        ]
+        "texto": "Sinto uma incômoda e persistente inveja dos dons, das oportunidades, do reconhecimento ou da aparente unção e posição espiritual do outro, desejando secretamente que eu estivesse em seu lugar ou tivesse o que ele(a) tem.",
+        "perfis": ["invejoso", "invejoso_espiritual"]
       },
       {
         "id": "33B",
-        "texto": "Me cobro muito internamente para fazer o certo, mesmo quando não consigo.",
-        "perfis": [
-          "perfeccionista",
-          "culpado"
-        ]
+        "texto": "Tendo a elogiar e exaltar o irmão(ã) de forma exagerada, pública e por vezes artificial, podendo haver uma motivação não declarada de me associar à sua influência, ganhar sua simpatia ou obter algum tipo de benefício ou reconhecimento indireto.",
+        "perfis": ["bajulador"]
       },
       {
         "id": "33C",
-        "texto": "Evito pensar sobre isso, me distraio com tarefas, internet ou qualquer outra coisa.",
-        "perfis": [
-          "escravo_mundo",
-          "fornicador_digital"
-        ]
+        "texto": "Frequentemente elaboro e apresento a mim mesmo ou a outros um conjunto de desculpas, racionalizações ou justificativas para explicar por que não me dedico com a mesma intensidade e disciplina, por que não busco as mesmas coisas espirituais ou por que não recebo o mesmo tipo de bênçãos ou oportunidades.",
+        "perfis": ["eu_nao", "senhor_das_desculpas"]
       },
       {
         "id": "33D",
-        "texto": "Fico me perguntando o que as pessoas vão pensar de mim nessa situação.",
-        "perfis": [
-          "obcecado_opiniao",
-          "desesperado_aprovacao"
-        ]
+        "texto": "Meu primeiro impulso é focar em analisar criticamente as possíveis falhas de caráter, as motivações que julgo questionáveis, as imperfeições na doutrina ou na prática do irmão(ã) que está sendo abençoado, em vez de me alegrar e celebrar sinceramente com ele(a) e glorificar a Deus por Sua obra.",
+        "perfis": ["julgador"]
       }
     ]
   }
