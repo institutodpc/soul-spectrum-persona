@@ -25,6 +25,7 @@ const RegisterForm = () => {
     defaultValues: {
       nome: "",
       sobrenome: "",
+      estado: "",
       cidade: "",
       congregacao: "",
       email: "",

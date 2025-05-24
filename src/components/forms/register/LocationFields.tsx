@@ -55,7 +55,7 @@ const LocationFields = () => {
         name="estado"
         render={({ field }) => (
           <FormItem>
-            <FormLabel>Estado (opcional)</FormLabel>
+            <FormLabel>Estado</FormLabel>
             <Select onValueChange={field.onChange} value={field.value}>
               <FormControl>
                 <SelectTrigger>
@@ -80,7 +80,7 @@ const LocationFields = () => {
         name="cidade"
         render={({ field }) => (
           <FormItem>
-            <FormLabel>Cidade (opcional)</FormLabel>
+            <FormLabel>Cidade</FormLabel>
             {selectedState ? (
               <Select onValueChange={field.onChange} value={field.value}>
                 <FormControl>

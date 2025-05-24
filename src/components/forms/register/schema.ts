@@ -10,8 +10,12 @@ export const formSchema = z.object({
   }),
   dataNascimento: z.date().optional(),
   sexo: z.enum(["masculino", "feminino", "outro"]).optional(),
-  estado: z.string().optional(),
-  cidade: z.string().optional(),
+  estado: z.string().min(1, {
+    message: "Por favor, selecione um estado.",
+  }),
+  cidade: z.string().min(1, {
+    message: "Por favor, selecione uma cidade.",
+  }),
   congregacao: z.string().min(2, {
     message: "Por favor, informe sua congregação.",
   }),
