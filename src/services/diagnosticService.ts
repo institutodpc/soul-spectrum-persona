@@ -3,3 +3,4 @@
 export { submitDiagnostic } from "./diagnostic/submitDiagnostic";
 export { fetchQuestions } from "./diagnostic/fetchQuestions";
 export { loadLocalQuestions } from "./diagnostic/loadLocalQuestions";
+export { updateQuestionsAndSync } from "./diagnostic/updateQuestionsAndSync";

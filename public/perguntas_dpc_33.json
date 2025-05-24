@@ -2,858 +2,858 @@
 [
   {
     "id": "1",
-    "texto": "Em suas lutas e provações de fé, como você costuma reagir?",
+    "texto": "Quando algo difícil acontece na sua fé, como você costuma agir?",
     "opcoes": [
       {
         "id": "1A",
-        "texto": "Tendo a focar nos problemas e expressar minha insatisfação sobre a situação a outros irmãos na fé.",
+        "texto": "Fico pensando só nos problemas e gosto de reclamar com outros amigos da igreja.",
         "perfis": ["lamentador"]
       },
       {
         "id": "1B",
-        "texto": "Sinto uma forte autocobrança por não ter lidado com a situação de uma forma que considero ideal ou exemplar, o que me causa frustração espiritual.",
+        "texto": "Eu me cobro demais por não ter agido de um jeito perfeito, e isso me deixa triste com minha fé.",
         "perfis": ["perfeccionista", "perfeccionista_espiritual"]
       },
       {
         "id": "1C",
-        "texto": "Postergo ações espirituais necessárias para enfrentar a situação, como orar ou buscar conselho na Palavra, preferindo me ocupar com outras atividades.",
+        "texto": "Deixo para depois as coisas de Deus que me ajudariam, como orar ou ler a Bíblia, e faço outras coisas no lugar.",
         "perfis": ["procrastinador"]
       },
       {
         "id": "1D",
-        "texto": "Minha confiança na minha fé ou na capacidade de Deus para me ajudar é abalada, gerando incerteza e insegurança sobre o futuro.",
+        "texto": "Minha confiança em Deus para me ajudar fica pequena, e fico com medo do que pode acontecer.",
         "perfis": ["inseguro"]
       }
     ]
   },
   {
     "id": "2",
-    "texto": "No seu serviço e comunhão na igreja, qual seu comportamento habitual?",
+    "texto": "Quando você está na igreja, em grupos ou ajudando em algo, como você geralmente se comporta?",
     "opcoes": [
       {
         "id": "2A",
-        "texto": "Procuro influenciar as decisões e a organização das atividades, sentindo desconforto se as coisas não seguem a minha perspectiva ou plano.",
+        "texto": "Gosto de dar minhas ideias e que tudo seja do meu jeito. Fico chateado se não é assim.",
         "perfis": ["controlador"]
       },
       {
         "id": "2B",
-        "texto": "A aprovação e a percepção que os irmãos na fé têm de mim e do meu serviço são considerações centrais para minha motivação e satisfação.",
+        "texto": "Me importo muito com o que os amigos da igreja pensam sobre mim e o que eu faço.",
         "perfis": ["obcecado_opiniao", "desesperado_aprovacao"]
       },
       {
         "id": "2C",
-        "texto": "Sinto o peso de erros ou falhas passadas no serviço, mesmo após arrependimento e perdão, o que limita minha liberdade e alegria em servir.",
+        "texto": "Lembro de erros do passado quando sirvo a Deus, mesmo já tendo pedido perdão, e isso me atrapalha.",
         "perfis": ["culpado", "que_nao_se_perdoa"]
       },
       {
         "id": "2D",
-        "texto": "Tenho uma dificuldade latente em confiar plenamente na liderança espiritual ou nas intenções de outros irmãos em contextos ministeriais.",
+        "texto": "Acho difícil confiar nos líderes da igreja ou nas intenções dos amigos quando estamos fazendo algo para Deus.",
         "perfis": ["desconfiado"]
       }
     ]
   },
   {
     "id": "3",
-    "texto": "Ao ver o crescimento ou dons de outros na fé, qual sua reação interna?",
+    "texto": "Quando você vê outros amigos da igreja crescendo na fé ou usando seus dons, o que você sente?",
     "opcoes": [
       {
         "id": "3A",
-        "texto": "Sinto um desejo de possuir os mesmos dons, o nível de espiritualidade ou a posição ministerial que o outro alcançou, gerando descontentamento.",
+        "texto": "Queria ter os mesmos dons, ser tão espiritual ou estar no lugar deles, e fico triste com o meu jeito.",
         "perfis": ["invejoso", "invejoso_espiritual"]
       },
       {
         "id": "3B",
-        "texto": "Expresso elogios de forma efusiva ou estratégica, por vezes com a intenção de causar uma impressão positiva ou obter algum tipo de reconhecimento ou benefício.",
+        "texto": "Elogio bastante, às vezes para parecer legal ou para que gostem mais de mim.",
         "perfis": ["bajulador"]
       },
       {
         "id": "3C",
-        "texto": "Frequentemente apresento justificativas para explicar por que não me dedico a certas práticas espirituais ou não alcanço resultados semelhantes aos de outros.",
+        "texto": "Dou desculpas para não me dedicar tanto a Deus ou não ser parecido com eles.",
         "perfis": ["senhor_das_desculpas", "eu_nao"]
       },
       {
         "id": "3D",
-        "texto": "Inclino-me a realizar uma análise crítica das falhas ou supostas imperfeições do irmão, em vez de me alegrar genuinamente com suas bênçãos.",
+        "texto": "Procuro os defeitos ou erros do amigo, em vez de ficar feliz com as coisas boas que acontecem com ele.",
         "perfis": ["julgador"]
       }
     ]
   },
   {
     "id": "4",
-    "texto": "Conhecimento da Palavra e coerência fé-vida: como você se avalia?",
+    "texto": "Sobre aprender mais da Bíblia e viver o que você acredita: como você se vê?",
     "opcoes": [
       {
         "id": "4A",
-        "texto": "Não demonstro um interesse proeminente ou consistente em aprofundar meu conhecimento da Bíblia ou das doutrinas cristãs fundamentais.",
+        "texto": "Não tenho muita vontade de aprender mais sobre a Bíblia ou as coisas de Deus.",
         "perfis": ["nao_procura_espirito_conhecimento", "que_nao_estuda_biblia"]
       },
       {
         "id": "4B",
-        "texto": "Considero meu entendimento atual da fé como suficiente, e reconheço que minhas ações, por vezes, não refletem a sabedoria divina como poderiam.",
+        "texto": "Acho que já sei o bastante sobre a fé, mas às vezes minhas ações não são muito sábias.",
         "perfis": ["que_falta_sabedoria", "tolo"]
       },
       {
         "id": "4C",
-        "texto": "Percebo que minhas palavras sobre a fé e os valores cristãos nem sempre estão em total consonância com minhas atitudes e escolhas cotidianas.",
+        "texto": "O que eu falo sobre minha fé e o que eu faço no dia a dia nem sempre combinam.",
         "perfis": ["hipocrita"]
       },
       {
         "id": "4D",
-        "texto": "Em algumas situações, minhas declarações sobre minha vida cristã ou experiências espirituais podem não corresponder com total fidelidade à realidade.",
+        "texto": "Às vezes, o que eu conto sobre minha vida com Deus não é bem a verdade toda.",
         "perfis": ["mentiroso"]
       }
     ]
   },
   {
     "id": "5",
-    "texto": "Bens, dinheiro e influências do mundo: qual sua postura em Cristo?",
+    "texto": "Sobre coisas como dinheiro, bens e as modas do mundo: como você lida com isso sendo cristão?",
     "opcoes": [
       {
         "id": "5A",
-        "texto": "A aquisição de bens materiais e a busca por segurança financeira tendem a ocupar uma posição central em minhas prioridades, por vezes sobrepondo-se ao Reino de Deus.",
+        "texto": "Ter coisas e dinheiro é muito importante para mim, às vezes mais do que as coisas de Deus.",
         "perfis": ["que_adora_dinheiro_esquece_reino"]
       },
       {
         "id": "5B",
-        "texto": "Sinto uma forte atração por elementos, valores e tendências do mundo secular, o que pode me desviar dos princípios e da simplicidade do Evangelho.",
+        "texto": "Gosto muito das coisas e modas do mundo, e isso pode me afastar do que Deus ensina.",
         "perfis": ["escravo_mundo"]
       },
       {
         "id": "5C",
-        "texto": "A espera pelo tempo de Deus ou por respostas concretas em oração frequentemente me gera desconforto, impaciência e ansiedade.",
+        "texto": "Esperar Deus agir ou responder minhas orações me deixa muito ansioso e agoniado.",
         "perfis": ["impaciente"]
       },
       {
         "id": "5D",
-        "texto": "Em momentos de busca por satisfação ou entretenimento, por vezes recorro a conteúdos ou interações digitais de natureza moralmente questionável ou inadequada para um cristão.",
+        "texto": "Para me divertir, às vezes vejo ou faço coisas na internet que não são legais para um cristão.",
         "perfis": ["fornicador_digital"]
       }
     ]
   },
   {
     "id": "6",
-    "texto": "Sua vida de oração, jejum e autoconhecimento em Deus: como está?",
+    "texto": "Sua vida de oração, jejum e o quanto você se conhece de verdade com Deus: como vai isso?",
     "opcoes": [
       {
         "id": "6A",
-        "texto": "A prática da oração não é um hábito consistente e prioritário em minha rotina, sendo frequentemente negligenciada.",
+        "texto": "Orar não é algo que faço sempre e com vontade, acabo esquecendo ou deixando de lado.",
         "perfis": ["que_nao_ora"]
       },
       {
         "id": "6B",
-        "texto": "Não incluo o jejum como uma disciplina espiritual regular e relevante em minha vida cristã para buscar a Deus e mortificar a carne.",
+        "texto": "Não costumo jejuar (ficar sem comer por um tempo para buscar a Deus) ou não acho importante.",
         "perfis": ["que_nao_jejua"]
       },
       {
         "id": "6C",
-        "texto": "Tenho uma compreensão limitada das minhas próprias motivações, fraquezas e inclinações pecaminosas mais profundas, à luz da Palavra de Deus.",
+        "texto": "Acho difícil entender por que ajo de certas maneiras ou quais são minhas fraquezas, olhando pela Bíblia.",
         "perfis": ["que_nao_conhece_seu_coracao"]
       },
       {
         "id": "6D",
-        "texto": "Minhas decisões são frequentemente tomadas de forma impulsiva ou baseadas em emoções, sem buscar a direção clara de Deus ou considerar as consequências espirituais.",
+        "texto": "Muitas vezes tomo decisões no impulso, sem perguntar a Deus ou pensar no que Ele gostaria.",
         "perfis": ["imprudente"]
       }
     ]
   },
   {
     "id": "7",
-    "texto": "Desafios que exigem fé e perseverança: sua reação principal?",
+    "texto": "Quando aparecem desafios grandes que testam sua fé: qual sua principal reação?",
     "opcoes": [
       {
         "id": "7A",
-        "texto": "Constantemente me vejo expressando queixas sobre as dificuldades e me percebo como alguém especialmente prejudicado pelas circunstâncias.",
+        "texto": "Estou sempre reclamando das dificuldades e me sinto como se fosse o mais prejudicado de todos.",
         "perfis": ["lamentador", "vitimista"]
       },
       {
         "id": "7B",
-        "texto": "A busca por um ideal de como um cristão 'perfeito' reagiria me paralisa ou me impede de aceitar minhas próprias falhas e limitações no processo.",
+        "texto": "Achar que um cristão perfeito agiria de um super jeito me impede de tentar ou aceitar meus erros.",
         "perfis": ["perfeccionista", "perfeccionista_espiritual"]
       },
       {
         "id": "7C",
-        "texto": "Evito me engajar plenamente nas responsabilidades e disciplinas que a fé exige em tempos de provação, preferindo adiar confrontos ou buscar distrações.",
+        "texto": "Evito fazer as coisas que minha fé pede nesses momentos, prefiro adiar ou me distrair.",
         "perfis": ["procrastinador"]
       },
       {
         "id": "7D",
-        "texto": "Manifesto dúvidas significativas sobre minha identidade em Cristo ou sobre a real provisão e cuidado de Deus para a situação específica.",
+        "texto": "Começo a duvidar se sou mesmo de Cristo ou se Deus realmente vai me ajudar nisso.",
         "perfis": ["inseguro"]
       }
     ]
   },
   {
     "id": "8",
-    "texto": "No serviço ou liderança na igreja: seu comportamento comum?",
+    "texto": "Quando você ajuda na igreja ou lidera algo: qual seu jeito mais comum de agir?",
     "opcoes": [
       {
         "id": "8A",
-        "texto": "Procuro manter o controle sobre todos os aspectos e processos, o que pode gerar atrito ou desânimo quando outros não seguem minhas direções ou sugestões.",
+        "texto": "Gosto de controlar tudo e fico chateado se os outros não seguem minhas ideias.",
         "perfis": ["controlador"]
       },
       {
         "id": "8B",
-        "texto": "Minha preocupação principal é com a imagem que transmito aos outros irmãos e líderes, buscando ativamente aprovação e reconhecimento externo.",
+        "texto": "Minha maior preocupação é o que os outros (amigos e líderes) vão achar de mim.",
         "perfis": ["obcecado_opiniao", "desesperado_aprovacao"]
       },
       {
         "id": "8C",
-        "texto": "Tenho dificuldade em me perdoar por falhas cometidas no serviço ou em ministérios passados, o que me mantém preso a sentimentos de culpa e inadequação.",
+        "texto": "Acho difícil me perdoar por erros que cometi servindo a Deus, e fico me sentindo culpado.",
         "perfis": ["culpado", "que_nao_se_perdoa"]
       },
       {
         "id": "8D",
-        "texto": "Minha capacidade de confiar na direção de Deus através dos líderes estabelecidos ou na sinceridade e intenções dos outros irmãos é frequentemente reduzida.",
+        "texto": "Não consigo confiar muito que Deus usa os líderes ou que os amigos da igreja são sinceros.",
         "perfis": ["desconfiado"]
       }
     ]
   },
   {
     "id": "9",
-    "texto": "Ao destaque espiritual de outros (dons, ministério): qual sua reação?",
+    "texto": "Quando um amigo da igreja se destaca na fé ou no serviço a Deus: como você reage por dentro?",
     "opcoes": [
       {
         "id": "9A",
-        "texto": "Sinto um forte desejo de possuir os mesmos dons, reconhecimento ou a posição espiritual do outro, o que me causa descontentamento com minha própria jornada.",
+        "texto": "Sinto muita vontade de ter os dons ou a posição dele, e fico triste com a minha situação.",
         "perfis": ["invejoso", "invejoso_espiritual"]
       },
       {
         "id": "9B",
-        "texto": "Tendo a exagerar nos elogios a irmãos em posições de destaque ou com testemunhos impactantes, buscando sua proximidade ou algum tipo de benefício social ou ministerial.",
+        "texto": "Elogio demais as pessoas importantes, às vezes para ficar perto delas ou ganhar algo.",
         "perfis": ["bajulador"]
       },
       {
         "id": "9C",
-        "texto": "Utilizo argumentos e justificativas para explicar por que não me dedico com a mesma intensidade ou por que não alcancei um nível similar de maturidade ou serviço.",
+        "texto": "Dou desculpas para explicar por que não me esforço tanto ou não sou como ele.",
         "perfis": ["eu_nao", "senhor_das_desculpas"]
       },
       {
         "id": "9D",
-        "texto": "Inclino-me a realizar uma análise crítica das falhas, motivações ou pontos fracos do irmão, em vez de me alegrar e glorificar a Deus por sua bênção e crescimento.",
+        "texto": "Procuro os defeitos ou erros do amigo, em vez de ficar feliz pelas coisas boas na vida dele.",
         "perfis": ["julgador"]
       }
     ]
   },
   {
     "id": "10",
-    "texto": "Conhecimento da Palavra e prática da fé: seu comportamento usual?",
+    "texto": "Sobre aprender da Bíblia e viver sua fé no dia a dia: qual seu comportamento mais comum?",
     "opcoes": [
       {
         "id": "10A",
-        "texto": "Não demonstro um interesse ativo e consistente em aprofundar meu conhecimento bíblico ou teológico, considerando que o entendimento básico é suficiente.",
+        "texto": "Não me interesso muito em aprender mais da Bíblia, acho que o básico já está bom.",
         "perfis": ["nao_procura_espirito_conhecimento", "que_nao_estuda_biblia"]
       },
       {
         "id": "10B",
-        "texto": "Acredito que meu entendimento da fé é geralmente adequado, mas reconheço que minhas ações, por vezes, carecem da prudência e sabedoria que a Palavra ensina.",
+        "texto": "Acho que entendo bem a fé, mas às vezes faço coisas sem pensar direito ou sem sabedoria.",
         "perfis": ["que_falta_sabedoria", "tolo", "imprudente"]
       },
       {
         "id": "10C",
-        "texto": "Percebo uma desconexão entre minhas declarações de fé e valores cristãos e minhas atitudes e reações no cotidiano, gerando uma inconsistência.",
+        "texto": "O que eu falo sobre fé e o que eu faço não combinam muito, e isso me deixa confuso.",
         "perfis": ["hipocrita"]
       },
       {
         "id": "10D",
-        "texto": "Em certas conversas ou ao compartilhar testemunhos, minhas declarações sobre minha vida e experiências cristãs podem não ser totalmente precisas ou completas.",
+        "texto": "Às vezes, quando conto algo sobre minha vida com Deus, não é exatamente como aconteceu.",
         "perfis": ["mentiroso"]
       }
     ]
   },
   {
     "id": "11",
-    "texto": "Dinheiro, bens e cultura mundana: como influenciam sua vida com Deus?",
+    "texto": "Como o dinheiro, as coisas materiais e as modas do mundo afetam sua vida com Deus?",
     "opcoes": [
       {
         "id": "11A",
-        "texto": "A prioridade para a aquisição de recursos financeiros e bens materiais tende a ser muito alta, por vezes desviando meu foco e energia do Reino de Deus e do serviço.",
+        "texto": "Querer ter dinheiro e coisas se torna tão importante que às vezes esqueço de Deus e de ajudar os outros.",
         "perfis": ["que_adora_dinheiro_esquece_reino"]
       },
       {
         "id": "11B",
-        "texto": "Sinto-me fortemente atraído por elementos culturais, entretenimento e tendências da sociedade, o que pode me levar a ceder a valores e práticas não cristãs.",
+        "texto": "Gosto tanto das coisas da moda e da cultura do mundo que às vezes faço coisas que não são de cristão.",
         "perfis": ["escravo_mundo"]
       },
       {
         "id": "11C",
-        "texto": "A espera pelo tempo de Deus para respostas às minhas orações ou para a provisão de necessidades costuma me gerar grande desconforto, ansiedade e busca por soluções imediatas.",
+        "texto": "Esperar que Deus responda minhas orações ou me ajude me deixa muito ansioso e quero tudo rápido.",
         "perfis": ["impaciente"]
       },
       {
         "id": "11D",
-        "texto": "Busco entretenimento, alívio ou satisfação em meios digitais através de conteúdos ou interações que conflitam com a pureza e os princípios cristãos.",
+        "texto": "Para me divertir ou me sentir bem, às vezes acesso coisas na internet que não agradam a Deus.",
         "perfis": ["fornicador_digital"]
       }
     ]
   },
   {
     "id": "12",
-    "texto": "Sua vida de oração, jejum e autoexame à luz da Palavra: como descreve?",
+    "texto": "Sua vida de oração, jejum e se conhecer de verdade diante de Deus: como você se vê?",
     "opcoes": [
       {
         "id": "12A",
-        "texto": "Minha prática de oração é irregular, pouco frequente ou superficial, não sendo uma prioridade real e vital em minha rotina espiritual.",
+        "texto": "Não oro muito, ou oro de vez em quando, sem ser algo tão importante na minha rotina com Deus.",
         "perfis": ["que_nao_ora"]
       },
       {
         "id": "12B",
-        "texto": "A disciplina do jejum não faz parte de minha rotina cristã regular, ou não a considero particularmente relevante para meu crescimento espiritual e intimidade com Deus.",
+        "texto": "Não costumo jejuar (ficar sem comer buscando a Deus) ou não acho que isso me ajuda a crescer na fé.",
         "perfis": ["que_nao_jejua"]
       },
       {
         "id": "12C",
-        "texto": "Tenho dificuldade em reconhecer e compreender minhas próprias motivações internas, inclinações carnais e sentimentos profundos sob a ótica da Palavra de Deus.",
+        "texto": "É difícil para mim entender por que faço certas coisas, ou quais meus maiores defeitos, pensando no que a Bíblia diz.",
         "perfis": ["que_nao_conhece_seu_coracao"]
       },
       {
         "id": "12D",
-        "texto": "Minhas decisões são muitas vezes impulsionadas por reações emocionais imediatas ou por conveniência, sem uma busca consistente pela direção divina ou ponderação das consequências espirituais.",
+        "texto": "Muitas vezes decido as coisas pela emoção do momento, sem parar para pedir a direção de Deus ou pensar se é o certo.",
         "perfis": ["imprudente"]
       }
     ]
   },
   {
     "id": "13",
-    "texto": "Ao encarar suas falhas e pecados: qual sua reação interna comum?",
+    "texto": "Quando você percebe seus erros e pecados: qual sua reação mais comum por dentro?",
     "opcoes": [
       {
         "id": "13A",
-        "texto": "Sinto-me profundamente abatido por meus erros e tendo a expressar descontentamento e desesperança com minha condição espiritual, focando na minha incapacidade.",
+        "texto": "Fico muito triste com meus erros e reclamo de como sou fraco na fé.",
         "perfis": ["lamentador", "vitimista"]
       },
       {
         "id": "13B",
-        "texto": "Exijo de mim mesmo um padrão de santidade e perfeição que me impede de aceitar minhas falhas como parte do processo de santificação, gerando grande culpa e autocrítica.",
+        "texto": "Eu me cobro para ser um santo perfeito e não aceito errar, o que me faz sentir muita culpa.",
         "perfis": ["perfeccionista", "perfeccionista_espiritual", "culpado"]
       },
       {
         "id": "13C",
-        "texto": "Postergo a busca por arrependimento genuíno e confissão, frequentemente arranjando desculpas, minimizando o erro ou me distraindo para não lidar com a questão.",
+        "texto": "Adio pedir perdão ou me arrepender de verdade, dando desculpas ou me distraindo com outras coisas.",
         "perfis": ["procrastinador", "senhor_das_desculpas"]
       },
       {
         "id": "13D",
-        "texto": "Minha confiança na graça perdoadora de Deus ou na segurança do meu chamado em Cristo é abalada, gerando profunda insegurança espiritual e medo.",
+        "texto": "Minha confiança de que Deus me perdoa ou que Ele ainda me quer por perto diminui, e fico muito inseguro na fé.",
         "perfis": ["inseguro"]
       }
     ]
   },
   {
     "id": "14",
-    "texto": "No serviço a Deus e aos irmãos na fé: qual seu comportamento típico?",
+    "texto": "Quando você está servindo a Deus e aos irmãos da igreja: qual seu jeito de agir?",
     "opcoes": [
       {
         "id": "14A",
-        "texto": "Busco manter o controle sobre o ministério, projeto ou situação, o que pode gerar atrito ou desmotivação em outras lideranças ou irmãos envolvidos.",
+        "texto": "Gosto de estar no controle de tudo no ministério, e isso pode criar problemas com outros líderes ou amigos.",
         "perfis": ["controlador"]
       },
       {
         "id": "14B",
-        "texto": "Minha preocupação principal é a forma como sou percebido e avaliado pelos outros crentes, buscando aprovação e reconhecimento explícito no meu serviço.",
+        "texto": "O mais importante para mim é como os outros me veem, e quero que aprovem e admirem o que eu faço.",
         "perfis": ["obcecado_opiniao", "desesperado_aprovacao"]
       },
       {
         "id": "14C",
-        "texto": "Tenho grande dificuldade em liberar o sentimento de culpa e inadequação por falhas passadas no serviço ou em relacionamentos dentro da igreja, mesmo após confissão.",
+        "texto": "É muito difícil esquecer a culpa por erros que cometi no passado servindo a Deus, mesmo já tendo pedido perdão.",
         "perfis": ["que_nao_se_perdoa"]
       },
       {
         "id": "14D",
-        "texto": "Minha capacidade de confiar na direção espiritual de Deus através de líderes ou na honestidade e boas intenções de irmãos com quem deveria colaborar é limitada e hesitante.",
+        "texto": "Acho difícil confiar que Deus está guiando através dos líderes ou que os irmãos com quem sirvo são realmente sinceros.",
         "perfis": ["desconfiado"]
       }
     ]
   },
   {
     "id": "15",
-    "texto": "Bênçãos ou avanço espiritual de outros: sua reação mais comum?",
+    "texto": "Quando outros cristãos recebem bênçãos ou crescem muito na fé: como você geralmente reage?",
     "opcoes": [
       {
         "id": "15A",
-        "texto": "Sinto um incômodo desejo de possuir os mesmos dons espirituais, oportunidades ou a aparente prosperidade que o outro desfruta, causando-me descontentamento.",
+        "texto": "Sinto uma vontade chata de ter os mesmos dons, as chances ou as coisas boas que o outro tem, e fico triste.",
         "perfis": ["invejoso", "invejoso_espiritual"]
       },
       {
         "id": "15B",
-        "texto": "Tendo a exagerar nos elogios e na demonstração de admiração a irmãos em posições de destaque ou com grandes testemunhos, por vezes buscando sua simpatia ou influência.",
+        "texto": "Elogio demais os irmãos que se destacam ou que têm testemunhos fortes, às vezes para que gostem de mim ou me ajudem.",
         "perfis": ["bajulador"]
       },
       {
         "id": "15C",
-        "texto": "Utilizo uma variedade de argumentos e justificativas para explicar por que não me dedico com o mesmo fervor ou por que não alcancei um nível similar de maturidade ou serviço a Deus.",
+        "texto": "Sempre arrumo um jeito de explicar por que não me dedico tanto ou por que não sou tão abençoado quanto eles.",
         "perfis": ["eu_nao", "senhor_das_desculpas"]
       },
       {
         "id": "15D",
-        "texto": "Inclino-me a realizar uma análise crítica das falhas, das motivações ou de supostas imperfeições do irmão abençoado, em vez de me alegrar genuinamente com seu progresso.",
+        "texto": "Fico procurando os defeitos ou as falhas do irmão que está sendo abençoado, em vez de ficar feliz por ele de verdade.",
         "perfis": ["julgador"]
       }
     ]
   },
   {
     "id": "16",
-    "texto": "Estudo da Bíblia e vida cristã na prática: como você se observa?",
+    "texto": "Sobre seu esforço para estudar a Bíblia e viver o que ela ensina: qual seu comportamento?",
     "opcoes": [
       {
         "id": "16A",
-        "texto": "Não demonstro um interesse forte ou disciplinado em aprofundar meu conhecimento bíblico, considerando que o básico que já sei é suficiente para minha fé.",
+        "texto": "Não me esforço muito para aprender mais da Bíblia, acho que o pouco que sei já está bom.",
         "perfis": ["nao_procura_espirito_conhecimento", "que_nao_estuda_biblia"]
       },
       {
         "id": "16B",
-        "texto": "Acredito que meu entendimento geral da fé é adequado, o que, por vezes, me leva a agir sem buscar diligentemente a sabedoria e a prudência ensinadas nas Escrituras.",
+        "texto": "Acho que entendo bem as coisas da fé, mas às vezes ajo sem pensar se é o que Deus ensina.",
         "perfis": ["tolo", "que_falta_sabedoria"]
       },
       {
         "id": "16C",
-        "texto": "Minhas palavras sobre fé, moralidade e meus valores cristãos nem sempre se alinham consistentemente com minhas atitudes e escolhas no dia a dia, gerando uma visível inconsistência.",
+        "texto": "O que eu falo sobre fé e valores cristãos nem sempre combina com o que eu faço, e isso é confuso.",
         "perfis": ["hipocrita"]
       },
       {
         "id": "16D",
-        "texto": "Em certas conversas, testemunhos ou relatos sobre minha vida cristã e experiências com Deus, minhas declarações podem não ser totalmente precisas ou podem omitir verdades relevantes.",
+        "texto": "Às vezes, quando conto coisas da minha vida com Deus, aumento um pouco ou não conto tudo como foi.",
         "perfis": ["mentiroso"]
       }
     ]
   },
   {
     "id": "17",
-    "texto": "Dinheiro e as seduções do mundo: como afetam sua caminhada com Cristo?",
+    "texto": "Dinheiro, coisas e as modas do mundo: como você, que segue a Cristo, lida com isso?",
     "opcoes": [
       {
         "id": "17A",
-        "texto": "A prioridade para a aquisição de recursos financeiros, conforto e bens materiais tende a ser excessivamente alta, por vezes desviando meu foco principal do Reino de Deus e do serviço ao próximo.",
+        "texto": "Querer ter dinheiro e conforto é tão importante que às vezes me desvio de Deus e de ajudar os outros.",
         "perfis": ["que_adora_dinheiro_esquece_reino"]
       },
       {
         "id": "17B",
-        "texto": "Sinto-me fortemente atraído e influenciado por elementos culturais, entretenimentos e tendências da sociedade, o que pode me levar a ceder a valores não cristãos e a prazeres mundanos.",
+        "texto": "Gosto tanto das diversões e coisas da moda que às vezes acabo fazendo coisas que não agradam a Deus ou me afastando da igreja.",
         "perfis": ["escravo_mundo"]
       },
       {
         "id": "17C",
-        "texto": "A espera pelo tempo determinado por Deus ou por respostas concretas em oração costuma me gerar grande desconforto e ansiedade, levando-me a buscar soluções rápidas e humanas.",
+        "texto": "Esperar que Deus haja ou responda minhas orações me deixa muito agoniado e ansioso, querendo resolver tudo do meu jeito e rápido.",
         "perfis": ["impaciente"]
       },
       {
         "id": "17D",
-        "texto": "Busco entretenimento, alívio emocional ou satisfação pessoal em meios digitais que não estão alinhados com a pureza, a santidade e os princípios cristãos, por vezes caindo em tentações online.",
+        "texto": "Para me divertir ou me sentir melhor, às vezes vejo coisas na internet que não são puras ou boas para um cristão, e caio em tentação.",
         "perfis": ["fornicador_digital"]
       }
     ]
   },
   {
     "id": "18",
-    "texto": "Sua vida de oração, jejum e autoconsciência na fé: como a descreve?",
+    "texto": "Sua vida de oração, jejum e como você se enxerga na fé de Cristo: qual sua descrição sincera?",
     "opcoes": [
       {
         "id": "18A",
-        "texto": "Minha prática de oração é inconsistente, superficial ou pouco frequente, não sendo uma prioridade real e transformadora em minha rotina espiritual diária.",
+        "texto": "Minha oração é fraca, de vez em quando, ou superficial, não sendo algo que realmente muda minha vida com Deus.",
         "perfis": ["que_nao_ora"]
       },
       {
         "id": "18B",
-        "texto": "A disciplina do jejum não faz parte integrante de minha rotina cristã regular, ou não a considero especialmente relevante ou necessária para meu crescimento espiritual e busca por Deus.",
+        "texto": "Não costumo jejuar (ficar sem comer por um tempo para Deus) ou não acho que isso é importante para minha fé.",
         "perfis": ["que_nao_jejua"]
       },
       {
         "id": "18C",
-        "texto": "Tenho considerável dificuldade em reconhecer, admitir e compreender minhas próprias motivações internas mais profundas, minhas fraquezas recorrentes e meus sentimentos sob a ótica da Palavra de Deus.",
+        "texto": "Tenho muita dificuldade de entender por que ajo de certas formas, ou quais são minhas fraquezas e sentimentos mais escondidos, à luz do que Deus ensina.",
         "perfis": ["que_nao_conhece_seu_coracao"]
       },
       {
         "id": "18D",
-        "texto": "Minhas decisões são muitas vezes impulsionadas por reações imediatas, impulsos ou emoções momentâneas, sem buscar a direção clara e específica de Deus ou ponderar as consequências espirituais e morais.",
+        "texto": "Muitas vezes, minhas decisões são pela emoção do momento ou por impulso, sem buscar a vontade de Deus ou pensar se é o melhor espiritualmente.",
         "perfis": ["imprudente"]
       }
     ]
   },
   {
     "id": "19",
-    "texto": "Em tempos de sequidão ou desânimo espiritual: sua reação mais comum?",
+    "texto": "Quando enfrenta problemas na fé ou se sente desanimado espiritualmente: qual sua reação mais comum?",
     "opcoes": [
       {
         "id": "19A",
-        "texto": "Tendo a focar nos aspectos negativos da situação e a expressar repetidamente minhas queixas e frustrações sobre a aparente falta de bênçãos ou as dificuldades persistentes.",
+        "texto": "Costumo focar no lado ruim e reclamar muito que as coisas estão difíceis ou que Deus não está me abençoando.",
         "perfis": ["lamentador", "vitimista"]
       },
       {
         "id": "19B",
-        "texto": "Sinto que minha fé deveria ser inabalável e isenta de falhas, o que me leva a uma severa frustração, autocrítica excessiva e desânimo quando enfrento dúvidas ou fraquezas.",
+        "texto": "Acho que minha fé deveria ser super forte e sem erros, e fico muito frustrado e me culpando quando isso não acontece.",
         "perfis": ["perfeccionista_espiritual"]
       },
       {
         "id": "19C",
-        "texto": "Postergo ou evito a busca por apoio espiritual em comunhão, aprofundamento na oração ou na leitura bíblica, preferindo me isolar ou me distrair com assuntos seculares e outras ocupações.",
+        "texto": "Adio buscar ajuda na igreja, orar ou ler a Bíblia, preferindo ficar sozinho ou me distrair com outras coisas.",
         "perfis": ["procrastinador"]
       },
       {
         "id": "19D",
-        "texto": "Minha confiança na minha salvação pessoal ou no cuidado providencial de Deus é seriamente abalada, gerando profunda incerteza e questionamentos sobre minha real posição em Cristo.",
+        "texto": "Minha confiança de que sou salvo ou de que Deus cuida de mim fica muito abalada, e duvido do meu lugar em Cristo.",
         "perfis": ["inseguro"]
       }
     ]
   },
   {
     "id": "20",
-    "texto": "Em tomadas de decisão na igreja ou grupo: seu comportamento típico?",
+    "texto": "Quando participa de decisões na igreja ou no seu grupo de amigos da fé: como você age?",
     "opcoes": [
       {
         "id": "20A",
-        "texto": "Busco ativamente influenciar as decisões para que se alinhem com minha própria visão e perspectiva, sentindo considerável frustração ou contrariedade se não sou ouvido ou seguido.",
+        "texto": "Tento fazer com que as decisões sejam do meu jeito e fico frustrado se não me ouvem ou não seguem minha ideia.",
         "perfis": ["controlador"]
       },
       {
         "id": "20B",
-        "texto": "A opinião e o reconhecimento dos outros irmãos e especialmente dos líderes sobre minhas ideias e contribuições são cruciais para mim, e busco ativamente sua aprovação e validação.",
+        "texto": "O que os outros, especialmente os líderes, pensam das minhas ideias é o mais importante para mim, e quero muito que eles aprovem.",
         "perfis": ["obcecado_opiniao", "desesperado_aprovacao"]
       },
       {
         "id": "20C",
-        "texto": "Sinto que minhas falhas ou erros passados, mesmo que já confessados e perdoados, me desqualificam ou me impedem de participar plenamente, contribuir de forma significativa ou ser verdadeiramente útil no corpo.",
+        "texto": "Acho que meus erros do passado, mesmo já perdoados, me atrapalham de participar de verdade ou de ser útil para Deus.",
         "perfis": ["culpado", "que_nao_se_perdoa"]
       },
       {
         "id": "20D",
-        "texto": "Minha capacidade de confiar na direção de Deus através da liderança da igreja ou nas intenções e sinceridade dos irmãos envolvidos em decisões é frequentemente um desafio para mim.",
+        "texto": "É difícil para mim confiar que Deus está guiando através dos amigos ou que os líderes têm boas intenções.",
         "perfis": ["desconfiado"]
       }
     ]
   },
   {
     "id": "21",
-    "texto": "Quando outro crente é abençoado ou se destaca no ministério: sua reação íntima?",
+    "texto": "Quando um amigo da igreja recebe uma bênção grande ou se destaca servindo a Deus: como você reage por dentro?",
     "opcoes": [
       {
         "id": "21A",
-        "texto": "Sinto uma pontada de inveja ou um desejo competitivo de possuir os mesmos dons, reconhecimento ou a posição espiritual do outro, desejando secretamente estar no lugar dele(a).",
+        "texto": "Sinto inveja dos dons ou da posição dele na igreja, e queria estar no lugar dele.",
         "perfis": ["invejoso", "invejoso_espiritual"]
       },
       {
         "id": "21B",
-        "texto": "Tendo a elogiar o irmão(ã) de forma exagerada ou calculada, por vezes com o objetivo implícito de me associar à sua influência ou obter sua aprovação e favor.",
+        "texto": "Elogio muito esse amigo, às vezes para ganhar a amizade dele ou para que ele me ajude em algo.",
         "perfis": ["bajulador"]
       },
       {
         "id": "21C",
-        "texto": "Frequentemente elaboro desculpas ou justificativas internas para explicar por que não me dedico com a mesma intensidade, por que não busco as mesmas coisas ou por que não recebo o mesmo tipo de bênçãos.",
+        "texto": "Dou desculpas para mim mesmo, explicando por que não me dedico tanto ou por que não recebo as mesmas bênçãos.",
         "perfis": ["eu_nao", "senhor_das_desculpas"]
       },
       {
         "id": "21D",
-        "texto": "Foco em analisar criticamente as possíveis falhas, as motivações questionáveis ou as supostas imperfeições do irmão(ã) abençoado, em vez de me alegrar sinceramente com sua prosperidade ou crescimento em Deus.",
+        "texto": "Fico procurando os defeitos ou erros desse amigo, em vez de ficar feliz com as coisas boas que acontecem com ele.",
         "perfis": ["julgador"]
       }
     ]
   },
   {
     "id": "22",
-    "texto": "Sua vivência da fé e relação com a verdade da Palavra: como se descreve?",
+    "texto": "Sobre como você vive sua fé e se relaciona com o que a Bíblia ensina: como você se descreveria?",
     "opcoes": [
       {
         "id": "22A",
-        "texto": "Não tenho um interesse ativo, disciplinado ou prioritário em aprofundar meu conhecimento pessoal e prático da Bíblia, lendo-a apenas esporadicamente ou de forma superficial.",
+        "texto": "Não tenho muita vontade de aprender mais da Bíblia, leio só de vez em quando.",
         "perfis": ["nao_procura_espirito_conhecimento", "que_nao_estuda_biblia"]
       },
       {
         "id": "22B",
-        "texto": "Acredito que meu entendimento atual da fé e da Bíblia é geralmente suficiente, e reconheço que minhas ações podem ser, por vezes, impulsivas ou carentes da sabedoria prática que a Palavra oferece.",
+        "texto": "Acho que já entendo o suficiente da fé, mas às vezes ajo por impulso, sem pensar se é o que a Bíblia ensina.",
         "perfis": ["que_falta_sabedoria", "tolo"]
       },
       {
         "id": "22C",
-        "texto": "Percebo que minhas atitudes, reações e escolhas diárias frequentemente não refletem de forma consistente o que eu professo crer sobre os ensinamentos de Jesus e os valores do Reino.",
+        "texto": "O que eu faço no dia a dia nem sempre combina com o que eu digo que acredito sobre Jesus.",
         "perfis": ["hipocrita"]
       },
       {
         "id": "22D",
-        "texto": "Em certas conversas sobre minha vida de fé, testemunhos ou experiências espirituais, minhas declarações e relatos podem não ser totalmente fiéis à realidade dos fatos ou podem ser seletivamente apresentados.",
+        "texto": "Às vezes, quando falo sobre minha fé ou o que Deus fez, não conto a história exatamente como ela é.",
         "perfis": ["mentiroso"]
       }
     ]
   },
   {
     "id": "23",
-    "texto": "Bens, finanças e encantos do mundo: sua postura como seguidor de Jesus?",
+    "texto": "Dinheiro, coisas materiais e as influências do mundo: qual sua atitude como cristão?",
     "opcoes": [
       {
         "id": "23A",
-        "texto": "A busca por segurança financeira, acúmulo de dinheiro e aquisição de bens materiais muitas vezes se torna uma prioridade excessiva, competindo com meu tempo, energia e dedicação ao Reino de Deus.",
+        "texto": "Buscar dinheiro e ter coisas se torna tão importante que às vezes atrapalha meu tempo e dedicação a Deus.",
         "perfis": ["que_adora_dinheiro_esquece_reino"]
       },
       {
         "id": "23B",
-        "texto": "Sinto-me fortemente atraído e, por vezes, seduzido por elementos, entretenimentos, valores e tendências do mundo secular, o que pode me levar a negligenciar meus princípios cristãos e a comunhão com os irmãos.",
+        "texto": "Gosto tanto das coisas e modas do mundo que às vezes esqueço do que aprendi como cristão e me afasto da igreja.",
         "perfis": ["escravo_mundo"]
       },
       {
         "id": "23C",
-        "texto": "A espera pelo tempo de Deus para o atendimento de minhas orações, para a solução de problemas ou para a provisão de necessidades costuma me gerar grande desconforto, impaciência e ansiedade, buscando soluções imediatas por meus próprios meios.",
+        "texto": "Esperar que Deus responda minhas orações ou me dê o que preciso me deixa muito ansioso, e quero resolver tudo na hora.",
         "perfis": ["impaciente"]
       },
       {
         "id": "23D",
-        "texto": "Busco entretenimento, alívio para o estresse ou satisfação pessoal em meios digitais (internet, redes sociais, jogos) que não estão alinhados com a pureza, a santidade e os princípios cristãos, cedendo a tentações online que sei serem prejudiciais.",
+        "texto": "Para me divertir ou me sentir bem, às vezes uso a internet para coisas que não são puras ou boas para um cristão, e acabo caindo em tentação.",
         "perfis": ["fornicador_digital"]
       }
     ]
   },
   {
     "id": "24",
-    "texto": "Disciplinas espirituais e autoconhecimento em Deus: sua prática realista?",
+    "texto": "Sobre as coisas que te ajudam a crescer na fé (orar, jejuar, se conhecer): como você é de verdade?",
     "opcoes": [
       {
         "id": "24A",
-        "texto": "Minha vida de oração é predominantemente inconsistente, reativa (apenas em crises) ou quase inexistente, não sendo uma prioridade real e transformadora em minha rotina espiritual.",
+        "texto": "Minha vida de oração é bem fraca ou quase não oro, não é algo importante na minha rotina com Deus.",
         "perfis": ["que_nao_ora"]
       },
       {
         "id": "24B",
-        "texto": "A disciplina bíblica do jejum não faz parte de minha rotina cristã regular e intencional, ou não a considero particularmente relevante ou necessária para meu crescimento espiritual, consagração e busca por Deus.",
+        "texto": "Não costumo jejuar (ficar sem comer buscando a Deus) ou não acho que isso seja importante para eu crescer na fé.",
         "perfis": ["que_nao_jejua"]
       },
       {
         "id": "24C",
-        "texto": "Tenho significativa dificuldade em reconhecer, nomear e compreender minhas próprias motivações internas mais profundas, minhas fraquezas espirituais recorrentes e a natureza real dos meus sentimentos e pensamentos sob a ótica da Palavra de Deus.",
+        "texto": "É difícil para mim entender meus sentimentos, por que faço certas coisas erradas ou minhas fraquezas, pensando no que a Bíblia diz.",
         "perfis": ["que_nao_conhece_seu_coracao"]
       },
       {
         "id": "24D",
-        "texto": "Minhas decisões e escolhas importantes são muitas vezes impulsionadas por reações emocionais imediatas, por pressões externas ou por conveniência pessoal, sem uma busca consistente e paciente pela direção divina ou sem ponderar as consequências espirituais e morais a longo prazo.",
+        "texto": "Muitas vezes, minhas decisões são rápidas e sem pensar, não busco a ajuda de Deus nem penso se é o melhor para minha vida espiritual.",
         "perfis": ["imprudente"]
       }
     ]
   },
   {
     "id": "25",
-    "texto": "Diante de um problema ou forte desafio: sua reação na fé?",
+    "texto": "Quando um problema ou desafio aparece na sua vida de fé, como você age?",
     "opcoes": [
       {
         "id": "25A",
-        "texto": "Foco intensamente nos aspectos negativos do problema e expresso frequentemente minhas preocupações, temores e queixas sobre as dificuldades para as pessoas ao meu redor.",
+        "texto": "Fico só pensando no lado ruim e reclamo muito das dificuldades com todo mundo.",
         "perfis": ["lamentador"]
       },
       {
         "id": "25B",
-        "texto": "Sinto que deveria ter previsto ou lidado com a situação de forma ideal e espiritualmente madura, o que me gera grande autocobrança, frustração e sentimento de fracasso espiritual.",
+        "texto": "Acho que eu deveria ter lidado com tudo de um jeito perfeito, e fico me cobrando e frustrado por isso.",
         "perfis": ["perfeccionista"]
       },
       {
         "id": "25C",
-        "texto": "Adio ou evito tomar as ações espirituais que sei serem necessárias (como orar especificamente, jejuar, buscar a Palavra ou aconselhamento), preferindo me ocupar com outras coisas ou esperar que a situação se resolva sozinha.",
+        "texto": "Deixo para depois as coisas de Deus que preciso fazer, como orar ou ler a Bíblia, e me ocupo com outras coisas.",
         "perfis": ["procrastinador"]
       },
       {
         "id": "25D",
-        "texto": "Minha confiança em minha capacidade de lidar com a situação com fé ou na intervenção de Deus é consideravelmente reduzida, e sinto-me inseguro e hesitante sobre os próximos passos a tomar.",
+        "texto": "Minha confiança para lidar com o problema usando a fé diminui, e fico inseguro sobre o que fazer.",
         "perfis": ["inseguro"]
       }
     ]
   },
   {
     "id": "26",
-    "texto": "Ao servir na igreja ou em ministérios: sua principal tendência?",
+    "texto": "Quando você ajuda em algum ministério ou serviço na igreja, qual seu jeito de ser?",
     "opcoes": [
       {
         "id": "26A",
-        "texto": "Busco ativamente influenciar as decisões e a organização das atividades para que sigam minha visão ou método, sentindo desconforto ou resistência se as coisas tomam um rumo diferente do que planejei.",
+        "texto": "Gosto de dar minhas ideias e que as coisas sejam organizadas do meu jeito; fico mal se não é assim.",
         "perfis": ["controlador"]
       },
       {
         "id": "26B",
-        "texto": "A aprovação, o reconhecimento e a percepção positiva dos irmãos na fé e da liderança sobre meu desempenho e dedicação no serviço são extremamente importantes para minha motivação.",
+        "texto": "Me importo demais com o que os amigos da igreja pensam sobre como eu sirvo a Deus.",
         "perfis": ["obcecado_opiniao"]
       },
       {
         "id": "26C",
-        "texto": "Frequentemente sinto o peso e a lembrança de erros ou falhas cometidas no passado em contextos de serviço, mesmo após arrependimento, o que afeta minha liberdade, ousadia e desempenho atual.",
+        "texto": "Mesmo depois de pedir perdão, fico sentindo o peso de erros que cometi no passado ao servir, e isso me atrapalha.",
         "perfis": ["culpado"]
       },
       {
         "id": "26D",
-        "texto": "Minha capacidade de confiar plenamente na liderança espiritual da igreja, nas intenções de outros irmãos ou na eficácia do trabalho em equipe no ministério é frequentemente limitada ou testada.",
+        "texto": "Acho difícil confiar nos líderes ou nas intenções dos outros amigos da igreja quando estamos servindo juntos.",
         "perfis": ["desconfiado"]
       }
     ]
   },
   {
     "id": "27",
-    "texto": "Crescimento, dons ou bênçãos na vida de outros: sua reação interna?",
+    "texto": "Quando você vê um amigo da igreja crescendo na fé, usando seus dons ou conquistando coisas boas, como você reage por dentro?",
     "opcoes": [
       {
         "id": "27A",
-        "texto": "Sinto um desejo intenso e por vezes angustiante de possuir os mesmos dons, o mesmo nível de espiritualidade percebido, ou de estar na mesma posição de influência ou reconhecimento que o outro.",
+        "texto": "Sinto vontade de ter os mesmos dons ou ser tão espiritual quanto ele, ou de estar no lugar dele.",
         "perfis": ["invejoso"]
       },
       {
         "id": "27B",
-        "texto": "Expresso elogios e admiração de forma notável e, por vezes, exagerada, podendo haver uma motivação sutil de gerar uma impressão positiva sobre mim mesmo ou obter algum tipo de benefício relacional.",
+        "texto": "Elogio muito, às vezes para parecer legal ou para que essa pessoa goste de mim.",
         "perfis": ["bajulador"]
       },
       {
         "id": "27C",
-        "texto": "Rapidamente apresento a mim mesmo ou a outros uma série de razões e justificativas para explicar por que não me dedico a certas práticas espirituais com a mesma intensidade ou por que não alcanço resultados espirituais semelhantes aos daquele irmão.",
+        "texto": "Dou desculpas para mim mesmo, tipo 'ah, eu não sou assim porque...' ou 'não consigo porque...'.",
         "perfis": ["senhor_das_desculpas"]
       },
       {
         "id": "27D",
-        "texto": "Inclino-me a realizar uma análise crítica, procurando por falhas, inconsistências ou supostas imperfeições na vida ou no ministério do irmão que está se destacando, em vez de simplesmente me alegrar com sua bênção.",
+        "texto": "Fico procurando os defeitos ou erros do amigo, em vez de ficar feliz com as coisas boas que acontecem com ele.",
         "perfis": ["julgador"]
       }
     ]
   },
   {
     "id": "28",
-    "texto": "Sua busca por conhecer a Palavra e viver a fé com integridade: como avalia?",
+    "texto": "Sobre aprender da Bíblia e fazer o que é certo como cristão: como você se descreveria?",
     "opcoes": [
       {
         "id": "28A",
-        "texto": "Não tenho um interesse proeminente, nem uma disciplina consistente, em aprofundar meu conhecimento da Bíblia, das doutrinas cristãs fundamentais ou da história da igreja.",
+        "texto": "Não tenho muita vontade de aprender mais sobre a Bíblia ou as coisas importantes da fé cristã.",
         "perfis": ["nao_procura_espirito_conhecimento"]
       },
       {
         "id": "28B",
-        "texto": "Acredito que meu entendimento atual dos princípios da fé é suficiente para minha caminhada, e reconheço que, em algumas situações, minhas ações e decisões podem não refletir plenamente a sabedoria e a prudência ensinadas por Deus.",
+        "texto": "Acho que já sei o bastante, mas às vezes minhas escolhas não mostram a sabedoria que vem de Deus.",
         "perfis": ["que_falta_sabedoria", "tolo"]
       },
       {
         "id": "28C",
-        "texto": "Percebo que minhas palavras sobre a fé, meus discursos sobre moralidade e os valores cristãos que defendo nem sempre estão em total e consistente alinhamento com minhas atitudes, reações e escolhas no dia a dia.",
+        "texto": "O que eu falo sobre minha fé e o que eu realmente faço no dia a dia nem sempre são a mesma coisa.",
         "perfis": ["hipocrita"]
       },
       {
         "id": "28D",
-        "texto": "Em algumas situações, especialmente ao compartilhar experiências ou dar testemunho, minhas declarações sobre minha vida cristã, minhas lutas ou vitórias podem não corresponder totalmente à realidade, ou podem ser exageradas ou minimizadas para causar certo impacto.",
+        "texto": "Às vezes, quando conto algo sobre minha vida com Deus, não é exatamente toda a verdade.",
         "perfis": ["mentiroso"]
       }
     ]
   },
   {
     "id": "29",
-    "texto": "Bens materiais, dinheiro e as pressões do mundo: sua prática como cristão?",
+    "texto": "Qual sua opinião sobre ter dinheiro e coisas materiais, e como as modas do mundo te afetam como cristão?",
     "opcoes": [
       {
         "id": "29A",
-        "texto": "A aquisição de bens, o conforto material e a busca por estabilidade e prosperidade financeira tendem a ocupar uma posição central e dominante em minhas prioridades e preocupações, por vezes superando meu foco no Reino de Deus e na eternidade.",
+        "texto": "Ter coisas e dinheiro acaba sendo mais importante para mim do que buscar as coisas do Reino de Deus.",
         "perfis": ["que_adora_dinheiro_esquece_reino"]
       },
       {
         "id": "29B",
-        "texto": "Sinto uma forte e persistente atração por elementos, valores, entretenimentos e tendências do mundo secular, o que frequentemente representa um desafio para manter meus princípios cristãos e uma vida separada para Deus.",
+        "texto": "Gosto tanto das coisas e modas do mundo que às vezes me desvio do que Jesus ensinou.",
         "perfis": ["escravo_mundo"]
       },
       {
         "id": "29C",
-        "texto": "A espera pelo tempo de Deus para o cumprimento de Suas promessas ou por respostas específicas em oração costuma me gerar grande desconforto, ansiedade e uma tentação de buscar soluções por meus próprios meios ou Atalhos.",
+        "texto": "Esperar Deus agir ou responder minhas orações me deixa muito agoniado e ansioso.",
         "perfis": ["impaciente"]
       },
       {
         "id": "29D",
-        "texto": "Em momentos de busca por satisfação pessoal, alívio de tensões ou simples entretenimento, recorro a conteúdos, imagens, vídeos ou interações digitais que sei serem inadequados, impuros ou moralmente comprometedores para um cristão.",
+        "texto": "Quando quero me divertir, às vezes vejo ou faço coisas na internet que não são boas para um cristão.",
         "perfis": ["fornicador_digital"]
       }
     ]
   },
   {
     "id": "30",
-    "texto": "Vida devocional (oração, Palavra), jejum e autoconhecimento em Deus: sua realidade?",
+    "texto": "Sobre sua vida de oração, jejum e se conhecer de verdade como cristão: como você está?",
     "opcoes": [
       {
         "id": "30A",
-        "texto": "A prática da oração e da meditação na Palavra não é um hábito consistente, fervoroso e prioritário em minha rotina, e acabo frequentemente negligenciando esses momentos vitais de comunhão com Deus.",
+        "texto": "Não oro com frequência ou de coração; acabo deixando a oração de lado muitas vezes.",
         "perfis": ["que_nao_ora"]
       },
       {
         "id": "30B",
-        "texto": "Não incluo o jejum como uma prática espiritual regular e significativa em minha vida cristã, ou não vejo claramente sua relevância e poder para o crescimento espiritual, para vencer tentações e para buscar a face de Deus.",
+        "texto": "Não costumo jejuar (ficar um tempo sem comer buscando a Deus) ou não acho que isso seja importante.",
         "perfis": ["que_nao_jejua"]
       },
       {
         "id": "30C",
-        "texto": "Minha compreensão das minhas próprias motivações mais profundas, das minhas áreas de fraqueza crônicas, das sutilezas do meu pecado e dos sentimentos que me dominam, tudo isso à luz da Palavra, ainda é bastante limitada e superficial.",
+        "texto": "Tenho dificuldade de entender por que ajo de certas maneiras ou quais minhas fraquezas, pensando no que a Bíblia diz.",
         "perfis": ["que_nao_conhece_seu_coracao"]
       },
       {
         "id": "30D",
-        "texto": "Minhas decisões e escolhas, mesmo as importantes, são frequentemente tomadas de forma impulsiva, baseadas em minhas emoções do momento ou em cálculos puramente humanos, sem buscar diligentemente a direção específica de Deus ou considerar as consequências espirituais e eternas.",
+        "texto": "Muitas vezes tomo decisões na correria, sem pedir a opinião de Deus ou pensar se é o melhor para minha fé.",
         "perfis": ["imprudente"]
       }
     ]
   },
   {
     "id": "31",
-    "texto": "Tempos de aridez espiritual ou forte desânimo na fé: sua reação típica?",
+    "texto": "Quando sua fé parece fraca ou você está desanimado com as coisas de Deus: qual sua reação mais comum?",
     "opcoes": [
       {
         "id": "31A",
-        "texto": "Concentro-me nos aspectos negativos da situação, na ausência de progresso espiritual e expresso frequentemente minhas queixas e frustrações sobre a aparente falta de resposta de Deus ou sobre as dificuldades da vida cristã.",
+        "texto": "Fico só pensando no lado ruim e reclamo que as coisas estão difíceis ou que Deus não me abençoa.",
         "perfis": ["lamentador", "vitimista"]
       },
       {
         "id": "31B",
-        "texto": "Sinto que minha fé e minha vida espiritual deveriam ser imunes a crises, dúvidas ou desânimos, o que me leva a uma intensa frustração, autocondenação e a questionar a validade da minha experiência com Deus.",
+        "texto": "Acho que minha fé tinha que ser super forte o tempo todo, e fico muito bravo comigo mesmo quando ela falha.",
         "perfis": ["perfeccionista_espiritual"]
       },
       {
         "id": "31C",
-        "texto": "Adio ou evito buscar ativamente o apoio da comunhão dos santos, aprofundar-me em oração e súplica, ou mergulhar na leitura e meditação da Bíblia, preferindo me isolar, me resignar ou me distrair com assuntos e atividades seculares.",
+        "texto": "Deixo para depois buscar ajuda na igreja, orar ou ler a Bíblia, preferindo ficar sozinho ou me distrair.",
         "perfis": ["procrastinador"]
       },
       {
         "id": "31D",
-        "texto": "Minha confiança fundamental na minha salvação, na bondade de Deus ou no Seu cuidado providencial para com minha vida é seriamente abalada, gerando profunda incerteza, ansiedade e questionamentos sobre minha real posição e futuro em Cristo.",
+        "texto": "Minha confiança de que sou salvo ou de que Deus cuida de mim fica fraca, e duvido se sou mesmo de Cristo.",
         "perfis": ["inseguro"]
       }
     ]
   },
   {
     "id": "32",
-    "texto": "Em decisões e projetos na igreja ou grupo: seu comportamento principal?",
+    "texto": "Quando você participa de decisões na igreja ou no seu grupo de amigos da fé: como você costuma agir?",
     "opcoes": [
       {
         "id": "32A",
-        "texto": "Busco ativamente influenciar e, se possível, direcionar as decisões para que se alinhem com minha própria visão, minhas ideias e meus métodos preferidos, sentindo considerável frustração, irritação ou desânimo se minha perspectiva não prevalece.",
+        "texto": "Tento fazer com que as decisões sejam do meu jeito, e fico chateado se não seguem minha ideia.",
         "perfis": ["controlador"]
       },
       {
         "id": "32B",
-        "texto": "A opinião, o reconhecimento e a aprovação explícita dos outros irmãos, e especialmente dos líderes, sobre minhas sugestões, participações e contribuições são absolutamente cruciais para mim, e busco ativamente essa validação externa para me sentir valorizado.",
+        "texto": "A opinião dos outros e dos líderes sobre o que eu falo é super importante para mim, e quero muito que gostem.",
         "perfis": ["obcecado_opiniao", "desesperado_aprovacao"]
       },
       {
         "id": "32C",
-        "texto": "Sinto que minhas falhas, erros ou pecados passados, mesmo que já confessados e teoricamente perdoados, ainda me assombram e me impedem de participar plenamente, de contribuir com ousadia ou de ser genuinamente útil e eficaz no corpo de Cristo.",
+        "texto": "Acho que meus erros do passado, mesmo que Deus já tenha me perdoado, me impedem de ajudar de verdade na igreja.",
         "perfis": ["culpado", "que_nao_se_perdoa"]
       },
       {
         "id": "32D",
-        "texto": "Minha capacidade de confiar na direção de Deus através da liderança constituída na igreja, ou mesmo nas intenções, na sinceridade e na competência dos irmãos com quem trabalho em decisões e projetos, é frequentemente um desafio significativo para mim.",
+        "texto": "É difícil para mim confiar que Deus está guiando as coisas através dos amigos ou dos líderes.",
         "perfis": ["desconfiado"]
       }
     ]
   },
   {
     "id": "33",
-    "texto": "Quando outro crente se destaca em dons, unção ou influência: sua reação íntima?",
+    "texto": "Quando um amigo da igreja se destaca nos dons, na unção ou é muito usado por Deus: como você se sente por dentro?",
     "opcoes": [
       {
         "id": "33A",
-        "texto": "Sinto uma incômoda e persistente inveja dos dons, das oportunidades, do reconhecimento ou da aparente unção e posição espiritual do outro, desejando secretamente que eu estivesse em seu lugar ou tivesse o que ele(a) tem.",
+        "texto": "Sinto uma inveja chata e queria ter os dons, as chances ou ser como ele, e fico triste comigo mesmo.",
         "perfis": ["invejoso", "invejoso_espiritual"]
       },
       {
         "id": "33B",
-        "texto": "Tendo a elogiar e exaltar o irmão(ã) de forma exagerada, pública e por vezes artificial, podendo haver uma motivação não declarada de me associar à sua influência, ganhar sua simpatia ou obter algum tipo de benefício ou reconhecimento indireto.",
+        "texto": "Elogio demais esse amigo, às vezes para parecer legal perto dele ou para que ele goste de mim.",
         "perfis": ["bajulador"]
       },
       {
         "id": "33C",
-        "texto": "Frequentemente elaboro e apresento a mim mesmo ou a outros um conjunto de desculpas, racionalizações ou justificativas para explicar por que não me dedico com a mesma intensidade e disciplina, por que não busco as mesmas coisas espirituais ou por que não recebo o mesmo tipo de bênçãos ou oportunidades.",
+        "texto": "Sempre dou uma desculpa para explicar por que não me dedico tanto ou por que não sou tão abençoado.",
         "perfis": ["eu_nao", "senhor_das_desculpas"]
       },
       {
         "id": "33D",
-        "texto": "Meu primeiro impulso é focar em analisar criticamente as possíveis falhas de caráter, as motivações que julgo questionáveis, as imperfeições na doutrina ou na prática do irmão(ã) que está sendo abençoado, em vez de me alegrar e celebrar sinceramente com ele(a) e glorificar a Deus por Sua obra.",
+        "texto": "Meu primeiro pensamento é procurar os defeitos ou erros desse amigo, em vez de ficar feliz por ele e agradecer a Deus.",
         "perfis": ["julgador"]
       }
     ]
