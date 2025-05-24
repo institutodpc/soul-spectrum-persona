@@ -5,9 +5,11 @@ import { toast } from "sonner";
 import { Question, Answer } from "@/types/diagnostic";
 import { submitDiagnostic } from "@/services/diagnosticService";
 import { supabase } from "@/integrations/supabase/client";
+import { useSoundEffects } from "./useSoundEffects";
 
 export const useDiagnostic = (questions: Question[] | undefined) => {
   const navigate = useNavigate();
+  const { playSound, playSuccessSequence } = useSoundEffects();
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [answers, setAnswers] = useState<Answer[]>([]);
   const [selectedOption, setSelectedOption] = useState<string | null>(null);
@@ -74,6 +76,7 @@ export const useDiagnostic = (questions: Question[] | undefined) => {
     const selectedOptionData = selectedQuestion.opcoes.find(option => option.id === optionId);
     if (selectedOptionData) {
       setSelectedOption(optionId);
+      playSound('click');
     }
   };
   
@@ -115,6 +118,9 @@ export const useDiagnostic = (questions: Question[] | undefined) => {
     
     // Move para próxima pergunta ou finaliza
     if (currentQuestion < totalQuestions - 1) {
+      // Som de sucesso ao avançar para próxima pergunta
+      playSound('success');
+      
       const nextQuestionIndex = currentQuestion + 1;
       setCurrentQuestion(nextQuestionIndex);
       
@@ -130,6 +136,9 @@ export const useDiagnostic = (questions: Question[] | undefined) => {
         setSelectedOption(null);
       }
     } else {
+      // Som especial ao completar todas as perguntas
+      playSuccessSequence();
+      
       // Submit all answers and navigate to results
       setIsSubmitting(true);
       try {
